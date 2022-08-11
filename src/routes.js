@@ -8,7 +8,7 @@ import sizeof from 'object-sizeof'
 import App from './App';
 import { ApolloClient, InMemoryCache, gql, HttpLink } from '@apollo/client'
 import { getLogger } from './helpers'
-import { addresses, POLYGON } from './addresses'
+import { addresses, FANTOM } from './addresses'
 import { queryEarnData, getStatsFromSubgraph } from './dataProvider'
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
@@ -42,7 +42,7 @@ const apolloOptions = {
   }
 }
 
-const polygonGraphClient = new ApolloClient({
+const fantomGraphClient = new ApolloClient({
   link: new HttpLink({ uri: process.env.RAZZLE_SUBGRAPH_URL, fetch }),
   cache: new InMemoryCache(),
   defaultOptions: apolloOptions
@@ -50,10 +50,10 @@ const polygonGraphClient = new ApolloClient({
 
 const cachedPrices = {
   sorted: {
-    [POLYGON]: {},
+    [FANTOM]: {},
   },
   byKey: {
-    [POLYGON]: {},
+    [FANTOM]: {},
   }
 }
 function putPricesIntoCache(prices, chainId, entitiesKey) {
@@ -183,8 +183,8 @@ async function precacheOldPrices(chainId, entitiesKey) {
   }
 }
 if (!process.env.DISABLE_PRICES) {
-  precacheOldPrices(POLYGON, "chainlinkPrices")
-  precacheOldPrices(POLYGON, "fastPrices")
+  precacheOldPrices(FANTOM, "chainlinkPrices")
+  precacheOldPrices(FANTOM, "fastPrices")
 }
 
 
@@ -216,8 +216,8 @@ async function precacheNewPrices(chainId, entitiesKey) {
   setTimeout(precacheNewPrices, 1000 * 60 * 1, chainId, entitiesKey)
 }
 if (!process.env.DISABLE_PRICES) {
-  precacheNewPrices(POLYGON, "chainlinkPrices")
-  precacheNewPrices(POLYGON, "fastPrices")
+  precacheNewPrices(FANTOM, "chainlinkPrices")
+  precacheNewPrices(FANTOM, "fastPrices")
 }
 
 async function loadPrices({ before, after, chainId, entitiesKey } = {}) {
@@ -263,7 +263,7 @@ async function loadPrices({ before, after, chainId, entitiesKey } = {}) {
   }`
   const query = gql(queryString)
 
-  const graphClient = polygonGraphClient;
+  const graphClient = fantomGraphClient;
   const { data } = await graphClient.query({query})
   const prices = [
     ...data.p0,
@@ -317,21 +317,21 @@ function binSearchPrice(prices, timestamp, gt = true) {
   return ret
 }
 
-function getPrices(from, to, preferableChainId = POLYGON, preferableSource = "chainlink", symbol) {
+function getPrices(from, to, preferableChainId = FANTOM, preferableSource = "chainlink", symbol) {
   const start = Date.now()
 
   if (preferableSource !== "chainlink" && preferableSource !== "fast") {
     throw createHttpError(400, `Invalid preferableSource ${preferableSource}. Valid options are: chainlink, fast`)
   }
 
-  const validSymbols = new Set(['MATIC', 'BTC', 'ETH', 'UNI', 'LINK', 'AAVE'])
+  const validSymbols = new Set(['MATIC', 'BTC', 'ETH'])
   if (!validSymbols.has(symbol)) {
     throw createHttpError(400, `Invalid symbol ${symbol}`)
   }
   preferableChainId = Number(preferableChainId)
-  const validSources = new Set([POLYGON])
+  const validSources = new Set([FANTOM])
   if (!validSources.has(preferableChainId)) {
-    throw createHttpError(400, `Invalid preferableChainId ${preferableChainId}. Valid options are ${POLYGON}`)
+    throw createHttpError(400, `Invalid preferableChainId ${preferableChainId}. Valid options are ${FANTOM}`)
   }
 
   const tokenAddress = addresses[preferableChainId][symbol]?.toLowerCase()
@@ -461,7 +461,7 @@ export default function routes(app) {
     `
     const query = gql(queryString);
 
-    const graphClient = polygonGraphClient;
+    const graphClient = fantomGraphClient;
     const { data } = await graphClient.query({query})
     
     try {
@@ -487,7 +487,7 @@ export default function routes(app) {
   app.get('/api/stats', async (req, res, next) => {
 
     try {
-      const stats = await getStatsFromSubgraph(polygonGraphClient);
+      const stats = await getStatsFromSubgraph(fantomGraphClient);
       res.set('Cache-Control', 'max-age=60')
       res.send(stats)
     } catch (ex) {
@@ -513,7 +513,7 @@ export default function routes(app) {
     `
     const query = gql(queryString);
 
-    const graphClient = polygonGraphClient;
+    const graphClient = fantomGraphClient;
     const { data } = await graphClient.query({query})
     
     try {
@@ -537,8 +537,8 @@ export default function routes(app) {
   })
 
   app.get('/api/earn/:account', async (req, res, next) => {
-    const chainName = req.query.chain || 'polygon'
-    const validChainNames = new Set(['polygon'])
+    const chainName = req.query.chain || 'fantom'
+    const validChainNames = new Set(['fantom'])
     if (!validChainNames.has(chainName)) {
       next(createHttpError(400, `Valid chains are: ${Array.from(validChainNames)}`))
       return

@@ -67,7 +67,7 @@ const { BigNumber } = ethers;
 const { formatUnits } = ethers.utils;
 const NOW = Math.floor(Date.now() / 1000);
 
-function Polygon(props) {
+function Fantom(props) {
   const DEFAULT_GROUP_PERIOD = 86400;
   const [groupPeriod, setGroupPeriod] = useState(DEFAULT_GROUP_PERIOD);
 
@@ -180,7 +180,7 @@ function Polygon(props) {
 
   return (
     <div className="Home">
-      <h1>Analytics / Polygon</h1>
+      <h1>Analytics / Fantom</h1>
       {lastSubgraphBlock && lastBlock && (
         <p
           className={cx("page-description", { warning: isObsolete })}
@@ -191,7 +191,7 @@ function Polygon(props) {
           &nbsp;at block{" "}
           <a
             target="_blank"
-            href={`https://polygonscan.com/block/${lastSubgraphBlock.number}`}
+            href={`https://ftmscan.com/block/${lastSubgraphBlock.number}`}
           >
             {lastSubgraphBlock.number}
           </a>
@@ -979,9 +979,6 @@ function Polygon(props) {
               { key: "MATIC", color: "#7C43DA" },
               { key: "ETH", color: "#6185F5" },
               { key: "BTC", color: "#F7931A" },
-              { key: "LINK", color: "#3256D6" },
-              { key: "UNI", color: "#E9167C" },
-              { key: "AAVE", color: "#9695F8" },
               { key: "USDC", color: "#2775CA" },
               { key: "USDT", color: "#67B18A" },
               { key: "DAI", color: "#FAC044" },
@@ -1144,4 +1141,4 @@ function Polygon(props) {
   );
 }
 
-export default Polygon;
+export default Fantom;

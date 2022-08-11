@@ -4,7 +4,7 @@ import { chain, sumBy, sortBy, maxBy, minBy } from "lodash";
 import fetch from "cross-fetch";
 import * as ethers from "ethers";
 
-import { getAddress, POLYGON } from "./addresses";
+import { getAddress, FANTOM } from "./addresses";
 
 const { JsonRpcProvider } = ethers.providers;
 
@@ -13,19 +13,19 @@ import MvlpManager from "../abis/MvlpManager.json";
 import Token from "../abis/v1/Token.json";
 
 const providers = {
-  polygon: new JsonRpcProvider("https://polygon-rpc.com"),
+  fantom: new JsonRpcProvider("https://rpc.ftm.tools/"),
 };
 
 function getProvider(chainName) {
   if (!(chainName in providers)) {
     throw new Error(`Unknown chain ${chainName}`);
   }
-  return providers["polygon"];
+  return providers["fantom"];
 }
 
 function getChainId(chainName) {
   const chainId = {
-    polygon: POLYGON,
+    fantom: FANTOM,
   }[chainName];
   if (!chainId) {
     throw new Error(`Unknown chain ${chainName}`);
@@ -81,29 +81,29 @@ export async function queryEarnData(chainName, account) {
   let rewardTrackersForDepositBalances;
   let rewardTrackersForStakingInfo;
 
-  if (chainId === POLYGON) {
+  if (chainId === FANTOM) {
     depositTokens = [
-      getAddress(POLYGON, "MVX"),
-      getAddress(POLYGON, "ES_MVX"),
-      getAddress(POLYGON, "STAKED_MVX_TRACKER"),
-      getAddress(POLYGON, "BONUS_MVX_TRACKER"),
-      getAddress(POLYGON, "BN_MVX"),
-      getAddress(POLYGON, "MVLP"),
+      getAddress(FANTOM, "MVX"),
+      getAddress(FANTOM, "ES_MVX"),
+      getAddress(FANTOM, "STAKED_MVX_TRACKER"),
+      getAddress(FANTOM, "BONUS_MVX_TRACKER"),
+      getAddress(FANTOM, "BN_MVX"),
+      getAddress(FANTOM, "MVLP"),
     ];
     rewardTrackersForDepositBalances = [
-      getAddress(POLYGON, "STAKED_MVX_TRACKER"),
-      getAddress(POLYGON, "STAKED_MVX_TRACKER"),
-      getAddress(POLYGON, "BONUS_MVX_TRACKER"),
-      getAddress(POLYGON, "FEE_MVX_TRACKER"),
-      getAddress(POLYGON, "FEE_MVX_TRACKER"),
-      getAddress(POLYGON, "FEE_MVLP_TRACKER"),
+      getAddress(FANTOM, "STAKED_MVX_TRACKER"),
+      getAddress(FANTOM, "STAKED_MVX_TRACKER"),
+      getAddress(FANTOM, "BONUS_MVX_TRACKER"),
+      getAddress(FANTOM, "FEE_MVX_TRACKER"),
+      getAddress(FANTOM, "FEE_MVX_TRACKER"),
+      getAddress(FANTOM, "FEE_MVLP_TRACKER"),
     ];
     rewardTrackersForStakingInfo = [
-      getAddress(POLYGON, "STAKED_MVX_TRACKER"),
-      getAddress(POLYGON, "BONUS_MVX_TRACKER"),
-      getAddress(POLYGON, "FEE_MVX_TRACKER"),
-      getAddress(POLYGON, "STAKED_MVLP_TRACKER"),
-      getAddress(POLYGON, "FEE_MVLP_TRACKER"),
+      getAddress(FANTOM, "STAKED_MVX_TRACKER"),
+      getAddress(FANTOM, "BONUS_MVX_TRACKER"),
+      getAddress(FANTOM, "FEE_MVX_TRACKER"),
+      getAddress(FANTOM, "STAKED_MVLP_TRACKER"),
+      getAddress(FANTOM, "FEE_MVLP_TRACKER"),
     ];
   }
 
@@ -157,22 +157,16 @@ export const tokenDecimals = {
   "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270": 18, // WMATIC
   "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619": 18, // WETH
   "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6": 8, // BTC
-  "0xb0897686c545045afc77cf20ec7a532e3120e0f1": 18, // LINK
-  "0xb33eaad8d922b1083446dc23f610c2567fb5180f": 18, // UNI
-  "0xd6df932a45c0f255f85145f286ea0b292b21c90b": 18, // AAVE
   "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174": 6, // USDC
   "0xc2132d05d31c914a87c6611c10748aeb04b58e8f": 6, // USDT
   "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063": 18, // DAI
 };
 
 export const tokenSymbols = {
-  // Polygon
+  // Fantom
   "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270": "WMATIC",
   "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619": "WETH",
   "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6": "WBTC",
-  "0xb0897686c545045afc77cf20ec7a532e3120e0f1": "LINK",
-  "0xb33eaad8d922b1083446dc23f610c2567fb5180f": "UNI",
-  "0xd6df932a45c0f255f85145f286ea0b292b21c90b": "AAVE",
   "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174": "USDC",
   "0xc2132d05d31c914a87c6611c10748aeb04b58e8f": "USDT",
   "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063": "DAI",
@@ -183,14 +177,14 @@ function getTokenDecimals(token) {
 }
 
 const knownSwapSources = {
-  polygon: {
-    [getAddress(POLYGON, "Router")]: "MVX",
-    [getAddress(POLYGON, "OrderBook")]: "MVX",
-    [getAddress(POLYGON, "PositionManager")]: "MVX",
-    // [getAddress(POLYGON, "OrderExecutor")]: "MVX",
-    [getAddress(POLYGON, "FastPriceFeed")]: "MVX",
-    [getAddress(POLYGON, "PositionExecutorUpKeep")]: "MVX",
-    [getAddress(POLYGON, "PositionRouter")]: "MVX",
+  fantom: {
+    [getAddress(FANTOM, "Router")]: "MVX",
+    [getAddress(FANTOM, "OrderBook")]: "MVX",
+    [getAddress(FANTOM, "PositionManager")]: "MVX",
+    // [getAddress(FANTOM, "OrderExecutor")]: "MVX",
+    [getAddress(FANTOM, "FastPriceFeed")]: "MVX",
+    [getAddress(FANTOM, "PositionExecutorUpKeep")]: "MVX",
+    [getAddress(FANTOM, "PositionRouter")]: "MVX",
   },
 };
 
@@ -220,11 +214,8 @@ export function useCoingeckoPrices(symbol, { from = FIRST_DATE_TS } = {}) {
   const _symbol = {
     BTC: "bitcoin",
     ETH: "ethereum",
-    LINK: "chainlink",
-    UNI: "uniswap",
     MATIC: "matic-network",
     WBTC: "wrapped-bitcoin",
-    AAVE: "aave",
     USDC: "usd-coin",
     USDT: "tether",
     DAI: "dai",
@@ -268,7 +259,7 @@ function getChainSubgraph(chainName) {
 
 export function useGraph(
   querySource,
-  { subgraph = null, subgraphUrl = null, chainName = "polygon" } = {}
+  { subgraph = null, subgraphUrl = null, chainName = "fantom" } = {}
 ) {
   const query = gql(querySource);
 
@@ -312,7 +303,7 @@ export function useGraph(
   return [data, loading, error];
 }
 
-export function useLastBlock(chainName = "polygon") {
+export function useLastBlock(chainName = "fantom") {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -327,7 +318,7 @@ export function useLastBlock(chainName = "polygon") {
   return [data, loading, error];
 }
 
-export function useLastSubgraphBlock(chainName = "polygon") {
+export function useLastSubgraphBlock(chainName = "fantom") {
   const [data, loading, error] = useGraph(
     `{
     _meta {
@@ -358,7 +349,7 @@ export function useLastSubgraphBlock(chainName = "polygon") {
 export function useTradersData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "polygon",
+  chainName = "fantom",
 } = {}) {
   const [closedPositionsData, loading, error] = useGraph(
     `{
@@ -496,7 +487,7 @@ function getSwapSourcesFragment(skip = 0, from, to) {
 export function useSwapSources({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "polygon",
+  chainName = "fantom",
 } = {}) {
   const query = `{
     a: ${getSwapSourcesFragment(0, from, to)}
@@ -585,7 +576,7 @@ export function useTotalVolumeFromServer() {
   }, [data, loading]);
 }
 
-export async function getStatsFromSubgraph(graphClient, chainName="polygon"){
+export async function getStatsFromSubgraph(graphClient, chainName="fantom"){
   const queryString = `{
     totalVolumes: volumeStats(where: {period: "total"}) {
       swap
@@ -651,7 +642,7 @@ export async function getStatsFromSubgraph(graphClient, chainName="polygon"){
 export function useVolumeDataFromServer({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "polygon",
+  chainName = "fantom",
 } = {}) {
   const PROPS = "margin liquidation swap mint burn".split(" ");
   const [data, loading] = useRequest(
@@ -743,7 +734,7 @@ export function useVolumeDataFromServer({
 export function useUsersData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "polygon",
+  chainName = "fantom",
 } = {}) {
   const query = `{
     userStats(
@@ -806,7 +797,7 @@ export function useUsersData({
 export function useFundingRateData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "polygon",
+  chainName = "fantom",
 } = {}) {
   const query = `{
     fundingRates(
@@ -856,9 +847,6 @@ export function useFundingRateData({
       "USDC",
       "USDT",
       "BTC",
-      "LINK",
-      "UNI",
-      "AAVE",
       "DAI",
     ]);
   }, [graphData]);
@@ -872,7 +860,7 @@ const MOVING_AVERAGE_PERIOD = 86400 * MOVING_AVERAGE_DAYS;
 export function useVolumeData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "polygon",
+  chainName = "fantom",
 } = {}) {
   const PROPS = "margin liquidation swap mint burn".split(" ");
   const timestampProp = "timestamp";
@@ -938,7 +926,7 @@ export function useVolumeData({
 export function useFeesData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "polygon",
+  chainName = "fantom",
 } = {}) {
   const PROPS = "margin liquidation swap mint burn".split(" ");
   const feesQuery = `{
@@ -1069,7 +1057,7 @@ export function useAumPerformanceData({
 export function useMvlpData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "polygon",
+  chainName = "fantom",
 } = {}) {
   const query = `{
     mvlpStats(
@@ -1166,7 +1154,7 @@ export function useMvlpData({
 export function useMvlpPerformanceData(
   mvlpData,
   feesData,
-  { from = FIRST_DATE_TS, chainName = "polygon" } = {}
+  { from = FIRST_DATE_TS, chainName = "fantom" } = {}
 ) {
   const [btcPrices] = useCoingeckoPrices("BTC", { from });
   const [ethPrices] = useCoingeckoPrices("ETH", { from });
@@ -1336,7 +1324,7 @@ export function useMvlpPerformanceData(
 export function useReferralsData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "polygon",
+  chainName = "fantom",
 } = {}) {
   const query = `{
     globalStats(

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
 import cx from "classnames";
-import Polygon from './views/Polygon';
+import Fantom from './views/Fantom';
 import Referrals from './views/Referrals';
 import Trading from './views/Trading';
 import './App.css';
@@ -26,7 +26,7 @@ function AppHeaderLinks({ mode, small, clickCloseIcon }) {
         </div>
       }
       <div className="App-header-link-container">
-        <NavLink to="/" exact className="nav-link" activeClassName="active">Polygon</NavLink>
+        <NavLink to="/" exact className="nav-link" activeClassName="active">Fantom</NavLink>
       </div>
     </div>
   )
@@ -81,7 +81,7 @@ const App = () => {
               <a href="https://metavault.trade" target="_blank" rel="noreferrer" className="nav-logo">
                 <img width="87" src={mode == 'dark' ? darkLogoIcon : lightLogoIcon} />
               </a>
-              <NavLink to="/" exact className="nav-link" activeClassName="active">Polygon</NavLink>
+              <NavLink to="/" exact className="nav-link" activeClassName="active">Fantom</NavLink>
             </div>
             <div className="nav-right">
               <a href="https://metavault.trade" target="_blank" rel="noreferrer" className="nav-link">APP</a>
@@ -105,7 +105,7 @@ const App = () => {
           </AnimatePresence>
           <div className="content">
             <Route exact path="/" render={(props) => (
-              <Polygon {...props} mode={mode} />
+              <Fantom {...props} mode={mode} />
             )} />
             <Route exact path="/referrals/:chainName" render={(props) => (
               <Referrals {...props} mode={mode} />
