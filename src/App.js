@@ -49,7 +49,7 @@ const App = () => {
   useEffect(() => {
     const savedMode = window.localStorage.getItem('mode');
     const targetMode = savedMode == 'light' ? 'light' : 'dark';
-    document.querySelector('body').style.backgroundColor = targetMode == 'dark' ? '#231f20' : '#f6f9ff';
+    document.querySelector('body').style.backgroundColor = targetMode == 'dark' ? '#130720' : '#f6f9ff';
     setMode(targetMode);
   }, [])
 
@@ -78,14 +78,14 @@ const App = () => {
                 {!isDrawerVisible && <RiMenuLine className="App-header-menu-icon" />}
                 {isDrawerVisible && <FaTimes className="App-header-menu-icon" />}
               </div>
-              <a href="https://metavault.trade" target="_blank" rel="noreferrer" className="nav-logo">
+              <a href="https://anzor.io" target="_blank" rel="noreferrer" className="nav-logo">
                 <img width="87" src={mode == 'dark' ? darkLogoIcon : lightLogoIcon} />
               </a>
               <NavLink to="/" exact className="nav-link" activeClassName="active">Fantom</NavLink>
             </div>
             <div className="nav-right">
-              <a href="https://metavault.trade" target="_blank" rel="noreferrer" className="nav-link">APP</a>
-              <a href="https://docs.metavault.trade" target="_blank" rel="noreferrer" className="nav-link">DOCS</a>
+              <a href="https://anzor.io" target="_blank" rel="noreferrer" className="nav-link">APP</a>
+              <a href="https://docs.anzor.io" target="_blank" rel="noreferrer" className="nav-link">DOCS</a>
             </div>
           </div>
           <AnimatePresence>

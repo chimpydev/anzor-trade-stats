@@ -3,8 +3,8 @@
   "version": "4.0.5",
   "license": "MIT",
   "scripts": {
-    "build:prod": "PORT=8080 razzle build --noninteractive",
-    "build:dev": "PORT=3113 razzle build --noninteractive",
+    "build:prod": "razzle build --noninteractive",
+    "build:dev": "razzle build --noninteractive",
     "test": "razzle test --env=jsdom",
     "start": "razzle start",
     "start-win": "set PORT=3113&razzle start",
@@ -38,7 +38,7 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.3.0",
-    "recharts": "^2.1.8",
+    "recharts": "2.1.12",
     "strftime": "^0.10.1",
     "webpack": "^4.46.0",
     "webpack-dev-server": "^3.11.3"

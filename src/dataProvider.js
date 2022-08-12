@@ -254,7 +254,7 @@ function getImpermanentLoss(change) {
 }
 
 function getChainSubgraph(chainName) {
-  return "sdcrypt0/metavault-mvx-subgraph";
+  return "chimpydev/stats";
 }
 
 export function useGraph(
