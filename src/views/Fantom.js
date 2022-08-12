@@ -51,10 +51,10 @@ import {
   useTotalVolumeFromServer,
   useVolumeDataFromServer,
   useFeesData,
-  useMvlpData,
+  useAlpData,
   useAumPerformanceData,
   useCoingeckoPrices,
-  useMvlpPerformanceData,
+  useAlpPerformanceData,
   useTradersData,
   useSwapSources,
   useFundingRateData,
@@ -112,21 +112,21 @@ function Fantom(props) {
     return [total, delta];
   }, [feesData]);
 
-  const [mvlpData, mvlpLoading] = useMvlpData(params);
+  const [alpData, alpLoading] = useAlpData(params);
   const [totalAum, totalAumDelta] = useMemo(() => {
-    if (!mvlpData) {
+    if (!alpData) {
       return [];
     }
-    const total = mvlpData[mvlpData.length - 1]?.aum;
-    const delta = total - mvlpData[mvlpData.length - 2]?.aum;
+    const total = alpData[alpData.length - 1]?.aum;
+    const delta = total - alpData[alpData.length - 2]?.aum;
     return [total, delta];
-  }, [mvlpData]);
+  }, [alpData]);
 
   const [aumPerformanceData, aumPerformanceLoading] =
     useAumPerformanceData(params);
 
-  const [mvlpPerformanceData, mvlpPerformanceLoading] = useMvlpPerformanceData(
-    mvlpData,
+  const [alpPerformanceData, alpPerformanceLoading] = useAlpPerformanceData(
+    alpData,
     feesData,
     params
   );
@@ -281,7 +281,7 @@ function Fantom(props) {
         <div className="chart-cell stats">
           {totalAum ? (
             <>
-              <div className="total-stat-label">MVLP Pool</div>
+              <div className="total-stat-label">ALP Pool</div>
               <div className="total-stat-value">
                 {formatNumber(totalAum, { currency: true })}
                 <span
@@ -384,13 +384,13 @@ function Fantom(props) {
         </div>
         <div className="chart-cell">
           <ChartWrapper
-            title="AUM & Mvlp Supply"
-            loading={mvlpLoading}
-            data={mvlpData}
-            csvFields={[{ key: "aum" }, { key: "mvlpSupply" }]}
+            title="AUM & Alp Supply"
+            loading={alpLoading}
+            data={alpData}
+            csvFields={[{ key: "aum" }, { key: "alpSupply" }]}
           >
             <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-              <LineChart data={mvlpData} syncId="syncMvlp">
+              <LineChart data={alpData} syncId="syncAlp">
                 <CartesianGrid strokeDasharray="10 10" />
                 <XAxis
                   dataKey="timestamp"
@@ -424,9 +424,9 @@ function Fantom(props) {
                   type="monotone"
                   strokeWidth={2}
                   dot={false}
-                  dataKey="mvlpSupply"
+                  dataKey="alpSupply"
                   stackId="a"
-                  name="MVLP Supply"
+                  name="ALP Supply"
                   stroke={COLORS[1]}
                 />
               </LineChart>
@@ -436,13 +436,13 @@ function Fantom(props) {
 
         <div className="chart-cell">
           <ChartWrapper
-            title="Mvlp Performance"
-            loading={mvlpLoading}
-            data={mvlpPerformanceData}
+            title="Alp Performance"
+            loading={alpLoading}
+            data={alpPerformanceData}
             csvFields={[
               { key: "syntheticPrice" },
-              { key: "mvlpPrice" },
-              { key: "mvlpPlusFees" },
+              { key: "alpPrice" },
+              { key: "alpPlusFees" },
               { key: "lpBtcPrice" },
               { key: "lpEthPrice" },
               { key: "performanceSyntheticCollectedFees" },
@@ -452,12 +452,12 @@ function Fantom(props) {
               { key: "indexStableCount" },
               { key: "BTC_WEIGHT" },
               { key: "ETH_WEIGHT" },
-              { key: "MATIC_WEIGHT" },
+              { key: "FTM_WEIGHT" },
               { key: "STABLE_WEIGHT" },
             ]}
           >
             <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-              <LineChart data={mvlpPerformanceData} syncId="syncMvlp">
+              <LineChart data={alpPerformanceData} syncId="syncAlp">
                 <CartesianGrid strokeDasharray="10 10" />
                 <XAxis
                   dataKey="timestamp"
@@ -509,13 +509,13 @@ function Fantom(props) {
             <div className="chart-description">
               <p>
                 <span style={{ color: COLORS[0] }}>% of Index (with fees)</span>{" "}
-                is MVLP with fees / Index Price * 100. Index is a basket of 25%
+                is ALP with fees / Index Price * 100. Index is a basket of 25%
                 BTC, 25% ETH, 50% USDC rebalanced once&nbsp;a&nbsp;day
                 <br />
                 <span style={{ color: COLORS[4] }}>
                   % of LP ETH-USDC (with fees)
                 </span>{" "}
-                is MVLP Price with fees / LP ETH-USDC * 100
+                is ALP Price with fees / LP ETH-USDC * 100
                 <br />
               </p>
             </div>
@@ -524,20 +524,20 @@ function Fantom(props) {
 
         <div className="chart-cell">
           <ChartWrapper
-            title="Mvlp Price Comparison"
-            loading={mvlpLoading}
-            data={mvlpPerformanceData}
+            title="Alp Price Comparison"
+            loading={alpLoading}
+            data={alpPerformanceData}
             csvFields={[
               { key: "syntheticPrice" },
-              { key: "mvlpPrice" },
-              { key: "mvlpPlusFees" },
+              { key: "alpPrice" },
+              { key: "alpPlusFees" },
               { key: "lpBtcPrice" },
               { key: "lpEthPrice" },
               { key: "performanceSyntheticCollectedFees" },
             ]}
           >
             <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-              <LineChart data={mvlpPerformanceData} syncId="syncMvlp">
+              <LineChart data={alpPerformanceData} syncId="syncAlp">
                 <CartesianGrid strokeDasharray="10 10" />
                 <XAxis
                   dataKey="timestamp"
@@ -552,7 +552,7 @@ function Fantom(props) {
                   width={YAXIS_WIDTH}
                 />
                 <YAxis
-                  dataKey="mvlpPrice"
+                  dataKey="alpPrice"
                   domain={[0.4, 1.7]}
                   orientation="right"
                   yAxisId="right"
@@ -614,8 +614,8 @@ function Fantom(props) {
                   strokeWidth={1}
                   yAxisId="right"
                   dot={false}
-                  dataKey="mvlpPrice"
-                  name="Mvlp Price"
+                  dataKey="alpPrice"
+                  name="Alp Price"
                   stroke={COLORS[1]}
                 />
                 <Line
@@ -625,8 +625,8 @@ function Fantom(props) {
                   strokeWidth={1}
                   yAxisId="right"
                   dot={false}
-                  dataKey="mvlpPlusFees"
-                  name="Mvlp w/ fees"
+                  dataKey="alpPlusFees"
+                  name="Alp w/ fees"
                   stroke={COLORS[3]}
                 />
                 <Line
@@ -655,18 +655,18 @@ function Fantom(props) {
             </ResponsiveContainer>
             <div className="chart-description">
               <p>
-                <span style={{ color: COLORS[3] }}>Mvlp with fees</span> is
-                based on MVLP share of fees received and excluding esMVX rewards
+                <span style={{ color: COLORS[3] }}>Alp with fees</span> is
+                based on ALP share of fees received and excluding esANZOR rewards
                 <br />
                 <span style={{ color: COLORS[0] }}>
                   % of Index (with fees)
                 </span>{" "}
-                is Mvlp with fees / Index Price * 100
+                is Alp with fees / Index Price * 100
                 <br />
                 <span style={{ color: COLORS[4] }}>
                   % of LP ETH-USDC (with fees)
                 </span>{" "}
-                is Mvlp Price with fees / LP ETH-USDC * 100
+                is Alp Price with fees / LP ETH-USDC * 100
                 <br />
                 <span style={{ color: COLORS[2] }}>Index Price</span> is 25%
                 BTC, 25% ETH, 50% USDC
@@ -676,9 +676,9 @@ function Fantom(props) {
         </div>
         {isExperiment && (
           <div className="chart-cell experiment">
-            <ChartWrapper title="Performance vs. Index" loading={mvlpLoading}>
+            <ChartWrapper title="Performance vs. Index" loading={alpLoading}>
               <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-                <LineChart data={mvlpPerformanceData} syncId="syncMvlp">
+                <LineChart data={alpPerformanceData} syncId="syncAlp">
                   <CartesianGrid strokeDasharray="10 10" />
                   <XAxis
                     dataKey="timestamp"
@@ -745,9 +745,9 @@ function Fantom(props) {
         )}
         {isExperiment && (
           <div className="chart-cell experiment">
-            <ChartWrapper title="Performance vs. ETH LP" loading={mvlpLoading}>
+            <ChartWrapper title="Performance vs. ETH LP" loading={alpLoading}>
               <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-                <LineChart data={mvlpPerformanceData} syncId="syncMvlp">
+                <LineChart data={alpPerformanceData} syncId="syncAlp">
                   <CartesianGrid strokeDasharray="10 10" />
                   <XAxis
                     dataKey="timestamp"
@@ -976,7 +976,7 @@ function Fantom(props) {
             yaxisTickFormatter={yaxisFormatterPercent}
             tooltipFormatter={tooltipFormatterPercent}
             items={[
-              { key: "MATIC", color: "#7C43DA" },
+              { key: "FTM", color: "#7C43DA" },
               { key: "ETH", color: "#6185F5" },
               { key: "BTC", color: "#F7931A" },
               { key: "USDC", color: "#2775CA" },
@@ -1006,7 +1006,7 @@ function Fantom(props) {
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncMvlp"
+            syncId="syncAlp"
             loading={aumPerformanceLoading}
             title="AUM Performance Annualized"
             data={aumPerformanceData}
@@ -1014,13 +1014,13 @@ function Fantom(props) {
             yaxisTickFormatter={yaxisFormatterPercent}
             tooltipFormatter={tooltipFormatterPercent}
             items={[{ key: "apr", name: "APR", color: COLORS[0] }]}
-            description="Formula = Daily Fees / MVLP Pool * 365 days * 100"
+            description="Formula = Daily Fees / ALP Pool * 365 days * 100"
             type="Composed"
           />
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncMvlp"
+            syncId="syncAlp"
             loading={aumPerformanceLoading}
             title="AUM Daily Usage"
             data={aumPerformanceData}
@@ -1028,13 +1028,13 @@ function Fantom(props) {
             yaxisTickFormatter={yaxisFormatterPercent}
             tooltipFormatter={tooltipFormatterPercent}
             items={[{ key: "usage", name: "Daily Usage", color: COLORS[4] }]}
-            description="Formula = Daily Volume / MVLP Pool * 100"
+            description="Formula = Daily Volume / ALP Pool * 100"
             type="Composed"
           />
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncMvlp"
+            syncId="syncAlp"
             loading={usersLoading}
             title="Unique Users"
             data={usersData}
@@ -1045,14 +1045,14 @@ function Fantom(props) {
             items={[
               { key: "uniqueSwapCount", name: "Swaps" },
               { key: "uniqueMarginCount", name: "Margin trading" },
-              { key: "uniqueMintBurnCount", name: "Mint & Burn MVLP" },
+              { key: "uniqueMintBurnCount", name: "Mint & Burn ALP" },
             ]}
             type="Composed"
           />
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncMvlp"
+            syncId="syncAlp"
             loading={usersLoading}
             title="New Users"
             data={usersData?.map((item) => ({ ...item, all: item.newCount }))}
@@ -1079,7 +1079,7 @@ function Fantom(props) {
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncMvlp"
+            syncId="syncAlp"
             loading={usersLoading}
             title="New vs. Existing Users"
             data={usersData?.map((item) => ({
@@ -1109,7 +1109,7 @@ function Fantom(props) {
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncMvlp"
+            syncId="syncAlp"
             loading={usersLoading}
             title="User Actions"
             data={(usersData || []).map((item) => ({
@@ -1123,7 +1123,7 @@ function Fantom(props) {
             items={[
               { key: "actionSwapCount", name: "Swaps" },
               { key: "actionMarginCount", name: "Margin trading" },
-              { key: "actionMintBurnCount", name: "Mint & Burn MVLP" },
+              { key: "actionMintBurnCount", name: "Mint & Burn ALP" },
             ]}
             type="Composed"
           />

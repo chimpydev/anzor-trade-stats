@@ -15,7 +15,7 @@ function getCsvUrl(data, fields) {
   return `data:application/octet-stream,${encodeURIComponent(csv)}`
 }
 
-export default function CsvLink({ data, fields, name = 'MVX stats' }) {
+export default function CsvLink({ data, fields, name = 'ANZOR stats' }) {
   const onClick = useCallback((evt) => {
     evt.preventDefault()
 

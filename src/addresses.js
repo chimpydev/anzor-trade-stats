@@ -4,20 +4,20 @@ export const FANTOM = 250;
 export const addresses = {
 
   [FANTOM]: {
-    MVX: "",
-    ES_MVX: "",
-    MVLP: "",
-    BN_MVX: "",
-    STAKED_MVX_TRACKER: "",
-    STAKED_MVLP_TRACKER: "",
-    BONUS_MVX_TRACKER: "",
-    FEE_MVX_TRACKER: "",
-    FEE_MVLP_TRACKER: "",
-    MATIC: "",
+    ANZOR: "",
+    ES_ANZOR: "",
+    ALP: "",
+    BN_ANZOR: "",
+    STAKED_ANZOR_TRACKER: "",
+    STAKED_ALP_TRACKER: "",
+    BONUS_ANZOR_TRACKER: "",
+    FEE_ANZOR_TRACKER: "",
+    FEE_ALP_TRACKER: "",
+    FTM: "",
     BTC: "", // 8 decimals wrapped btc
     ETH: "", // 18 decimals wrapped eth
     RewardReader: "",
-    MvlpManager: "",
+    AlpManager: "",
     Router: "",
     OrderBook: "",
     PositionManager: "",

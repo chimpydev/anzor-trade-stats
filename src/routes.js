@@ -324,7 +324,7 @@ function getPrices(from, to, preferableChainId = FANTOM, preferableSource = "cha
     throw createHttpError(400, `Invalid preferableSource ${preferableSource}. Valid options are: chainlink, fast`)
   }
 
-  const validSymbols = new Set(['MATIC', 'BTC', 'ETH'])
+  const validSymbols = new Set(['FTM', 'BTC', 'ETH'])
   if (!validSymbols.has(symbol)) {
     throw createHttpError(400, `Invalid symbol ${symbol}`)
   }
@@ -553,7 +553,7 @@ export default function routes(app) {
     }
   })
 
-  app.get('/api/mvx-supply', async (req, res) => {
+  app.get('/api/anzor-supply', async (req, res) => {
     const apiResponse = await fetch('https://api.anzor.io/total_supply')
     const data = (await apiResponse.text()).toString()
     res.set('Content-Type', 'text/plain')

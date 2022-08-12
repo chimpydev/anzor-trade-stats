@@ -1,7 +1,7 @@
 {
     "_format": "hh-sol-artifact-1",
-    "contractName": "MvlpManager",
-    "sourceName": "contracts/core/MvlpManager.sol",
+    "contractName": "AlpManager",
+    "sourceName": "contracts/core/AlpManager.sol",
     "abi": [
         {
             "inputs": [
@@ -17,7 +17,7 @@
                 },
                 {
                     "internalType": "address",
-                    "name": "_mvlp",
+                    "name": "_alp",
                     "type": "address"
                 },
                 {
@@ -59,7 +59,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "mvlpSupply",
+                    "name": "alpSupply",
                     "type": "uint256"
                 },
                 {
@@ -96,7 +96,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "mvlpAmount",
+                    "name": "alpAmount",
                     "type": "uint256"
                 },
                 {
@@ -108,7 +108,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "mvlpSupply",
+                    "name": "alpSupply",
                     "type": "uint256"
                 },
                 {
@@ -185,7 +185,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_minMvlp",
+                    "name": "_minAlp",
                     "type": "uint256"
                 }
             ],
@@ -229,7 +229,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_minMvlp",
+                    "name": "_minAlp",
                     "type": "uint256"
                 }
             ],
@@ -400,7 +400,7 @@
         },
         {
             "inputs": [],
-            "name": "mvlp",
+            "name": "alp",
             "outputs": [
                 {
                     "internalType": "address",
@@ -420,7 +420,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_mvlpAmount",
+                    "name": "_alpAmount",
                     "type": "uint256"
                 },
                 {
@@ -459,7 +459,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_mvlpAmount",
+                    "name": "_alpAmount",
                     "type": "uint256"
                 },
                 {

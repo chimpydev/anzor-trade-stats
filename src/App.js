@@ -6,8 +6,8 @@ import Fantom from './views/Fantom';
 import Referrals from './views/Referrals';
 import Trading from './views/Trading';
 import './App.css';
-import darkLogoIcon from './img/logo_MVX_dark.svg';
-import lightLogoIcon from './img/logo_MVX_light.svg';
+import darkLogoIcon from './img/logo_ANZOR_dark.svg';
+import lightLogoIcon from './img/logo_ANZOR_light.svg';
 import { FaTimes } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 import { RiMenuLine } from 'react-icons/ri';
@@ -21,7 +21,7 @@ function AppHeaderLinks({ mode, small, clickCloseIcon }) {
             <FiX className="App-header-menu-icon" />
           </div>
           <NavLink exact activeClassName="active" className="App-header-link-main" to="/">
-            <img src={darkLogoIcon} alt="MVX Logo" />
+            <img src={darkLogoIcon} alt="ANZOR Logo" />
           </NavLink>
         </div>
       }
