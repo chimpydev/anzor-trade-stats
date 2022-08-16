@@ -6,8 +6,8 @@ import Fantom from './views/Fantom';
 import Referrals from './views/Referrals';
 import Trading from './views/Trading';
 import './App.css';
-import darkLogoIcon from './img/logo_ANZOR_dark.svg';
-import lightLogoIcon from './img/logo_ANZOR_light.svg';
+import darkLogoIcon from './img/anzor-logo.png';
+import lightLogoIcon from './img/anzor-logo.png';
 import { FaTimes } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 import { RiMenuLine } from 'react-icons/ri';
@@ -21,7 +21,7 @@ function AppHeaderLinks({ mode, small, clickCloseIcon }) {
             <FiX className="App-header-menu-icon" />
           </div>
           <NavLink exact activeClassName="active" className="App-header-link-main" to="/">
-            <img src={darkLogoIcon} alt="ANZOR Logo" />
+            <img src={darkLogoIcon} alt="ANZOR Logo" style={{width: '40px', height: '40px'}} />
           </NavLink>
         </div>
       }
@@ -78,8 +78,9 @@ const App = () => {
                 {!isDrawerVisible && <RiMenuLine className="App-header-menu-icon" />}
                 {isDrawerVisible && <FaTimes className="App-header-menu-icon" />}
               </div>
-              <a href="https://anzor.io" target="_blank" rel="noreferrer" className="nav-logo">
-                <img width="87" src={mode == 'dark' ? darkLogoIcon : lightLogoIcon} />
+              <a href="https://anzor.io" target="_blank" rel="noreferrer" className="nav-logo" style={{textDecoration: 'none', alignItems: 'center'}}>
+                <img style={{width: '40px', height: '40px'}} src={mode == 'dark' ? darkLogoIcon : lightLogoIcon} />
+                <p style={{textDecoration: 'none', fontSize: '1.3rem', fontWeight: '40px'}}>Anzor</p>
               </a>
               <NavLink to="/" exact className="nav-link" activeClassName="active">Fantom</NavLink>
             </div>
