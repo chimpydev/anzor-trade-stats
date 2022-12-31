@@ -67,7 +67,7 @@ export async function queryEarnData(chainName, account) {
     provider
   );
   const alpContract = new ethers.Contract(
-    getAddress(chainId, "ALP"),
+    getAddress(chainId, "SLP"),
     Token.abi,
     provider
   );
@@ -88,7 +88,7 @@ export async function queryEarnData(chainName, account) {
       getAddress(FANTOM, "STAKED_ANZOR_TRACKER"),
       getAddress(FANTOM, "BONUS_ANZOR_TRACKER"),
       getAddress(FANTOM, "BN_ANZOR"),
-      getAddress(FANTOM, "ALP"),
+      getAddress(FANTOM, "SLP"),
     ];
     rewardTrackersForDepositBalances = [
       getAddress(FANTOM, "STAKED_ANZOR_TRACKER"),
@@ -96,14 +96,14 @@ export async function queryEarnData(chainName, account) {
       getAddress(FANTOM, "BONUS_ANZOR_TRACKER"),
       getAddress(FANTOM, "FEE_ANZOR_TRACKER"),
       getAddress(FANTOM, "FEE_ANZOR_TRACKER"),
-      getAddress(FANTOM, "FEE_ALP_TRACKER"),
+      getAddress(FANTOM, "FEE_SLP_TRACKER"),
     ];
     rewardTrackersForStakingInfo = [
       getAddress(FANTOM, "STAKED_ANZOR_TRACKER"),
       getAddress(FANTOM, "BONUS_ANZOR_TRACKER"),
       getAddress(FANTOM, "FEE_ANZOR_TRACKER"),
-      getAddress(FANTOM, "STAKED_ALP_TRACKER"),
-      getAddress(FANTOM, "FEE_ALP_TRACKER"),
+      getAddress(FANTOM, "STAKED_SLP_TRACKER"),
+      getAddress(FANTOM, "FEE_SLP_TRACKER"),
     ];
   }
 
@@ -135,8 +135,8 @@ export async function queryEarnData(chainName, account) {
   const now = new Date();
 
   return {
-    ALP: {
-      stakedALP: balances[5] / 1e18,
+    SLP: {
+      stakedSLP: balances[5] / 1e18,
       pendingETH: stakingInfo[4][0] / 1e18,
       pendingEsANZOR: stakingInfo[3][0] / 1e18,
       alpPrice,
@@ -235,7 +235,7 @@ export function useCoingeckoPrices(symbol, { from = FIRST_DATE_TS } = {}) {
 
     const ret = res.prices.map((item) => {
       // -1 is for shifting to previous day
-      // because CG uses first price of the day, but for ALP we store last price of the day
+      // because CG uses first price of the day, but for SLP we store last price of the day
       const timestamp = item[0] - 1;
       const groupTs = parseInt(timestamp / 1000 / 86400) * 86400;
       return {
@@ -1184,20 +1184,20 @@ export function useAlpPerformanceData(
     let prevMaticPrice = 0.4;
 
     const STABLE_WEIGHT = 0.5;
-    const ALP_START_PRICE =
+    const SLP_START_PRICE =
       alpDataById[btcPrices[0].timestamp]?.alpPrice || 1.19;
 
     const btcFirstPrice = btcPrices[0]?.value;
     const ethFirstPrice = ethPrices[0]?.value;
     const maticFirstPrice = ( maticPrices && maticPrices[0] && maticPrices[0].value ) || prevMaticPrice;
 
-    const indexBtcCount = (ALP_START_PRICE * BTC_WEIGHT) / btcFirstPrice;
-    const indexEthCount = (ALP_START_PRICE * ETH_WEIGHT) / ethFirstPrice;
-    const indexMaticCount = (ALP_START_PRICE * FTM_WEIGHT) / maticFirstPrice;
+    const indexBtcCount = (SLP_START_PRICE * BTC_WEIGHT) / btcFirstPrice;
+    const indexEthCount = (SLP_START_PRICE * ETH_WEIGHT) / ethFirstPrice;
+    const indexMaticCount = (SLP_START_PRICE * FTM_WEIGHT) / maticFirstPrice;
 
-    const lpBtcCount = (ALP_START_PRICE * 0.5) / btcFirstPrice;
-    const lpEthCount = (ALP_START_PRICE * 0.5) / ethFirstPrice;
-    const lpMaticCount = (ALP_START_PRICE * 0.5) / maticFirstPrice;
+    const lpBtcCount = (SLP_START_PRICE * 0.5) / btcFirstPrice;
+    const lpEthCount = (SLP_START_PRICE * 0.5) / ethFirstPrice;
+    const lpMaticCount = (SLP_START_PRICE * 0.5) / maticFirstPrice;
 
     const ret = [];
     let cumulativeFeesPerAlp = 0;
@@ -1222,24 +1222,24 @@ export function useAlpPerformanceData(
         indexBtcCount * btcPrice +
         indexEthCount * ethPrice +
         indexMaticCount * maticPrice +
-        ALP_START_PRICE * STABLE_WEIGHT;
+        SLP_START_PRICE * STABLE_WEIGHT;
 
       const lpBtcPrice =
-        (lpBtcCount * btcPrice + ALP_START_PRICE / 2) *
+        (lpBtcCount * btcPrice + SLP_START_PRICE / 2) *
         (1 + getImpermanentLoss(btcPrice / btcFirstPrice));
       const lpEthPrice =
-        (lpEthCount * ethPrice + ALP_START_PRICE / 2) *
+        (lpEthCount * ethPrice + SLP_START_PRICE / 2) *
         (1 + getImpermanentLoss(ethPrice / ethFirstPrice));
       const lpMaticPrice =
-        (lpMaticCount * maticPrice + ALP_START_PRICE / 2) *
+        (lpMaticCount * maticPrice + SLP_START_PRICE / 2) *
         (1 + getImpermanentLoss(maticPrice / maticFirstPrice));
 
       if (dailyFees && alpSupply) {
-        const INCREASED_ALP_REWARDS_TIMESTAMP = 1635714000;
-        const ALP_REWARDS_SHARE =
-          timestampGroup >= INCREASED_ALP_REWARDS_TIMESTAMP ? 0.7 : 0.5;
+        const INCREASED_SLP_REWARDS_TIMESTAMP = 1635714000;
+        const SLP_REWARDS_SHARE =
+          timestampGroup >= INCREASED_SLP_REWARDS_TIMESTAMP ? 0.7 : 0.5;
         const collectedFeesPerAlp =
-          (dailyFees / alpSupply) * ALP_REWARDS_SHARE;
+          (dailyFees / alpSupply) * SLP_REWARDS_SHARE;
         cumulativeFeesPerAlp += collectedFeesPerAlp;
 
         cumulativeEsanzorRewardsPerAlp += (alpPrice * 0.8) / 365;

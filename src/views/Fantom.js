@@ -281,7 +281,7 @@ function Fantom(props) {
         <div className="chart-cell stats">
           {totalAum ? (
             <>
-              <div className="total-stat-label">ALP Pool</div>
+              <div className="total-stat-label">SLP Pool</div>
               <div className="total-stat-value">
                 {formatNumber(totalAum, { currency: true })}
                 <span
@@ -384,7 +384,7 @@ function Fantom(props) {
         </div>
         <div className="chart-cell">
           <ChartWrapper
-            title="AUM & Alp Supply"
+            title="SKULL & Alp Supply"
             loading={alpLoading}
             data={alpData}
             csvFields={[{ key: "aum" }, { key: "alpSupply" }]}
@@ -416,7 +416,7 @@ function Fantom(props) {
                   dot={false}
                   dataKey="aum"
                   stackId="a"
-                  name="AUM"
+                  name="SKULL"
                   stroke={COLORS[0]}
                 />
                 <Line
@@ -426,7 +426,7 @@ function Fantom(props) {
                   dot={false}
                   dataKey="alpSupply"
                   stackId="a"
-                  name="ALP Supply"
+                  name="SLP Supply"
                   stroke={COLORS[1]}
                 />
               </LineChart>
@@ -509,13 +509,13 @@ function Fantom(props) {
             <div className="chart-description">
               <p>
                 <span style={{ color: COLORS[0] }}>% of Index (with fees)</span>{" "}
-                is ALP with fees / Index Price * 100. Index is a basket of 25%
+                is SLP with fees / Index Price * 100. Index is a basket of 25%
                 BTC, 25% ETH, 50% USDC rebalanced once&nbsp;a&nbsp;day
                 <br />
                 <span style={{ color: COLORS[4] }}>
                   % of LP ETH-USDC (with fees)
                 </span>{" "}
-                is ALP Price with fees / LP ETH-USDC * 100
+                is SLP Price with fees / LP ETH-USDC * 100
                 <br />
               </p>
             </div>
@@ -656,7 +656,7 @@ function Fantom(props) {
             <div className="chart-description">
               <p>
                 <span style={{ color: COLORS[3] }}>Alp with fees</span> is
-                based on ALP share of fees received and excluding esANZOR rewards
+                based on SLP share of fees received and excluding esANZOR rewards
                 <br />
                 <span style={{ color: COLORS[0] }}>
                   % of Index (with fees)
@@ -1008,13 +1008,13 @@ function Fantom(props) {
           <GenericChart
             syncId="syncAlp"
             loading={aumPerformanceLoading}
-            title="AUM Performance Annualized"
+            title="SKULL Performance Annualized"
             data={aumPerformanceData}
             yaxisDataKey="apr"
             yaxisTickFormatter={yaxisFormatterPercent}
             tooltipFormatter={tooltipFormatterPercent}
             items={[{ key: "apr", name: "APR", color: COLORS[0] }]}
-            description="Formula = Daily Fees / ALP Pool * 365 days * 100"
+            description="Formula = Daily Fees / SLP Pool * 365 days * 100"
             type="Composed"
           />
         </div>
@@ -1022,13 +1022,13 @@ function Fantom(props) {
           <GenericChart
             syncId="syncAlp"
             loading={aumPerformanceLoading}
-            title="AUM Daily Usage"
+            title="SKULL Daily Usage"
             data={aumPerformanceData}
             yaxisDataKey="usage"
             yaxisTickFormatter={yaxisFormatterPercent}
             tooltipFormatter={tooltipFormatterPercent}
             items={[{ key: "usage", name: "Daily Usage", color: COLORS[4] }]}
-            description="Formula = Daily Volume / ALP Pool * 100"
+            description="Formula = Daily Volume / SLP Pool * 100"
             type="Composed"
           />
         </div>
@@ -1045,7 +1045,7 @@ function Fantom(props) {
             items={[
               { key: "uniqueSwapCount", name: "Swaps" },
               { key: "uniqueMarginCount", name: "Margin trading" },
-              { key: "uniqueMintBurnCount", name: "Mint & Burn ALP" },
+              { key: "uniqueMintBurnCount", name: "Mint & Burn SLP" },
             ]}
             type="Composed"
           />
@@ -1123,7 +1123,7 @@ function Fantom(props) {
             items={[
               { key: "actionSwapCount", name: "Swaps" },
               { key: "actionMarginCount", name: "Margin trading" },
-              { key: "actionMintBurnCount", name: "Mint & Burn ALP" },
+              { key: "actionMintBurnCount", name: "Mint & Burn SLP" },
             ]}
             type="Composed"
           />

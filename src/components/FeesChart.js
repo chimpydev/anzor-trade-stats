@@ -34,8 +34,8 @@ export default function FeesChart(props) {
   const csvFields = [
     {key: 'swap', name: 'Swap'},
     {key: 'margin', name: 'Margin trading'},
-    {key: 'mint', name: 'Mint ALP'},
-    {key: 'burn', name: 'Burn ALP'},
+    {key: 'mint', name: 'Mint SLP'},
+    {key: 'burn', name: 'Burn SLP'},
     {key: 'liquidation', name: 'Liquidation'},
     {key: 'cumulative', name: 'Cumulative'}
   ]
@@ -54,15 +54,15 @@ export default function FeesChart(props) {
         />
         <Legend />
         <Bar isAnimationActive={false} type="monotone" dataKey="swap" stackId="a" name="Swap" fill={COLORS[0]} />
-        <Bar isAnimationActive={false} type="monotone" dataKey="mint" stackId="a" name="Mint ALP" fill={COLORS[1]} />
-        <Bar isAnimationActive={false} type="monotone" dataKey="burn" stackId="a" name="Burn ALP" fill={COLORS[2]} />
+        <Bar isAnimationActive={false} type="monotone" dataKey="mint" stackId="a" name="Mint SLP" fill={COLORS[1]} />
+        <Bar isAnimationActive={false} type="monotone" dataKey="burn" stackId="a" name="Burn SLP" fill={COLORS[2]} />
         <Bar isAnimationActive={false} type="monotone" dataKey="liquidation" stackId="a" name="Liquidation" fill={COLORS[3]} />
         <Bar isAnimationActive={false} type="monotone" dataKey="margin" stackId="a" name="Margin trading" fill={COLORS[4]} />
         <Line isAnimationActive={false} type="monotone" strokeWidth={3} dot={false} stroke={COLORS[0]} dataKey="cumulative" yAxisId="right" name="Cumulative" />
       </ComposedChart>
     </ResponsiveContainer>
     <div className="chart-description">
-      Collected fees. USD value is calculated with token price at the moment of swap, trade, minting or redeeming ALP
+      Collected fees. USD value is calculated with token price at the moment of swap, trade, minting or redeeming SLP
     </div>
   </ChartWrapper>
 }

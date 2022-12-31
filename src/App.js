@@ -78,15 +78,15 @@ const App = () => {
                 {!isDrawerVisible && <RiMenuLine className="App-header-menu-icon" />}
                 {isDrawerVisible && <FaTimes className="App-header-menu-icon" />}
               </div>
-              <a href="https://anzor.io" target="_blank" rel="noreferrer" className="nav-logo" style={{textDecoration: 'none', alignItems: 'center'}}>
+              <a href="https://skullswap.exchange" target="_blank" rel="noreferrer" className="nav-logo" style={{textDecoration: 'none', alignItems: 'center'}}>
                 <img style={{width: '40px', height: '40px'}} src={mode == 'dark' ? darkLogoIcon : lightLogoIcon} />
-                <p style={{textDecoration: 'none', fontSize: '1.3rem', fontWeight: '40px'}}>Anzor</p>
+                <p style={{textDecoration: 'none', fontSize: '1.3rem', fontWeight: '40px'}}>SkullSwap</p>
               </a>
-              <NavLink to="/" exact className="nav-link" activeClassName="active">Fantom</NavLink>
+              <NavLink to="/" style={{paddingRight: "12px"}} exact className="nav-link" activeClassName="active">Fantom</NavLink>
             </div>
             <div className="nav-right">
-              <a href="https://anzor.io" target="_blank" rel="noreferrer" className="nav-link">APP</a>
-              <a href="https://docs.anzor.io" target="_blank" rel="noreferrer" className="nav-link">DOCS</a>
+              <a href="https://skullswap.exchange" target="_blank" rel="noreferrer" className="nav-link">APP</a>
+              <a href="https://docs.skullswap.exchange" target="_blank" rel="noreferrer" className="nav-link">DOCS</a>
             </div>
           </div>
           <AnimatePresence>
