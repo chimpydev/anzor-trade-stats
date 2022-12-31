@@ -214,7 +214,8 @@ export function useCoingeckoPrices(symbol, { from = FIRST_DATE_TS } = {}) {
   const _symbol = {
     BTC: "bitcoin",
     ETH: "ethereum",
-    FTM: "matic-network",
+    FTM: "fantom",
+    MATIC: "matic-network",
     WBTC: "wrapped-bitcoin",
     USDC: "usd-coin",
     USDT: "tether",
