@@ -1,7 +1,7 @@
 {
     "_format": "hh-sol-artifact-1",
-    "contractName": "AlpManager",
-    "sourceName": "contracts/core/AlpManager.sol",
+    "contractName": "SlpManager",
+    "sourceName": "contracts/core/SlpManager.sol",
     "abi": [
         {
             "inputs": [
@@ -17,7 +17,7 @@
                 },
                 {
                     "internalType": "address",
-                    "name": "_alp",
+                    "name": "_slp",
                     "type": "address"
                 },
                 {
@@ -59,7 +59,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "alpSupply",
+                    "name": "slpSupply",
                     "type": "uint256"
                 },
                 {
@@ -96,7 +96,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "alpAmount",
+                    "name": "slpAmount",
                     "type": "uint256"
                 },
                 {
@@ -108,7 +108,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "alpSupply",
+                    "name": "slpSupply",
                     "type": "uint256"
                 },
                 {
@@ -185,7 +185,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_minAlp",
+                    "name": "_minSlp",
                     "type": "uint256"
                 }
             ],
@@ -229,7 +229,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_minAlp",
+                    "name": "_minSlp",
                     "type": "uint256"
                 }
             ],
@@ -400,7 +400,7 @@
         },
         {
             "inputs": [],
-            "name": "alp",
+            "name": "slp",
             "outputs": [
                 {
                     "internalType": "address",
@@ -420,7 +420,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_alpAmount",
+                    "name": "_slpAmount",
                     "type": "uint256"
                 },
                 {
@@ -459,7 +459,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_alpAmount",
+                    "name": "_slpAmount",
                     "type": "uint256"
                 },
                 {
