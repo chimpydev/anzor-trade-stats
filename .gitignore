@@ -16,4 +16,3 @@ build.*
 .env.production.local
 
 *.pem
-.env
