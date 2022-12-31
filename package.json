@@ -6,7 +6,7 @@
     "build": "razzle build --noninteractive",
     "build:dev": "razzle build --noninteractive",
     "test": "razzle test --env=jsdom",
-    "start": "node build/server.js",
+    "start": "razzle start",
     "start-win": "set PORT=3113&razzle start",
     "start:prod": "node build/server.js",
     "lint": "eslint $(git ls-files -m | grep -E \".js$\")",
