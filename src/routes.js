@@ -4,7 +4,7 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import fetch from 'cross-fetch';
 import sizeof from 'object-sizeof'
-
+import assetss from '../assets.json'
 import App from './App';
 import { ApolloClient, InMemoryCache, gql, HttpLink } from '@apollo/client'
 import { getLogger } from './helpers'
@@ -13,7 +13,7 @@ import { queryEarnData, getStatsFromSubgraph } from './dataProvider'
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 
-const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
+const assets = require(assetss);
 
 const cssLinksFromAssets = (assets, entrypoint) => {
   return assets[entrypoint] ? assets[entrypoint].css ?
