@@ -103,7 +103,12 @@
   font-display: swap;
 }
 
-
+@font-face {
+  font-family: "SkullFont";
+  src: local("SkullFont"),
+   url("./fonts/SkullFont.ttf") format("truetype");
+  font-weight: bold;
+}
 
 body {
   font-size: 0.9rem;
@@ -375,6 +380,8 @@ label + input {
   vertical-align: middle;
   margin: 0px 0.5rem 0 0;
   display: inline-flex;
+  font-family: "SkullFont";
+  letter-spacing: 3px;
 }
 
 .nav-logo img {

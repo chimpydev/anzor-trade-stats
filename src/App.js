@@ -85,8 +85,8 @@ const App = () => {
               {/* <NavLink to="/" style={{paddingRight: "12px"}} exact className="nav-link" activeClassName="active">Fantom</NavLink> */}
             </div>
             <div className="nav-right">
-              <a href="https://cranium.exchange" target="_blank" rel="noreferrer" className="nav-link">APP</a>
-              <a href="https://docs.cranium.exchange" target="_blank" rel="noreferrer" className="nav-link">DOCS</a>
+              <a href="https://docs.cranium.exchange" target="_blank" rel="noreferrer" className="nav-link">Docs</a>
+              <a href="https://cranium.exchange" target="_blank" rel="noreferrer" className="nav-link">Launch App</a>
             </div>
           </div>
           <AnimatePresence>
