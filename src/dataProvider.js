@@ -255,7 +255,8 @@ function getImpermanentLoss(change) {
 }
 
 function getChainSubgraph(chainName) {
-  return "chimpydev/stats";
+  // return "chimpydev/stats";
+  return "chimpydev/core";
 }
 
 export function useGraph(

@@ -656,7 +656,8 @@ function Fantom(props) {
             <div className="chart-description">
               <p>
                 <span style={{ color: COLORS[3] }}>Slp with fees</span> is
-                based on SLP share of fees received and excluding esSKULL rewards
+                based on SLP share of fees received
+                {/* based on SLP share of fees received and excluding esSKULL rewards */}
                 <br />
                 <span style={{ color: COLORS[0] }}>
                   % of Index (with fees)

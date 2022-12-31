@@ -49,7 +49,7 @@ const App = () => {
   useEffect(() => {
     const savedMode = window.localStorage.getItem('mode');
     const targetMode = savedMode == 'light' ? 'light' : 'dark';
-    document.querySelector('body').style.backgroundColor = targetMode == 'dark' ? '#130720' : '#f6f9ff';
+    document.querySelector('body').style.backgroundColor = targetMode == 'dark' ? '#000000' : '#f6f9ff';
     setMode(targetMode);
   }, [])
 
@@ -82,7 +82,7 @@ const App = () => {
                 <img style={{width: '40px', height: '40px'}} src={mode == 'dark' ? darkLogoIcon : lightLogoIcon} />
                 <p style={{textDecoration: 'none', fontSize: '1.3rem', fontWeight: '40px'}}>Cranium</p>
               </a>
-              <NavLink to="/" style={{paddingRight: "12px"}} exact className="nav-link" activeClassName="active">Fantom</NavLink>
+              {/* <NavLink to="/" style={{paddingRight: "12px"}} exact className="nav-link" activeClassName="active">Fantom</NavLink> */}
             </div>
             <div className="nav-right">
               <a href="https://cranium.exchange" target="_blank" rel="noreferrer" className="nav-link">APP</a>
