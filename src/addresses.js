@@ -13,7 +13,7 @@ export const addresses = {
     BONUS_SKULL_TRACKER: "",
     FEE_SKULL_TRACKER: "",
     FEE_SLP_TRACKER: "",
-    FTM: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+    FTM: "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
     BTC: "0x321162Cd933E2Be498Cd2267a90534A804051b11", // 8 decimals wrapped btc
     ETH: "0x74b23882a30290451A17c44f4F05243b6b58C76d", // 18 decimals wrapped eth
     RewardReader: "0xeF98e5d4F67633D6072c2a93e69A7F6a6179fD1b",
