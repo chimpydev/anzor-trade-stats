@@ -8,8 +8,6 @@ cache
 
 coverage
 node_modules
-build
-build.*
 .env.local
 .env.development.local
 .env.test.local
