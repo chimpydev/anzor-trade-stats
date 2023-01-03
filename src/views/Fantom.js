@@ -387,7 +387,7 @@ function Fantom(props) {
             title="SKULL & Slp Supply"
             loading={slpLoading}
             data={slpData}
-            csvFields={[{ key: "aum" }, { key: "slpSupply" }]}
+            csvFields={[{ key: "aum" }, { key: "mvlpSupply" }]}
           >
             <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
               <LineChart data={slpData} syncId="syncSlp">
@@ -424,7 +424,7 @@ function Fantom(props) {
                   type="monotone"
                   strokeWidth={2}
                   dot={false}
-                  dataKey="slpSupply"
+                  dataKey="mvlpSupply"
                   stackId="a"
                   name="SLP Supply"
                   stroke={COLORS[1]}
