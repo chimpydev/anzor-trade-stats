@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @font-face {
   font-family: 'RelativeMono';
   font-style: normal;
@@ -380,7 +382,7 @@ label + input {
   vertical-align: middle;
   margin: 0px 0.5rem 0 0;
   display: inline-flex;
-  font-family: "SkullFont";
+  font-family: 'Philosopher';
   letter-spacing: 3px;
 }
 
