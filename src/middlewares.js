@@ -32,9 +32,9 @@ export function csp(req, res, next) {
     "connect-src": [
       "https://api.thegraph.com",
       "https://api.coingecko.com",
-      "https://stats.cranium.exchange/api",
-      "https://cranium.exchange",
-      "cranium.exchange",
+      "https://stats.masonjar.finance/api",
+      "https://masonjar.finance",
+      "masonjar.finance",
     ]
   };
 

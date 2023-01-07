@@ -78,15 +78,15 @@ const App = () => {
                 {!isDrawerVisible && <RiMenuLine className="App-header-menu-icon" />}
                 {isDrawerVisible && <FaTimes className="App-header-menu-icon" />}
               </div>
-              <a href="https://cranium.exchange" target="_blank" rel="noreferrer" className="nav-logo" style={{textDecoration: 'none', alignItems: 'center'}}>
+              <a href="https://masonjar.finance" target="_blank" rel="noreferrer" className="nav-logo" style={{textDecoration: 'none', alignItems: 'center'}}>
                 <img style={{width: '40px', height: '40px'}} src={mode == 'dark' ? darkLogoIcon : lightLogoIcon} />
                 <p style={{textDecoration: 'none', fontSize: '1.3rem', fontWeight: '40px'}}>Cranium</p>
               </a>
               {/* <NavLink to="/" style={{paddingRight: "12px"}} exact className="nav-link" activeClassName="active">Fantom</NavLink> */}
             </div>
             <div className="nav-right">
-              <a href="https://docs.cranium.exchange" target="_blank" rel="noreferrer" className="nav-link">Docs</a>
-              <a href="https://cranium.exchange" target="_blank" rel="noreferrer" className="nav-link">Launch App</a>
+              <a href="https://docs.masonjar.finance" target="_blank" rel="noreferrer" className="nav-link">Docs</a>
+              <a href="https://masonjar.finance" target="_blank" rel="noreferrer" className="nav-link">Launch App</a>
             </div>
           </div>
           <AnimatePresence>
