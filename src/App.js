@@ -80,7 +80,7 @@ const App = () => {
               </div>
               <a href="https://masonjar.finance" target="_blank" rel="noreferrer" className="nav-logo" style={{textDecoration: 'none', alignItems: 'center'}}>
                 <img style={{width: '40px', height: '40px'}} src={mode == 'dark' ? darkLogoIcon : lightLogoIcon} />
-                <p style={{textDecoration: 'none', fontSize: '1.3rem', fontWeight: '40px'}}>Cranium</p>
+                <p style={{textDecoration: 'none', fontSize: '1.3rem', fontWeight: '40px'}}>Mason Jar</p>
               </a>
               {/* <NavLink to="/" style={{paddingRight: "12px"}} exact className="nav-link" activeClassName="active">Optimism</NavLink> */}
             </div>
