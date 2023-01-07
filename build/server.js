@@ -830,14 +830,14 @@ module.exports = JSON.parse("{\"_format\":\"hh-sol-artifact-1\",\"contractName\"
 
 /***/ }),
 
-/***/ "./abis/SlpManager.json":
+/***/ "./abis/MjlpManager.json":
 /*!******************************!*\
-  !*** ./abis/SlpManager.json ***!
+  !*** ./abis/MjlpManager.json ***!
   \******************************/
 /*! exports provided: _format, contractName, sourceName, abi, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_format\":\"hh-sol-artifact-1\",\"contractName\":\"SlpManager\",\"sourceName\":\"contracts/core/SlpManager.sol\",\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_vault\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_usdm\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_slp\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_cooldownDuration\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"aumInUsdm\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"mvlpSupply\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"usdmAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"mintAmount\",\"type\":\"uint256\"}],\"name\":\"AddLiquidity\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"slpAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"aumInUsdm\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"mvlpSupply\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"usdmAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"}],\"name\":\"RemoveLiquidity\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"MAX_COOLDOWN_DURATION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PRICE_PRECISION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"USDM_DECIMALS\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minUsdm\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minSlp\",\"type\":\"uint256\"}],\"name\":\"addLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fundingAccount\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_account\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minUsdm\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minSlp\",\"type\":\"uint256\"}],\"name\":\"addLiquidityForAccount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"aumAddition\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"aumDeduction\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cooldownDuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"maximise\",\"type\":\"bool\"}],\"name\":\"getAum\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"maximise\",\"type\":\"bool\"}],\"name\":\"getAumInUsdm\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAums\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gov\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"inPrivateMode\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isHandler\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"lastAddedAt\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"slp\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_tokenOut\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_slpAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minOut\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_receiver\",\"type\":\"address\"}],\"name\":\"removeLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_account\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_tokenOut\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_slpAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minOut\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_receiver\",\"type\":\"address\"}],\"name\":\"removeLiquidityForAccount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_aumAddition\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_aumDeduction\",\"type\":\"uint256\"}],\"name\":\"setAumAdjustment\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_cooldownDuration\",\"type\":\"uint256\"}],\"name\":\"setCooldownDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_gov\",\"type\":\"address\"}],\"name\":\"setGov\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_handler\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_isActive\",\"type\":\"bool\"}],\"name\":\"setHandler\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"_inPrivateMode\",\"type\":\"bool\"}],\"name\":\"setInPrivateMode\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"usdm\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"vault\",\"outputs\":[{\"internalType\":\"contract IVault\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]}");
+module.exports = JSON.parse("{\"_format\":\"hh-sol-artifact-1\",\"contractName\":\"MjlpManager\",\"sourceName\":\"contracts/core/MjlpManager.sol\",\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_vault\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_usdm\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_mjlp\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_cooldownDuration\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"aumInUsdm\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"mjlpSupply\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"usdmAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"mintAmount\",\"type\":\"uint256\"}],\"name\":\"AddLiquidity\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"mjlpAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"aumInUsdm\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"mjlpSupply\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"usdmAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"}],\"name\":\"RemoveLiquidity\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"MAX_COOLDOWN_DURATION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PRICE_PRECISION\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"USDM_DECIMALS\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minUsdm\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minMjlp\",\"type\":\"uint256\"}],\"name\":\"addLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_fundingAccount\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_account\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minUsdm\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minMjlp\",\"type\":\"uint256\"}],\"name\":\"addLiquidityForAccount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"aumAddition\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"aumDeduction\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cooldownDuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"maximise\",\"type\":\"bool\"}],\"name\":\"getAum\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"maximise\",\"type\":\"bool\"}],\"name\":\"getAumInUsdm\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAums\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gov\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"inPrivateMode\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isHandler\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"lastAddedAt\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"mjlp\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_tokenOut\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_mjlpAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minOut\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_receiver\",\"type\":\"address\"}],\"name\":\"removeLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_account\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_tokenOut\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_mjlpAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minOut\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_receiver\",\"type\":\"address\"}],\"name\":\"removeLiquidityForAccount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_aumAddition\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_aumDeduction\",\"type\":\"uint256\"}],\"name\":\"setAumAdjustment\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_cooldownDuration\",\"type\":\"uint256\"}],\"name\":\"setCooldownDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_gov\",\"type\":\"address\"}],\"name\":\"setGov\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_handler\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_isActive\",\"type\":\"bool\"}],\"name\":\"setHandler\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"_inPrivateMode\",\"type\":\"bool\"}],\"name\":\"setInPrivateMode\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"usdm\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"vault\",\"outputs\":[{\"internalType\":\"contract IVault\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]}");
 
 /***/ }),
 
@@ -1498,7 +1498,7 @@ function AppHeaderLinks({
     }
   }, __jsx("img", {
     src: _img_anzor_logo_png__WEBPACK_IMPORTED_MODULE_8___default.a,
-    alt: "SKULL Logo",
+    alt: "MJAR Logo",
     style: {
       width: '40px',
       height: '40px'
@@ -1817,24 +1817,24 @@ __webpack_require__.r(__webpack_exports__);
 const OPTIMISM = 10;
 const addresses = {
   [OPTIMISM]: {
-    SKULL: "0x9945Dd3eCB40A6b594813f2A4DF1643b10Fe3550",
+    MJAR: "0x9945Dd3eCB40A6b594813f2A4DF1643b10Fe3550",
     // DONE
-    ES_SKULL: "",
-    SLP: "0x85CEF8dd0AaD49Fb4C04529f65D92177B936Da74",
+    ES_MJAR: "",
+    MJLP: "0x85CEF8dd0AaD49Fb4C04529f65D92177B936Da74",
     // DONE
-    BN_SKULL: "",
-    STAKED_SKULL_TRACKER: "",
-    STAKED_SLP_TRACKER: "",
-    BONUS_SKULL_TRACKER: "",
-    FEE_SKULL_TRACKER: "",
-    FEE_SLP_TRACKER: "",
+    BN_MJAR: "",
+    STAKED_MJAR_TRACKER: "",
+    STAKED_MJLP_TRACKER: "",
+    BONUS_MJAR_TRACKER: "",
+    FEE_MJAR_TRACKER: "",
+    FEE_MJLP_TRACKER: "",
     OP: "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
     BTC: "0x321162Cd933E2Be498Cd2267a90534A804051b11",
     // 8 decimals wrapped btc
     ETH: "0x74b23882a30290451A17c44f4F05243b6b58C76d",
     // 18 decimals wrapped eth
     RewardReader: "0xeF98e5d4F67633D6072c2a93e69A7F6a6179fD1b",
-    SlpManager: "0xCeF49b3f525d646924d20A4bC7B325dBb537e45A",
+    MjlpManager: "0xCeF49b3f525d646924d20A4bC7B325dBb537e45A",
     // DONE
     Router: "0x5043C2470D7454F1678f6ecCCEE9D3D4588320cC",
     // DONE
@@ -1954,7 +1954,7 @@ function getCsvUrl(data, fields) {
 function CsvLink({
   data,
   fields,
-  name = 'SKULL stats'
+  name = 'MJAR stats'
 }) {
   const onClick = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(evt => {
     evt.preventDefault();
@@ -2036,10 +2036,10 @@ function FeesChart(props) {
     name: 'Margin trading'
   }, {
     key: 'mint',
-    name: 'Mint SLP'
+    name: 'Mint MJLP'
   }, {
     key: 'burn',
-    name: 'Burn SLP'
+    name: 'Burn MJLP'
   }, {
     key: 'liquidation',
     name: 'Liquidation'
@@ -2155,7 +2155,7 @@ function FeesChart(props) {
     type: "monotone",
     dataKey: "mint",
     stackId: "a",
-    name: "Mint SLP",
+    name: "Mint MJLP",
     fill: _helpers__WEBPACK_IMPORTED_MODULE_3__["COLORS"][1],
     __self: this,
     __source: {
@@ -2168,7 +2168,7 @@ function FeesChart(props) {
     type: "monotone",
     dataKey: "burn",
     stackId: "a",
-    name: "Burn SLP",
+    name: "Burn MJLP",
     fill: _helpers__WEBPACK_IMPORTED_MODULE_3__["COLORS"][2],
     __self: this,
     __source: {
@@ -2225,7 +2225,7 @@ function FeesChart(props) {
       lineNumber: 64,
       columnNumber: 5
     }
-  }, "Collected fees. USD value is calculated with token price at the moment of swap, trade, minting or redeeming SLP"));
+  }, "Collected fees. USD value is calculated with token price at the moment of swap, trade, minting or redeeming MJLP"));
 }
 
 /***/ }),
@@ -2463,10 +2463,10 @@ function VolumeChart(props) {
     name: 'Margin trading'
   }, {
     key: 'mint',
-    name: 'Mint SLP'
+    name: 'Mint MJLP'
   }, {
     key: 'burn',
-    name: 'Burn SLP'
+    name: 'Burn MJLP'
   }, {
     key: 'liquidation',
     name: 'Liquidation'
@@ -2582,7 +2582,7 @@ function VolumeChart(props) {
     type: "monotone",
     dataKey: "mint",
     stackId: "a",
-    name: "Mint SLP",
+    name: "Mint MJLP",
     fill: _helpers__WEBPACK_IMPORTED_MODULE_3__["COLORS"][1],
     __self: this,
     __source: {
@@ -2595,7 +2595,7 @@ function VolumeChart(props) {
     type: "monotone",
     dataKey: "burn",
     stackId: "a",
-    name: "Burn SLP",
+    name: "Burn MJLP",
     fill: _helpers__WEBPACK_IMPORTED_MODULE_3__["COLORS"][2],
     __self: this,
     __source: {
@@ -2653,7 +2653,7 @@ function VolumeChart(props) {
 /*!*****************************!*\
   !*** ./src/dataProvider.js ***!
   \*****************************/
-/*! exports provided: queryEarnData, tokenDecimals, tokenSymbols, useRequest, useCoingeckoPrices, useGraph, useLastBlock, useLastSubgraphBlock, useTradersData, useSwapSources, useTotalVolumeFromServer, getStatsFromSubgraph, useVolumeDataFromServer, useUsersData, useFundingRateData, useVolumeData, useFeesData, useAumPerformanceData, useSlpData, useSlpPerformanceData, useReferralsData */
+/*! exports provided: queryEarnData, tokenDecimals, tokenSymbols, useRequest, useCoingeckoPrices, useGraph, useLastBlock, useLastSubgraphBlock, useTradersData, useSwapSources, useTotalVolumeFromServer, getStatsFromSubgraph, useVolumeDataFromServer, useUsersData, useFundingRateData, useVolumeData, useFeesData, useAumPerformanceData, useMjlpData, useMjlpPerformanceData, useReferralsData */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2676,8 +2676,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useVolumeData", function() { return useVolumeData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useFeesData", function() { return useFeesData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useAumPerformanceData", function() { return useAumPerformanceData; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useSlpData", function() { return useSlpData; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useSlpPerformanceData", function() { return useSlpPerformanceData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useMjlpData", function() { return useMjlpData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useMjlpPerformanceData", function() { return useMjlpPerformanceData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useReferralsData", function() { return useReferralsData; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -2692,8 +2692,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _addresses__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./addresses */ "./src/addresses.js");
 /* harmony import */ var _abis_RewardReader_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../abis/RewardReader.json */ "./abis/RewardReader.json");
 var _abis_RewardReader_json__WEBPACK_IMPORTED_MODULE_6___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../abis/RewardReader.json */ "./abis/RewardReader.json", 1);
-/* harmony import */ var _abis_SlpManager_json__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../abis/SlpManager.json */ "./abis/SlpManager.json");
-var _abis_SlpManager_json__WEBPACK_IMPORTED_MODULE_7___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../abis/SlpManager.json */ "./abis/SlpManager.json", 1);
+/* harmony import */ var _abis_MjlpManager_json__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../abis/MjlpManager.json */ "./abis/MjlpManager.json");
+var _abis_MjlpManager_json__WEBPACK_IMPORTED_MODULE_7___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../abis/MjlpManager.json */ "./abis/MjlpManager.json", 1);
 /* harmony import */ var _abis_v1_Token_json__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../abis/v1/Token.json */ "./abis/v1/Token.json");
 var _abis_v1_Token_json__WEBPACK_IMPORTED_MODULE_8___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../abis/v1/Token.json */ "./abis/v1/Token.json", 1);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -2758,39 +2758,39 @@ async function queryEarnData(chainName, account) {
   const provider = getProvider(chainName);
   const chainId = getChainId(chainName);
   const rewardReader = new ethers__WEBPACK_IMPORTED_MODULE_4__["Contract"](Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(chainId, "RewardReader"), _abis_RewardReader_json__WEBPACK_IMPORTED_MODULE_6__.abi, provider);
-  const slpContract = new ethers__WEBPACK_IMPORTED_MODULE_4__["Contract"](Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(chainId, "SLP"), _abis_v1_Token_json__WEBPACK_IMPORTED_MODULE_8__.abi, provider);
-  const slpManager = new ethers__WEBPACK_IMPORTED_MODULE_4__["Contract"](Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(chainId, "SlpManager"), _abis_SlpManager_json__WEBPACK_IMPORTED_MODULE_7__.abi, provider);
+  const mjlpContract = new ethers__WEBPACK_IMPORTED_MODULE_4__["Contract"](Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(chainId, "MJLP"), _abis_v1_Token_json__WEBPACK_IMPORTED_MODULE_8__.abi, provider);
+  const mjlpManager = new ethers__WEBPACK_IMPORTED_MODULE_4__["Contract"](Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(chainId, "MjlpManager"), _abis_MjlpManager_json__WEBPACK_IMPORTED_MODULE_7__.abi, provider);
   let depositTokens;
   let rewardTrackersForDepositBalances;
   let rewardTrackersForStakingInfo;
   if (chainId === _addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"]) {
-    depositTokens = [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "SKULL"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "ES_SKULL"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "STAKED_SKULL_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "BONUS_SKULL_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "BN_SKULL"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "SLP")];
-    rewardTrackersForDepositBalances = [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "STAKED_SKULL_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "STAKED_SKULL_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "BONUS_SKULL_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FEE_SKULL_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FEE_SKULL_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FEE_SLP_TRACKER")];
-    rewardTrackersForStakingInfo = [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "STAKED_SKULL_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "BONUS_SKULL_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FEE_SKULL_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "STAKED_SLP_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FEE_SLP_TRACKER")];
+    depositTokens = [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "MJAR"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "ES_MJAR"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "STAKED_MJAR_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "BONUS_MJAR_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "BN_MJAR"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "MJLP")];
+    rewardTrackersForDepositBalances = [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "STAKED_MJAR_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "STAKED_MJAR_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "BONUS_MJAR_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FEE_MJAR_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FEE_MJAR_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FEE_MJLP_TRACKER")];
+    rewardTrackersForStakingInfo = [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "STAKED_MJAR_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "BONUS_MJAR_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FEE_MJAR_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "STAKED_MJLP_TRACKER"), Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FEE_MJLP_TRACKER")];
   }
-  const [balances, stakingInfo, slpTotalSupply, slpAum, skullPrice] = await Promise.all([rewardReader.getDepositBalances(account, depositTokens, rewardTrackersForDepositBalances), rewardReader.getStakingInfo(account, rewardTrackersForStakingInfo).then(info => {
+  const [balances, stakingInfo, mjlpTotalSupply, mjlpAum, mjarPrice] = await Promise.all([rewardReader.getDepositBalances(account, depositTokens, rewardTrackersForDepositBalances), rewardReader.getStakingInfo(account, rewardTrackersForStakingInfo).then(info => {
     return rewardTrackersForStakingInfo.map((_, i) => {
       return info.slice(i * 5, (i + 1) * 5);
     });
-  }), slpContract.totalSupply(), slpManager.getAumInUsdm(true), cross_fetch__WEBPACK_IMPORTED_MODULE_3___default()("https://api.coingecko.com/api/v3/simple/price?ids=metavault-trade&vs_currencies=usd").then(async res => {
+  }), mjlpContract.totalSupply(), mjlpManager.getAumInUsdm(true), cross_fetch__WEBPACK_IMPORTED_MODULE_3___default()("https://api.coingecko.com/api/v3/simple/price?ids=metavault-trade&vs_currencies=usd").then(async res => {
     const j = await res.json();
     return j["metavault-trade"]["usd"];
   })]);
-  const slpPrice = slpAum / 1e18 / (slpTotalSupply / 1e18);
+  const mjlpPrice = mjlpAum / 1e18 / (mjlpTotalSupply / 1e18);
   const now = new Date();
   return {
-    SLP: {
-      stakedSLP: balances[5] / 1e18,
+    MJLP: {
+      stakedMJLP: balances[5] / 1e18,
       pendingETH: stakingInfo[4][0] / 1e18,
-      pendingEsSKULL: stakingInfo[3][0] / 1e18,
-      slpPrice
+      pendingEsMJAR: stakingInfo[3][0] / 1e18,
+      mjlpPrice
     },
-    SKULL: {
-      stakedSKULL: balances[0] / 1e18,
-      stakedEsSKULL: balances[1] / 1e18,
+    MJAR: {
+      stakedMJAR: balances[0] / 1e18,
+      stakedEsMJAR: balances[1] / 1e18,
       pendingETH: stakingInfo[2][0] / 1e18,
-      pendingEsSKULL: stakingInfo[0][0] / 1e18,
-      skullPrice
+      pendingEsMJAR: stakingInfo[0][0] / 1e18,
+      mjarPrice
     },
     timestamp: parseInt(now / 1000),
     datetime: now.toISOString()
@@ -2824,13 +2824,13 @@ function getTokenDecimals(token) {
 }
 const knownSwapSources = {
   optimism: {
-    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "Router")]: "SKULL",
-    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "OrderBook")]: "SKULL",
-    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "PositionManager")]: "SKULL",
-    // [getAddress(OPTIMISM, "OrderExecutor")]: "SKULL",
-    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FastPriceFeed")]: "SKULL",
-    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "PositionExecutorUpKeep")]: "SKULL",
-    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "PositionRouter")]: "SKULL"
+    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "Router")]: "MJAR",
+    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "OrderBook")]: "MJAR",
+    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "PositionManager")]: "MJAR",
+    // [getAddress(OPTIMISM, "OrderExecutor")]: "MJAR",
+    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "FastPriceFeed")]: "MJAR",
+    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "PositionExecutorUpKeep")]: "MJAR",
+    [Object(_addresses__WEBPACK_IMPORTED_MODULE_5__["getAddress"])(_addresses__WEBPACK_IMPORTED_MODULE_5__["OPTIMISM"], "PositionRouter")]: "MJAR"
   }
 };
 const defaultFetcher = url => cross_fetch__WEBPACK_IMPORTED_MODULE_3___default()(url).then(res => res.json());
@@ -2884,7 +2884,7 @@ function useCoingeckoPrices(symbol, {
     }
     const ret = res.prices.map(item => {
       // -1 is for shifting to previous day
-      // because CG uses first price of the day, but for SLP we store last price of the day
+      // because CG uses first price of the day, but for MJLP we store last price of the day
       const timestamp = item[0] - 1;
       const groupTs = parseInt(timestamp / 1000 / 86400) * 86400;
       return {
@@ -3168,7 +3168,7 @@ function useSwapSources({
   return [data, loading, error];
 }
 function getServerHostname(chainName) {
-  return process.env.RAZZLE_SKULL_API_URL;
+  return process.env.RAZZLE_MJAR_API_URL;
 }
 function useTotalVolumeFromServer() {
   const [data, loading] = useRequest(getServerHostname() + "/total_volume");
@@ -3551,7 +3551,7 @@ function useAumPerformanceData({
     to,
     groupPeriod
   });
-  const [slpData, slpLoading] = useSlpData({
+  const [mjlpData, mjlpLoading] = useMjlpData({
     from,
     to,
     groupPeriod
@@ -3563,17 +3563,17 @@ function useAumPerformanceData({
   });
   const dailyCoef = 86400 / groupPeriod;
   const data = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => {
-    if (!feesData || !slpData || !volumeData) {
+    if (!feesData || !mjlpData || !volumeData) {
       return null;
     }
     const ret = feesData.map((feeItem, i) => {
-      const slpItem = slpData[i];
+      const mjlpItem = mjlpData[i];
       const volumeItem = volumeData[i];
-      let apr = feeItem !== null && feeItem !== void 0 && feeItem.all && slpItem !== null && slpItem !== void 0 && slpItem.aum ? feeItem.all / slpItem.aum * 100 * 365 * dailyCoef : null;
+      let apr = feeItem !== null && feeItem !== void 0 && feeItem.all && mjlpItem !== null && mjlpItem !== void 0 && mjlpItem.aum ? feeItem.all / mjlpItem.aum * 100 * 365 * dailyCoef : null;
       if (apr > 10000) {
         apr = null;
       }
-      let usage = volumeItem !== null && volumeItem !== void 0 && volumeItem.all && slpItem !== null && slpItem !== void 0 && slpItem.aum ? volumeItem.all / slpItem.aum * 100 * dailyCoef : null;
+      let usage = volumeItem !== null && volumeItem !== void 0 && volumeItem.all && mjlpItem !== null && mjlpItem !== void 0 && mjlpItem.aum ? volumeItem.all / mjlpItem.aum * 100 * dailyCoef : null;
       if (usage > 10000) {
         usage = null;
       }
@@ -3588,16 +3588,16 @@ function useAumPerformanceData({
     const averageUsage = ret.reduce((memo, item) => item.usage + memo, 0) / ret.length;
     ret.forEach(item => item.averageUsage = averageUsage);
     return ret;
-  }, [feesData, slpData, volumeData]);
-  return [data, feesLoading || slpLoading || volumeLoading];
+  }, [feesData, mjlpData, volumeData]);
+  return [data, feesLoading || mjlpLoading || volumeLoading];
 }
-function useSlpData({
+function useMjlpData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
   chainName = "optimism"
 } = {}) {
   const query = `{
-    mvlpStats(
+    mjlpStats(
       first: 1000
       orderBy: timestamp
       orderDirection: desc
@@ -3605,7 +3605,7 @@ function useSlpData({
     ) {
       timestamp
       aumInUsdm
-      mvlpSupply
+      mjlpSupply
       distributedUsd
       distributedEth
     }
@@ -3613,36 +3613,36 @@ function useSlpData({
   let [data, loading, error] = useGraph(query, {
     chainName
   });
-  let cumulativeDistributedUsdPerSlp = 0;
-  let cumulativeDistributedEthPerSlp = 0;
-  const slpChartData = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => {
-    if (!data || data && data.mvlpStats.length === 0) {
+  let cumulativeDistributedUsdPerMjlp = 0;
+  let cumulativeDistributedEthPerMjlp = 0;
+  const mjlpChartData = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => {
+    if (!data || data && data.mjlpStats.length === 0) {
       return null;
     }
     const getTimestamp = item => item.timestamp;
-    let prevSlpSupply;
+    let prevMjlpSupply;
     let prevAum;
-    let ret = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["sortBy"])(data.mvlpStats, item => item.timestamp).filter(item => item.timestamp % 86400 === 0).reduce((memo, item) => {
+    let ret = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["sortBy"])(data.mjlpStats, item => item.timestamp).filter(item => item.timestamp % 86400 === 0).reduce((memo, item) => {
       const last = memo[memo.length - 1];
       const aum = Number(item.aumInUsdm) / 1e18;
-      const mvlpSupply = Number(item.mvlpSupply) / 1e18;
+      const mjlpSupply = Number(item.mjlpSupply) / 1e18;
       const distributedUsd = Number(item.distributedUsd) / 1e30;
-      const distributedUsdPerSlp = distributedUsd / mvlpSupply || 0;
-      cumulativeDistributedUsdPerSlp += distributedUsdPerSlp;
+      const distributedUsdPerMjlp = distributedUsd / mjlpSupply || 0;
+      cumulativeDistributedUsdPerMjlp += distributedUsdPerMjlp;
       const distributedEth = Number(item.distributedEth) / 1e18;
-      const distributedEthPerSlp = distributedEth / mvlpSupply || 0;
-      cumulativeDistributedEthPerSlp += distributedEthPerSlp;
-      const slpPrice = aum / mvlpSupply;
+      const distributedEthPerMjlp = distributedEth / mjlpSupply || 0;
+      cumulativeDistributedEthPerMjlp += distributedEthPerMjlp;
+      const mjlpPrice = aum / mjlpSupply;
       const timestamp = parseInt(item.timestamp);
       const newItem = {
         timestamp,
         aum,
-        mvlpSupply,
-        slpPrice,
-        cumulativeDistributedEthPerSlp,
-        cumulativeDistributedUsdPerSlp,
-        distributedUsdPerSlp,
-        distributedEthPerSlp
+        mjlpSupply,
+        mjlpPrice,
+        cumulativeDistributedEthPerMjlp,
+        cumulativeDistributedUsdPerMjlp,
+        distributedUsdPerMjlp,
+        distributedEthPerMjlp
       };
       if (last && last.timestamp === timestamp) {
         memo[memo.length - 1] = newItem;
@@ -3652,29 +3652,29 @@ function useSlpData({
       return memo;
     }, []).map(item => {
       let {
-        mvlpSupply,
+        mjlpSupply,
         aum
       } = item;
-      if (!mvlpSupply) {
-        mvlpSupply = prevSlpSupply;
+      if (!mjlpSupply) {
+        mjlpSupply = prevMjlpSupply;
       }
       if (!aum) {
         aum = prevAum;
       }
-      item.mvlpSupplyChange = prevSlpSupply ? (mvlpSupply - prevSlpSupply) / prevSlpSupply * 100 : 0;
-      if (item.mvlpSupplyChange > 1000) item.mvlpSupplyChange = 0;
+      item.mjlpSupplyChange = prevMjlpSupply ? (mjlpSupply - prevMjlpSupply) / prevMjlpSupply * 100 : 0;
+      if (item.mjlpSupplyChange > 1000) item.mjlpSupplyChange = 0;
       item.aumChange = prevAum ? (aum - prevAum) / prevAum * 100 : 0;
       if (item.aumChange > 1000) item.aumChange = 0;
-      prevSlpSupply = mvlpSupply;
+      prevMjlpSupply = mjlpSupply;
       prevAum = aum;
       return item;
     });
     ret = fillNa(ret);
     return ret;
   }, [data]);
-  return [slpChartData, loading, error];
+  return [mjlpChartData, loading, error];
 }
-function useSlpPerformanceData(slpData, feesData, {
+function useMjlpPerformanceData(mjlpData, feesData, {
   from = FIRST_DATE_TS,
   chainName = "optimism"
 } = {}) {
@@ -3687,12 +3687,12 @@ function useSlpPerformanceData(slpData, feesData, {
   const [maticPrices] = useCoingeckoPrices("OP", {
     from
   });
-  const slpPerformanceChartData = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => {
-    var _slpDataById$btcPrice, _btcPrices$, _ethPrices$;
-    if (!btcPrices || !ethPrices || !slpData || !feesData) {
+  const mjlpPerformanceChartData = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => {
+    var _mjlpDataById$btcPrice, _btcPrices$, _ethPrices$;
+    if (!btcPrices || !ethPrices || !mjlpData || !feesData) {
       return null;
     }
-    const slpDataById = slpData.reduce((memo, item) => {
+    const mjlpDataById = mjlpData.reduce((memo, item) => {
       memo[item.timestamp] = item;
       return memo;
     }, {});
@@ -3706,59 +3706,59 @@ function useSlpPerformanceData(slpData, feesData, {
     let prevEthPrice = 1200;
     let prevMaticPrice = 0.4;
     const STABLE_WEIGHT = 0.5;
-    const SLP_START_PRICE = ((_slpDataById$btcPrice = slpDataById[btcPrices[0].timestamp]) === null || _slpDataById$btcPrice === void 0 ? void 0 : _slpDataById$btcPrice.slpPrice) || 1.19;
+    const MJLP_START_PRICE = ((_mjlpDataById$btcPrice = mjlpDataById[btcPrices[0].timestamp]) === null || _mjlpDataById$btcPrice === void 0 ? void 0 : _mjlpDataById$btcPrice.mjlpPrice) || 1.19;
     const btcFirstPrice = (_btcPrices$ = btcPrices[0]) === null || _btcPrices$ === void 0 ? void 0 : _btcPrices$.value;
     const ethFirstPrice = (_ethPrices$ = ethPrices[0]) === null || _ethPrices$ === void 0 ? void 0 : _ethPrices$.value;
     const maticFirstPrice = maticPrices && maticPrices[0] && maticPrices[0].value || prevMaticPrice;
-    const indexBtcCount = SLP_START_PRICE * BTC_WEIGHT / btcFirstPrice;
-    const indexEthCount = SLP_START_PRICE * ETH_WEIGHT / ethFirstPrice;
-    const indexMaticCount = SLP_START_PRICE * OP_WEIGHT / maticFirstPrice;
-    const lpBtcCount = SLP_START_PRICE * 0.5 / btcFirstPrice;
-    const lpEthCount = SLP_START_PRICE * 0.5 / ethFirstPrice;
-    const lpMaticCount = SLP_START_PRICE * 0.5 / maticFirstPrice;
+    const indexBtcCount = MJLP_START_PRICE * BTC_WEIGHT / btcFirstPrice;
+    const indexEthCount = MJLP_START_PRICE * ETH_WEIGHT / ethFirstPrice;
+    const indexMaticCount = MJLP_START_PRICE * OP_WEIGHT / maticFirstPrice;
+    const lpBtcCount = MJLP_START_PRICE * 0.5 / btcFirstPrice;
+    const lpEthCount = MJLP_START_PRICE * 0.5 / ethFirstPrice;
+    const lpMaticCount = MJLP_START_PRICE * 0.5 / maticFirstPrice;
     const ret = [];
-    let cumulativeFeesPerSlp = 0;
-    let cumulativeEsskullRewardsPerSlp = 0;
-    let lastSlpPrice = 0;
+    let cumulativeFeesPerMjlp = 0;
+    let cumulativeEsmjarRewardsPerMjlp = 0;
+    let lastMjlpPrice = 0;
     for (let i = 0; i < btcPrices.length; i++) {
-      var _ethPrices$i, _slpItem$slpPrice, _slpDataById$timestam, _feesDataById$timesta;
+      var _ethPrices$i, _mjlpItem$mjlpPrice, _mjlpDataById$timestam, _feesDataById$timesta;
       const btcPrice = btcPrices[i].value;
       const ethPrice = ((_ethPrices$i = ethPrices[i]) === null || _ethPrices$i === void 0 ? void 0 : _ethPrices$i.value) || prevEthPrice;
       const maticPrice = maticPrices && maticPrices[i] && maticPrices[i].value || prevMaticPrice;
       prevMaticPrice = maticPrice;
       prevEthPrice = ethPrice;
       const timestampGroup = parseInt(btcPrices[i].timestamp / 86400) * 86400;
-      const slpItem = slpDataById[timestampGroup];
-      const slpPrice = (_slpItem$slpPrice = slpItem === null || slpItem === void 0 ? void 0 : slpItem.slpPrice) !== null && _slpItem$slpPrice !== void 0 ? _slpItem$slpPrice : lastSlpPrice;
-      lastSlpPrice = slpPrice;
-      const mvlpSupply = (_slpDataById$timestam = slpDataById[timestampGroup]) === null || _slpDataById$timestam === void 0 ? void 0 : _slpDataById$timestam.mvlpSupply;
+      const mjlpItem = mjlpDataById[timestampGroup];
+      const mjlpPrice = (_mjlpItem$mjlpPrice = mjlpItem === null || mjlpItem === void 0 ? void 0 : mjlpItem.mjlpPrice) !== null && _mjlpItem$mjlpPrice !== void 0 ? _mjlpItem$mjlpPrice : lastMjlpPrice;
+      lastMjlpPrice = mjlpPrice;
+      const mjlpSupply = (_mjlpDataById$timestam = mjlpDataById[timestampGroup]) === null || _mjlpDataById$timestam === void 0 ? void 0 : _mjlpDataById$timestam.mjlpSupply;
       const dailyFees = (_feesDataById$timesta = feesDataById[timestampGroup]) === null || _feesDataById$timesta === void 0 ? void 0 : _feesDataById$timesta.all;
-      const syntheticPrice = indexBtcCount * btcPrice + indexEthCount * ethPrice + indexMaticCount * maticPrice + SLP_START_PRICE * STABLE_WEIGHT;
-      const lpBtcPrice = (lpBtcCount * btcPrice + SLP_START_PRICE / 2) * (1 + getImpermanentLoss(btcPrice / btcFirstPrice));
-      const lpEthPrice = (lpEthCount * ethPrice + SLP_START_PRICE / 2) * (1 + getImpermanentLoss(ethPrice / ethFirstPrice));
-      const lpMaticPrice = (lpMaticCount * maticPrice + SLP_START_PRICE / 2) * (1 + getImpermanentLoss(maticPrice / maticFirstPrice));
-      if (dailyFees && mvlpSupply) {
-        const INCREASED_SLP_REWARDS_TIMESTAMP = 1635714000;
-        const SLP_REWARDS_SHARE = timestampGroup >= INCREASED_SLP_REWARDS_TIMESTAMP ? 0.7 : 0.5;
-        const collectedFeesPerSlp = dailyFees / mvlpSupply * SLP_REWARDS_SHARE;
-        cumulativeFeesPerSlp += collectedFeesPerSlp;
-        cumulativeEsskullRewardsPerSlp += slpPrice * 0.8 / 365;
+      const syntheticPrice = indexBtcCount * btcPrice + indexEthCount * ethPrice + indexMaticCount * maticPrice + MJLP_START_PRICE * STABLE_WEIGHT;
+      const lpBtcPrice = (lpBtcCount * btcPrice + MJLP_START_PRICE / 2) * (1 + getImpermanentLoss(btcPrice / btcFirstPrice));
+      const lpEthPrice = (lpEthCount * ethPrice + MJLP_START_PRICE / 2) * (1 + getImpermanentLoss(ethPrice / ethFirstPrice));
+      const lpMaticPrice = (lpMaticCount * maticPrice + MJLP_START_PRICE / 2) * (1 + getImpermanentLoss(maticPrice / maticFirstPrice));
+      if (dailyFees && mjlpSupply) {
+        const INCREASED_MJLP_REWARDS_TIMESTAMP = 1635714000;
+        const MJLP_REWARDS_SHARE = timestampGroup >= INCREASED_MJLP_REWARDS_TIMESTAMP ? 0.7 : 0.5;
+        const collectedFeesPerMjlp = dailyFees / mjlpSupply * MJLP_REWARDS_SHARE;
+        cumulativeFeesPerMjlp += collectedFeesPerMjlp;
+        cumulativeEsmjarRewardsPerMjlp += mjlpPrice * 0.8 / 365;
       }
-      let slpPlusFees = slpPrice;
-      if (slpPrice && mvlpSupply && cumulativeFeesPerSlp) {
-        slpPlusFees = slpPrice + cumulativeFeesPerSlp;
+      let mjlpPlusFees = mjlpPrice;
+      if (mjlpPrice && mjlpSupply && cumulativeFeesPerMjlp) {
+        mjlpPlusFees = mjlpPrice + cumulativeFeesPerMjlp;
       }
-      let slpApr;
-      let slpPlusDistributedUsd;
-      let slpPlusDistributedEth;
-      if (slpItem) {
-        if (slpItem.cumulativeDistributedUsdPerSlp) {
-          slpPlusDistributedUsd = slpPrice + slpItem.cumulativeDistributedUsdPerSlp;
-          // slpApr = slpItem.distributedUsdPerSlp / slpPrice * 365 * 100 // incorrect?
+      let mjlpApr;
+      let mjlpPlusDistributedUsd;
+      let mjlpPlusDistributedEth;
+      if (mjlpItem) {
+        if (mjlpItem.cumulativeDistributedUsdPerMjlp) {
+          mjlpPlusDistributedUsd = mjlpPrice + mjlpItem.cumulativeDistributedUsdPerMjlp;
+          // mjlpApr = mjlpItem.distributedUsdPerMjlp / mjlpPrice * 365 * 100 // incorrect?
         }
 
-        if (slpItem.cumulativeDistributedEthPerSlp) {
-          slpPlusDistributedEth = slpPrice + slpItem.cumulativeDistributedEthPerSlp * ethPrice;
+        if (mjlpItem.cumulativeDistributedEthPerMjlp) {
+          mjlpPlusDistributedEth = mjlpPrice + mjlpItem.cumulativeDistributedEthPerMjlp * ethPrice;
         }
       }
       ret.push({
@@ -3767,27 +3767,27 @@ function useSlpPerformanceData(slpData, feesData, {
         lpBtcPrice,
         lpEthPrice,
         lpMaticPrice,
-        slpPrice,
+        mjlpPrice,
         btcPrice,
         ethPrice,
-        slpPlusFees,
-        slpPlusDistributedUsd,
-        slpPlusDistributedEth,
-        performanceLpEth: (slpPrice / lpEthPrice * 100).toFixed(1),
-        performanceLpEthCollectedFees: (slpPlusFees / lpEthPrice * 100).toFixed(1),
-        performanceLpEthDistributedUsd: (slpPlusDistributedUsd / lpEthPrice * 100).toFixed(1),
-        performanceLpEthDistributedEth: (slpPlusDistributedEth / lpEthPrice * 100).toFixed(1),
-        performanceLpBtcCollectedFees: (slpPlusFees / lpBtcPrice * 100).toFixed(1),
-        performanceSynthetic: (slpPrice / syntheticPrice * 100).toFixed(1),
-        performanceSyntheticCollectedFees: (slpPlusFees / syntheticPrice * 100).toFixed(1),
-        performanceSyntheticDistributedUsd: (slpPlusDistributedUsd / syntheticPrice * 100).toFixed(1),
-        performanceSyntheticDistributedEth: (slpPlusDistributedEth / syntheticPrice * 100).toFixed(1),
-        slpApr
+        mjlpPlusFees,
+        mjlpPlusDistributedUsd,
+        mjlpPlusDistributedEth,
+        performanceLpEth: (mjlpPrice / lpEthPrice * 100).toFixed(1),
+        performanceLpEthCollectedFees: (mjlpPlusFees / lpEthPrice * 100).toFixed(1),
+        performanceLpEthDistributedUsd: (mjlpPlusDistributedUsd / lpEthPrice * 100).toFixed(1),
+        performanceLpEthDistributedEth: (mjlpPlusDistributedEth / lpEthPrice * 100).toFixed(1),
+        performanceLpBtcCollectedFees: (mjlpPlusFees / lpBtcPrice * 100).toFixed(1),
+        performanceSynthetic: (mjlpPrice / syntheticPrice * 100).toFixed(1),
+        performanceSyntheticCollectedFees: (mjlpPlusFees / syntheticPrice * 100).toFixed(1),
+        performanceSyntheticDistributedUsd: (mjlpPlusDistributedUsd / syntheticPrice * 100).toFixed(1),
+        performanceSyntheticDistributedEth: (mjlpPlusDistributedEth / syntheticPrice * 100).toFixed(1),
+        mjlpApr
       });
     }
     return ret;
-  }, [btcPrices, ethPrices, slpData, feesData]);
-  return [slpPerformanceChartData];
+  }, [btcPrices, ethPrices, mjlpData, feesData]);
+  return [mjlpPerformanceChartData];
 }
 function useReferralsData({
   from = FIRST_DATE_TS,
@@ -4924,7 +4924,7 @@ function routes(app) {
       return;
     }
   });
-  app.get('/api/skull-supply', async (req, res) => {
+  app.get('/api/mjar-supply', async (req, res) => {
     const apiResponse = await cross_fetch__WEBPACK_IMPORTED_MODULE_4___default()('https://stats.masonjar.finance/api/total_supply');
     const data = (await apiResponse.text()).toString();
     res.set('Content-Type', 'text/plain');
@@ -5170,21 +5170,21 @@ function Optimism(props) {
     const delta = total - ((_feesData2 = feesData[feesData.length - 2]) === null || _feesData2 === void 0 ? void 0 : _feesData2.cumulative);
     return [total, delta];
   }, [feesData]);
-  const [slpData, slpLoading] = Object(_dataProvider__WEBPACK_IMPORTED_MODULE_11__["useSlpData"])(params);
+  const [mjlpData, mjlpLoading] = Object(_dataProvider__WEBPACK_IMPORTED_MODULE_11__["useMjlpData"])(params);
   const {
     0: totalAum,
     1: totalAumDelta
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => {
-    var _slpData, _slpData2;
-    if (!slpData) {
+    var _mjlpData, _mjlpData2;
+    if (!mjlpData) {
       return [];
     }
-    const total = (_slpData = slpData[slpData.length - 1]) === null || _slpData === void 0 ? void 0 : _slpData.aum;
-    const delta = total - ((_slpData2 = slpData[slpData.length - 2]) === null || _slpData2 === void 0 ? void 0 : _slpData2.aum);
+    const total = (_mjlpData = mjlpData[mjlpData.length - 1]) === null || _mjlpData === void 0 ? void 0 : _mjlpData.aum;
+    const delta = total - ((_mjlpData2 = mjlpData[mjlpData.length - 2]) === null || _mjlpData2 === void 0 ? void 0 : _mjlpData2.aum);
     return [total, delta];
-  }, [slpData]);
+  }, [mjlpData]);
   const [aumPerformanceData, aumPerformanceLoading] = Object(_dataProvider__WEBPACK_IMPORTED_MODULE_11__["useAumPerformanceData"])(params);
-  const [slpPerformanceData, slpPerformanceLoading] = Object(_dataProvider__WEBPACK_IMPORTED_MODULE_11__["useSlpPerformanceData"])(slpData, feesData, params);
+  const [mjlpPerformanceData, mjlpPerformanceLoading] = Object(_dataProvider__WEBPACK_IMPORTED_MODULE_11__["useMjlpPerformanceData"])(mjlpData, feesData, params);
   const [tradersData, tradersLoading] = Object(_dataProvider__WEBPACK_IMPORTED_MODULE_11__["useTradersData"])(params);
   const {
     0: openInterest,
@@ -5480,7 +5480,7 @@ function Optimism(props) {
       lineNumber: 284,
       columnNumber: 15
     }
-  }, "SLP Pool"), __jsx("div", {
+  }, "MJLP Pool"), __jsx("div", {
     className: "total-stat-value",
     __self: this,
     __source: {
@@ -5689,13 +5689,13 @@ function Optimism(props) {
       columnNumber: 9
     }
   }, __jsx(_components_ChartWrapper__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    title: "SKULL & Slp Supply",
-    loading: slpLoading,
-    data: slpData,
+    title: "MJAR & Mjlp Supply",
+    loading: mjlpLoading,
+    data: mjlpData,
     csvFields: [{
       key: "aum"
     }, {
-      key: "mvlpSupply"
+      key: "mjlpSupply"
     }],
     __self: this,
     __source: {
@@ -5713,8 +5713,8 @@ function Optimism(props) {
       columnNumber: 13
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["LineChart"], {
-    data: slpData,
-    syncId: "syncSlp",
+    data: mjlpData,
+    syncId: "syncMjlp",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -5776,7 +5776,7 @@ function Optimism(props) {
     dot: false,
     dataKey: "aum",
     stackId: "a",
-    name: "SKULL",
+    name: "MJAR",
     stroke: _helpers__WEBPACK_IMPORTED_MODULE_5__["COLORS"][0],
     __self: this,
     __source: {
@@ -5789,9 +5789,9 @@ function Optimism(props) {
     type: "monotone",
     strokeWidth: 2,
     dot: false,
-    dataKey: "mvlpSupply",
+    dataKey: "mjlpSupply",
     stackId: "a",
-    name: "SLP Supply",
+    name: "MJLP Supply",
     stroke: _helpers__WEBPACK_IMPORTED_MODULE_5__["COLORS"][1],
     __self: this,
     __source: {
@@ -5808,15 +5808,15 @@ function Optimism(props) {
       columnNumber: 9
     }
   }, __jsx(_components_ChartWrapper__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    title: "Slp Performance",
-    loading: slpLoading,
-    data: slpPerformanceData,
+    title: "Mjlp Performance",
+    loading: mjlpLoading,
+    data: mjlpPerformanceData,
     csvFields: [{
       key: "syntheticPrice"
     }, {
-      key: "slpPrice"
+      key: "mjlpPrice"
     }, {
-      key: "slpPlusFees"
+      key: "mjlpPlusFees"
     }, {
       key: "lpBtcPrice"
     }, {
@@ -5856,8 +5856,8 @@ function Optimism(props) {
       columnNumber: 13
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["LineChart"], {
-    data: slpPerformanceData,
-    syncId: "syncSlp",
+    data: mjlpPerformanceData,
+    syncId: "syncMjlp",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -5980,7 +5980,7 @@ function Optimism(props) {
       lineNumber: 511,
       columnNumber: 17
     }
-  }, "% of Index (with fees)"), " ", "is SLP with fees / Index Price * 100. Index is a basket of 25% BTC, 25% ETH, 50% USDC rebalanced once\xA0a\xA0day", __jsx("br", {
+  }, "% of Index (with fees)"), " ", "is MJLP with fees / Index Price * 100. Index is a basket of 25% BTC, 25% ETH, 50% USDC rebalanced once\xA0a\xA0day", __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -5997,7 +5997,7 @@ function Optimism(props) {
       lineNumber: 515,
       columnNumber: 17
     }
-  }, "% of LP ETH-USDC (with fees)"), " ", "is SLP Price with fees / LP ETH-USDC * 100", __jsx("br", {
+  }, "% of LP ETH-USDC (with fees)"), " ", "is MJLP Price with fees / LP ETH-USDC * 100", __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -6013,15 +6013,15 @@ function Optimism(props) {
       columnNumber: 9
     }
   }, __jsx(_components_ChartWrapper__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    title: "Slp Price Comparison",
-    loading: slpLoading,
-    data: slpPerformanceData,
+    title: "Mjlp Price Comparison",
+    loading: mjlpLoading,
+    data: mjlpPerformanceData,
     csvFields: [{
       key: "syntheticPrice"
     }, {
-      key: "slpPrice"
+      key: "mjlpPrice"
     }, {
-      key: "slpPlusFees"
+      key: "mjlpPlusFees"
     }, {
       key: "lpBtcPrice"
     }, {
@@ -6045,8 +6045,8 @@ function Optimism(props) {
       columnNumber: 13
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["LineChart"], {
-    data: slpPerformanceData,
-    syncId: "syncSlp",
+    data: mjlpPerformanceData,
+    syncId: "syncMjlp",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -6084,7 +6084,7 @@ function Optimism(props) {
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["YAxis"], {
-    dataKey: "slpPrice",
+    dataKey: "mjlpPrice",
     domain: [0.4, 1.7],
     orientation: "right",
     yAxisId: "right",
@@ -6183,8 +6183,8 @@ function Optimism(props) {
     strokeWidth: 1,
     yAxisId: "right",
     dot: false,
-    dataKey: "slpPrice",
-    name: "Slp Price",
+    dataKey: "mjlpPrice",
+    name: "Mjlp Price",
     stroke: _helpers__WEBPACK_IMPORTED_MODULE_5__["COLORS"][1],
     __self: this,
     __source: {
@@ -6199,8 +6199,8 @@ function Optimism(props) {
     strokeWidth: 1,
     yAxisId: "right",
     dot: false,
-    dataKey: "slpPlusFees",
-    name: "Slp w/ fees",
+    dataKey: "mjlpPlusFees",
+    name: "Mjlp w/ fees",
     stroke: _helpers__WEBPACK_IMPORTED_MODULE_5__["COLORS"][3],
     __self: this,
     __source: {
@@ -6265,7 +6265,7 @@ function Optimism(props) {
       lineNumber: 658,
       columnNumber: 17
     }
-  }, "Slp with fees"), " is based on SLP share of fees received", __jsx("br", {
+  }, "Mjlp with fees"), " is based on MJLP share of fees received", __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -6282,7 +6282,7 @@ function Optimism(props) {
       lineNumber: 662,
       columnNumber: 17
     }
-  }, "% of Index (with fees)"), " ", "is Slp with fees / Index Price * 100", __jsx("br", {
+  }, "% of Index (with fees)"), " ", "is Mjlp with fees / Index Price * 100", __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -6299,7 +6299,7 @@ function Optimism(props) {
       lineNumber: 667,
       columnNumber: 17
     }
-  }, "% of LP ETH-USDC (with fees)"), " ", "is Slp Price with fees / LP ETH-USDC * 100", __jsx("br", {
+  }, "% of LP ETH-USDC (with fees)"), " ", "is Mjlp Price with fees / LP ETH-USDC * 100", __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -6326,7 +6326,7 @@ function Optimism(props) {
     }
   }, __jsx(_components_ChartWrapper__WEBPACK_IMPORTED_MODULE_7__["default"], {
     title: "Performance vs. Index",
-    loading: slpLoading,
+    loading: mjlpLoading,
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -6343,8 +6343,8 @@ function Optimism(props) {
       columnNumber: 15
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["LineChart"], {
-    data: slpPerformanceData,
-    syncId: "syncSlp",
+    data: mjlpPerformanceData,
+    syncId: "syncMjlp",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -6470,7 +6470,7 @@ function Optimism(props) {
     }
   }, __jsx(_components_ChartWrapper__WEBPACK_IMPORTED_MODULE_7__["default"], {
     title: "Performance vs. ETH LP",
-    loading: slpLoading,
+    loading: mjlpLoading,
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -6487,8 +6487,8 @@ function Optimism(props) {
       columnNumber: 15
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["LineChart"], {
-    data: slpPerformanceData,
-    syncId: "syncSlp",
+    data: mjlpPerformanceData,
+    syncId: "syncMjlp",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -7013,9 +7013,9 @@ function Optimism(props) {
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    syncId: "syncSlp",
+    syncId: "syncMjlp",
     loading: aumPerformanceLoading,
-    title: "SKULL Performance Annualized",
+    title: "MJAR Performance Annualized",
     data: aumPerformanceData,
     yaxisDataKey: "apr",
     yaxisTickFormatter: _helpers__WEBPACK_IMPORTED_MODULE_5__["yaxisFormatterPercent"],
@@ -7025,7 +7025,7 @@ function Optimism(props) {
       name: "APR",
       color: _helpers__WEBPACK_IMPORTED_MODULE_5__["COLORS"][0]
     }],
-    description: "Formula = Daily Fees / SLP Pool * 365 days * 100",
+    description: "Formula = Daily Fees / MJLP Pool * 365 days * 100",
     type: "Composed",
     __self: this,
     __source: {
@@ -7042,9 +7042,9 @@ function Optimism(props) {
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    syncId: "syncSlp",
+    syncId: "syncMjlp",
     loading: aumPerformanceLoading,
-    title: "SKULL Daily Usage",
+    title: "MJAR Daily Usage",
     data: aumPerformanceData,
     yaxisDataKey: "usage",
     yaxisTickFormatter: _helpers__WEBPACK_IMPORTED_MODULE_5__["yaxisFormatterPercent"],
@@ -7054,7 +7054,7 @@ function Optimism(props) {
       name: "Daily Usage",
       color: _helpers__WEBPACK_IMPORTED_MODULE_5__["COLORS"][4]
     }],
-    description: "Formula = Daily Volume / SLP Pool * 100",
+    description: "Formula = Daily Volume / MJLP Pool * 100",
     type: "Composed",
     __self: this,
     __source: {
@@ -7071,7 +7071,7 @@ function Optimism(props) {
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    syncId: "syncSlp",
+    syncId: "syncMjlp",
     loading: usersLoading,
     title: "Unique Users",
     data: usersData,
@@ -7087,7 +7087,7 @@ function Optimism(props) {
       name: "Margin trading"
     }, {
       key: "uniqueMintBurnCount",
-      name: "Mint & Burn SLP"
+      name: "Mint & Burn MJLP"
     }],
     type: "Composed",
     __self: this,
@@ -7105,7 +7105,7 @@ function Optimism(props) {
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    syncId: "syncSlp",
+    syncId: "syncMjlp",
     loading: usersLoading,
     title: "New Users",
     data: usersData === null || usersData === void 0 ? void 0 : usersData.map(item => _objectSpread(_objectSpread({}, item), {}, {
@@ -7149,7 +7149,7 @@ function Optimism(props) {
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    syncId: "syncSlp",
+    syncId: "syncMjlp",
     loading: usersLoading,
     title: "New vs. Existing Users",
     data: usersData === null || usersData === void 0 ? void 0 : usersData.map(item => _objectSpread(_objectSpread({}, item), {}, {
@@ -7191,7 +7191,7 @@ function Optimism(props) {
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    syncId: "syncSlp",
+    syncId: "syncMjlp",
     loading: usersLoading,
     title: "User Actions",
     data: (usersData || []).map(item => _objectSpread(_objectSpread({}, item), {}, {
@@ -7209,7 +7209,7 @@ function Optimism(props) {
       name: "Margin trading"
     }, {
       key: "actionMintBurnCount",
-      name: "Mint & Burn SLP"
+      name: "Mint & Burn MJLP"
     }],
     type: "Composed",
     __self: this,
@@ -7621,7 +7621,7 @@ function Referrals(props) {
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    syncId: "syncSlp",
+    syncId: "syncMjlp",
     loading: referralsLoading,
     title: "Referrals Volume",
     data: referralsData,
@@ -7660,7 +7660,7 @@ function Referrals(props) {
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    syncId: "syncSlp",
+    syncId: "syncMjlp",
     loading: referralsLoading,
     title: "Referrals Rebates",
     data: referralsData === null || referralsData === void 0 ? void 0 : referralsData.map(item => _objectSpread({
@@ -7696,7 +7696,7 @@ function Referrals(props) {
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    syncId: "syncSlp",
+    syncId: "syncMjlp",
     loading: referralsLoading,
     title: "Registered Affiliates",
     data: referralsData,
@@ -7733,7 +7733,7 @@ function Referrals(props) {
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    syncId: "syncSlp",
+    syncId: "syncMjlp",
     loading: referralsLoading,
     title: "Referrals Registrations",
     data: referralsData,

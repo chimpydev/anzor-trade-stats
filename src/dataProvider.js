@@ -9,7 +9,7 @@ import { getAddress, OPTIMISM } from "./addresses";
 const { JsonRpcProvider } = ethers.providers;
 
 import RewardReader from "../abis/RewardReader.json";
-import SlpManager from "../abis/SlpManager.json";
+import MjlpManager from "../abis/MjlpManager.json";
 import Token from "../abis/v1/Token.json";
 
 const providers = {
@@ -66,14 +66,14 @@ export async function queryEarnData(chainName, account) {
     RewardReader.abi,
     provider
   );
-  const slpContract = new ethers.Contract(
-    getAddress(chainId, "SLP"),
+  const mjlpContract = new ethers.Contract(
+    getAddress(chainId, "MJLP"),
     Token.abi,
     provider
   );
-  const slpManager = new ethers.Contract(
-    getAddress(chainId, "SlpManager"),
-    SlpManager.abi,
+  const mjlpManager = new ethers.Contract(
+    getAddress(chainId, "MjlpManager"),
+    MjlpManager.abi,
     provider
   );
 
@@ -83,31 +83,31 @@ export async function queryEarnData(chainName, account) {
 
   if (chainId === OPTIMISM) {
     depositTokens = [
-      getAddress(OPTIMISM, "SKULL"),
-      getAddress(OPTIMISM, "ES_SKULL"),
-      getAddress(OPTIMISM, "STAKED_SKULL_TRACKER"),
-      getAddress(OPTIMISM, "BONUS_SKULL_TRACKER"),
-      getAddress(OPTIMISM, "BN_SKULL"),
-      getAddress(OPTIMISM, "SLP"),
+      getAddress(OPTIMISM, "MJAR"),
+      getAddress(OPTIMISM, "ES_MJAR"),
+      getAddress(OPTIMISM, "STAKED_MJAR_TRACKER"),
+      getAddress(OPTIMISM, "BONUS_MJAR_TRACKER"),
+      getAddress(OPTIMISM, "BN_MJAR"),
+      getAddress(OPTIMISM, "MJLP"),
     ];
     rewardTrackersForDepositBalances = [
-      getAddress(OPTIMISM, "STAKED_SKULL_TRACKER"),
-      getAddress(OPTIMISM, "STAKED_SKULL_TRACKER"),
-      getAddress(OPTIMISM, "BONUS_SKULL_TRACKER"),
-      getAddress(OPTIMISM, "FEE_SKULL_TRACKER"),
-      getAddress(OPTIMISM, "FEE_SKULL_TRACKER"),
-      getAddress(OPTIMISM, "FEE_SLP_TRACKER"),
+      getAddress(OPTIMISM, "STAKED_MJAR_TRACKER"),
+      getAddress(OPTIMISM, "STAKED_MJAR_TRACKER"),
+      getAddress(OPTIMISM, "BONUS_MJAR_TRACKER"),
+      getAddress(OPTIMISM, "FEE_MJAR_TRACKER"),
+      getAddress(OPTIMISM, "FEE_MJAR_TRACKER"),
+      getAddress(OPTIMISM, "FEE_MJLP_TRACKER"),
     ];
     rewardTrackersForStakingInfo = [
-      getAddress(OPTIMISM, "STAKED_SKULL_TRACKER"),
-      getAddress(OPTIMISM, "BONUS_SKULL_TRACKER"),
-      getAddress(OPTIMISM, "FEE_SKULL_TRACKER"),
-      getAddress(OPTIMISM, "STAKED_SLP_TRACKER"),
-      getAddress(OPTIMISM, "FEE_SLP_TRACKER"),
+      getAddress(OPTIMISM, "STAKED_MJAR_TRACKER"),
+      getAddress(OPTIMISM, "BONUS_MJAR_TRACKER"),
+      getAddress(OPTIMISM, "FEE_MJAR_TRACKER"),
+      getAddress(OPTIMISM, "STAKED_MJLP_TRACKER"),
+      getAddress(OPTIMISM, "FEE_MJLP_TRACKER"),
     ];
   }
 
-  const [balances, stakingInfo, slpTotalSupply, slpAum, skullPrice] =
+  const [balances, stakingInfo, mjlpTotalSupply, mjlpAum, mjarPrice] =
     await Promise.all([
       rewardReader.getDepositBalances(
         account,
@@ -121,8 +121,8 @@ export async function queryEarnData(chainName, account) {
             return info.slice(i * 5, (i + 1) * 5);
           });
         }),
-      slpContract.totalSupply(),
-      slpManager.getAumInUsdm(true),
+      mjlpContract.totalSupply(),
+      mjlpManager.getAumInUsdm(true),
       fetch(
         "https://api.coingecko.com/api/v3/simple/price?ids=metavault-trade&vs_currencies=usd"
       ).then(async (res) => {
@@ -131,22 +131,22 @@ export async function queryEarnData(chainName, account) {
       }),
     ]);
 
-  const slpPrice = slpAum / 1e18 / (slpTotalSupply / 1e18);
+  const mjlpPrice = mjlpAum / 1e18 / (mjlpTotalSupply / 1e18);
   const now = new Date();
 
   return {
-    SLP: {
-      stakedSLP: balances[5] / 1e18,
+    MJLP: {
+      stakedMJLP: balances[5] / 1e18,
       pendingETH: stakingInfo[4][0] / 1e18,
-      pendingEsSKULL: stakingInfo[3][0] / 1e18,
-      slpPrice,
+      pendingEsMJAR: stakingInfo[3][0] / 1e18,
+      mjlpPrice,
     },
-    SKULL: {
-      stakedSKULL: balances[0] / 1e18,
-      stakedEsSKULL: balances[1] / 1e18,
+    MJAR: {
+      stakedMJAR: balances[0] / 1e18,
+      stakedEsMJAR: balances[1] / 1e18,
       pendingETH: stakingInfo[2][0] / 1e18,
-      pendingEsSKULL: stakingInfo[0][0] / 1e18,
-      skullPrice,
+      pendingEsMJAR: stakingInfo[0][0] / 1e18,
+      mjarPrice,
     },
     timestamp: parseInt(now / 1000),
     datetime: now.toISOString(),
@@ -178,13 +178,13 @@ function getTokenDecimals(token) {
 
 const knownSwapSources = {
   optimism: {
-    [getAddress(OPTIMISM, "Router")]: "SKULL",
-    [getAddress(OPTIMISM, "OrderBook")]: "SKULL",
-    [getAddress(OPTIMISM, "PositionManager")]: "SKULL",
-    // [getAddress(OPTIMISM, "OrderExecutor")]: "SKULL",
-    [getAddress(OPTIMISM, "FastPriceFeed")]: "SKULL",
-    [getAddress(OPTIMISM, "PositionExecutorUpKeep")]: "SKULL",
-    [getAddress(OPTIMISM, "PositionRouter")]: "SKULL",
+    [getAddress(OPTIMISM, "Router")]: "MJAR",
+    [getAddress(OPTIMISM, "OrderBook")]: "MJAR",
+    [getAddress(OPTIMISM, "PositionManager")]: "MJAR",
+    // [getAddress(OPTIMISM, "OrderExecutor")]: "MJAR",
+    [getAddress(OPTIMISM, "FastPriceFeed")]: "MJAR",
+    [getAddress(OPTIMISM, "PositionExecutorUpKeep")]: "MJAR",
+    [getAddress(OPTIMISM, "PositionRouter")]: "MJAR",
   },
 };
 
@@ -236,7 +236,7 @@ export function useCoingeckoPrices(symbol, { from = FIRST_DATE_TS } = {}) {
 
     const ret = res.prices.map((item) => {
       // -1 is for shifting to previous day
-      // because CG uses first price of the day, but for SLP we store last price of the day
+      // because CG uses first price of the day, but for MJLP we store last price of the day
       const timestamp = item[0] - 1;
       const groupTs = parseInt(timestamp / 1000 / 86400) * 86400;
       return {
@@ -560,7 +560,7 @@ export function useSwapSources({
 }
 
 function getServerHostname(chainName) {
-  return process.env.RAZZLE_SKULL_API_URL;
+  return process.env.RAZZLE_MJAR_API_URL;
 }
 
 export function useTotalVolumeFromServer() {
@@ -1010,29 +1010,29 @@ export function useAumPerformanceData({
   groupPeriod,
 }) {
   const [feesData, feesLoading] = useFeesData({ from, to, groupPeriod });
-  const [slpData, slpLoading] = useSlpData({ from, to, groupPeriod });
+  const [mjlpData, mjlpLoading] = useMjlpData({ from, to, groupPeriod });
   const [volumeData, volumeLoading] = useVolumeData({ from, to, groupPeriod });
 
   const dailyCoef = 86400 / groupPeriod;
 
   const data = useMemo(() => {
-    if (!feesData || !slpData || !volumeData) {
+    if (!feesData || !mjlpData || !volumeData) {
       return null;
     }
 
     const ret = feesData.map((feeItem, i) => {
-      const slpItem = slpData[i];
+      const mjlpItem = mjlpData[i];
       const volumeItem = volumeData[i];
       let apr =
-        feeItem?.all && slpItem?.aum
-          ? (feeItem.all / slpItem.aum) * 100 * 365 * dailyCoef
+        feeItem?.all && mjlpItem?.aum
+          ? (feeItem.all / mjlpItem.aum) * 100 * 365 * dailyCoef
           : null;
       if (apr > 10000) {
         apr = null;
       }
       let usage =
-        volumeItem?.all && slpItem?.aum
-          ? (volumeItem.all / slpItem.aum) * 100 * dailyCoef
+        volumeItem?.all && mjlpItem?.aum
+          ? (volumeItem.all / mjlpItem.aum) * 100 * dailyCoef
           : null;
       if (usage > 10000) {
         usage = null;
@@ -1051,18 +1051,18 @@ export function useAumPerformanceData({
       ret.reduce((memo, item) => item.usage + memo, 0) / ret.length;
     ret.forEach((item) => (item.averageUsage = averageUsage));
     return ret;
-  }, [feesData, slpData, volumeData]);
+  }, [feesData, mjlpData, volumeData]);
 
-  return [data, feesLoading || slpLoading || volumeLoading];
+  return [data, feesLoading || mjlpLoading || volumeLoading];
 }
 
-export function useSlpData({
+export function useMjlpData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
   chainName = "optimism",
 } = {}) {
   const query = `{
-    mvlpStats(
+    mjlpStats(
       first: 1000
       orderBy: timestamp
       orderDirection: desc
@@ -1070,53 +1070,53 @@ export function useSlpData({
     ) {
       timestamp
       aumInUsdm
-      mvlpSupply
+      mjlpSupply
       distributedUsd
       distributedEth
     }
   }`;
   let [data, loading, error] = useGraph(query, { chainName });
 
-  let cumulativeDistributedUsdPerSlp = 0;
-  let cumulativeDistributedEthPerSlp = 0;
-  const slpChartData = useMemo(() => {
-    if (!data || (data && data.mvlpStats.length === 0)) {
+  let cumulativeDistributedUsdPerMjlp = 0;
+  let cumulativeDistributedEthPerMjlp = 0;
+  const mjlpChartData = useMemo(() => {
+    if (!data || (data && data.mjlpStats.length === 0)) {
       return null;
     }
 
     const getTimestamp = (item) => item.timestamp;
 
-    let prevSlpSupply;
+    let prevMjlpSupply;
     let prevAum;
 
-    let ret = sortBy(data.mvlpStats, (item) => item.timestamp)
+    let ret = sortBy(data.mjlpStats, (item) => item.timestamp)
       .filter((item) => item.timestamp % 86400 === 0)
       .reduce((memo, item) => {
         const last = memo[memo.length - 1];
 
         const aum = Number(item.aumInUsdm) / 1e18;
-        const mvlpSupply = Number(item.mvlpSupply) / 1e18;
+        const mjlpSupply = Number(item.mjlpSupply) / 1e18;
 
         const distributedUsd = Number(item.distributedUsd) / 1e30;
-        const distributedUsdPerSlp = distributedUsd / mvlpSupply || 0;
-        cumulativeDistributedUsdPerSlp += distributedUsdPerSlp;
+        const distributedUsdPerMjlp = distributedUsd / mjlpSupply || 0;
+        cumulativeDistributedUsdPerMjlp += distributedUsdPerMjlp;
 
         const distributedEth = Number(item.distributedEth) / 1e18;
-        const distributedEthPerSlp = distributedEth / mvlpSupply || 0;
-        cumulativeDistributedEthPerSlp += distributedEthPerSlp;
+        const distributedEthPerMjlp = distributedEth / mjlpSupply || 0;
+        cumulativeDistributedEthPerMjlp += distributedEthPerMjlp;
 
-        const slpPrice = aum / mvlpSupply;
+        const mjlpPrice = aum / mjlpSupply;
         const timestamp = parseInt(item.timestamp);
 
         const newItem = {
           timestamp,
           aum,
-          mvlpSupply,
-          slpPrice,
-          cumulativeDistributedEthPerSlp,
-          cumulativeDistributedUsdPerSlp,
-          distributedUsdPerSlp,
-          distributedEthPerSlp,
+          mjlpSupply,
+          mjlpPrice,
+          cumulativeDistributedEthPerMjlp,
+          cumulativeDistributedUsdPerMjlp,
+          distributedUsdPerMjlp,
+          distributedEthPerMjlp,
         };
 
         if (last && last.timestamp === timestamp) {
@@ -1128,20 +1128,20 @@ export function useSlpData({
         return memo;
       }, [])
       .map((item) => {
-        let { mvlpSupply, aum } = item;
-        if (!mvlpSupply) {
-          mvlpSupply = prevSlpSupply;
+        let { mjlpSupply, aum } = item;
+        if (!mjlpSupply) {
+          mjlpSupply = prevMjlpSupply;
         }
         if (!aum) {
           aum = prevAum;
         }
-        item.mvlpSupplyChange = prevSlpSupply
-          ? ((mvlpSupply - prevSlpSupply) / prevSlpSupply) * 100
+        item.mjlpSupplyChange = prevMjlpSupply
+          ? ((mjlpSupply - prevMjlpSupply) / prevMjlpSupply) * 100
           : 0;
-        if (item.mvlpSupplyChange > 1000) item.mvlpSupplyChange = 0;
+        if (item.mjlpSupplyChange > 1000) item.mjlpSupplyChange = 0;
         item.aumChange = prevAum ? ((aum - prevAum) / prevAum) * 100 : 0;
         if (item.aumChange > 1000) item.aumChange = 0;
-        prevSlpSupply = mvlpSupply;
+        prevMjlpSupply = mjlpSupply;
         prevAum = aum;
         return item;
       });
@@ -1150,11 +1150,11 @@ export function useSlpData({
     return ret;
   }, [data]);
 
-  return [slpChartData, loading, error];
+  return [mjlpChartData, loading, error];
 }
 
-export function useSlpPerformanceData(
-  slpData,
+export function useMjlpPerformanceData(
+  mjlpData,
   feesData,
   { from = FIRST_DATE_TS, chainName = "optimism" } = {}
 ) {
@@ -1162,12 +1162,12 @@ export function useSlpPerformanceData(
   const [ethPrices] = useCoingeckoPrices("ETH", { from });
   const [maticPrices] = useCoingeckoPrices("OP", { from });
 
-  const slpPerformanceChartData = useMemo(() => {
-    if (!btcPrices || !ethPrices || !slpData || !feesData) {
+  const mjlpPerformanceChartData = useMemo(() => {
+    if (!btcPrices || !ethPrices || !mjlpData || !feesData) {
       return null;
     }
 
-    const slpDataById = slpData.reduce((memo, item) => {
+    const mjlpDataById = mjlpData.reduce((memo, item) => {
       memo[item.timestamp] = item;
       return memo;
     }, {});
@@ -1186,25 +1186,25 @@ export function useSlpPerformanceData(
     let prevMaticPrice = 0.4;
 
     const STABLE_WEIGHT = 0.5;
-    const SLP_START_PRICE =
-      slpDataById[btcPrices[0].timestamp]?.slpPrice || 1.19;
+    const MJLP_START_PRICE =
+      mjlpDataById[btcPrices[0].timestamp]?.mjlpPrice || 1.19;
 
     const btcFirstPrice = btcPrices[0]?.value;
     const ethFirstPrice = ethPrices[0]?.value;
     const maticFirstPrice = ( maticPrices && maticPrices[0] && maticPrices[0].value ) || prevMaticPrice;
 
-    const indexBtcCount = (SLP_START_PRICE * BTC_WEIGHT) / btcFirstPrice;
-    const indexEthCount = (SLP_START_PRICE * ETH_WEIGHT) / ethFirstPrice;
-    const indexMaticCount = (SLP_START_PRICE * OP_WEIGHT) / maticFirstPrice;
+    const indexBtcCount = (MJLP_START_PRICE * BTC_WEIGHT) / btcFirstPrice;
+    const indexEthCount = (MJLP_START_PRICE * ETH_WEIGHT) / ethFirstPrice;
+    const indexMaticCount = (MJLP_START_PRICE * OP_WEIGHT) / maticFirstPrice;
 
-    const lpBtcCount = (SLP_START_PRICE * 0.5) / btcFirstPrice;
-    const lpEthCount = (SLP_START_PRICE * 0.5) / ethFirstPrice;
-    const lpMaticCount = (SLP_START_PRICE * 0.5) / maticFirstPrice;
+    const lpBtcCount = (MJLP_START_PRICE * 0.5) / btcFirstPrice;
+    const lpEthCount = (MJLP_START_PRICE * 0.5) / ethFirstPrice;
+    const lpMaticCount = (MJLP_START_PRICE * 0.5) / maticFirstPrice;
 
     const ret = [];
-    let cumulativeFeesPerSlp = 0;
-    let cumulativeEsskullRewardsPerSlp = 0;
-    let lastSlpPrice = 0;
+    let cumulativeFeesPerMjlp = 0;
+    let cumulativeEsmjarRewardsPerMjlp = 0;
+    let lastMjlpPrice = 0;
 
     for (let i = 0; i < btcPrices.length; i++) {
       const btcPrice = btcPrices[i].value;
@@ -1214,56 +1214,56 @@ export function useSlpPerformanceData(
       prevEthPrice = ethPrice;
 
       const timestampGroup = parseInt(btcPrices[i].timestamp / 86400) * 86400;
-      const slpItem = slpDataById[timestampGroup];
-      const slpPrice = slpItem?.slpPrice ?? lastSlpPrice;
-      lastSlpPrice = slpPrice;
-      const mvlpSupply = slpDataById[timestampGroup]?.mvlpSupply;
+      const mjlpItem = mjlpDataById[timestampGroup];
+      const mjlpPrice = mjlpItem?.mjlpPrice ?? lastMjlpPrice;
+      lastMjlpPrice = mjlpPrice;
+      const mjlpSupply = mjlpDataById[timestampGroup]?.mjlpSupply;
       const dailyFees = feesDataById[timestampGroup]?.all;
 
       const syntheticPrice =
         indexBtcCount * btcPrice +
         indexEthCount * ethPrice +
         indexMaticCount * maticPrice +
-        SLP_START_PRICE * STABLE_WEIGHT;
+        MJLP_START_PRICE * STABLE_WEIGHT;
 
       const lpBtcPrice =
-        (lpBtcCount * btcPrice + SLP_START_PRICE / 2) *
+        (lpBtcCount * btcPrice + MJLP_START_PRICE / 2) *
         (1 + getImpermanentLoss(btcPrice / btcFirstPrice));
       const lpEthPrice =
-        (lpEthCount * ethPrice + SLP_START_PRICE / 2) *
+        (lpEthCount * ethPrice + MJLP_START_PRICE / 2) *
         (1 + getImpermanentLoss(ethPrice / ethFirstPrice));
       const lpMaticPrice =
-        (lpMaticCount * maticPrice + SLP_START_PRICE / 2) *
+        (lpMaticCount * maticPrice + MJLP_START_PRICE / 2) *
         (1 + getImpermanentLoss(maticPrice / maticFirstPrice));
 
-      if (dailyFees && mvlpSupply) {
-        const INCREASED_SLP_REWARDS_TIMESTAMP = 1635714000;
-        const SLP_REWARDS_SHARE =
-          timestampGroup >= INCREASED_SLP_REWARDS_TIMESTAMP ? 0.7 : 0.5;
-        const collectedFeesPerSlp =
-          (dailyFees / mvlpSupply) * SLP_REWARDS_SHARE;
-        cumulativeFeesPerSlp += collectedFeesPerSlp;
+      if (dailyFees && mjlpSupply) {
+        const INCREASED_MJLP_REWARDS_TIMESTAMP = 1635714000;
+        const MJLP_REWARDS_SHARE =
+          timestampGroup >= INCREASED_MJLP_REWARDS_TIMESTAMP ? 0.7 : 0.5;
+        const collectedFeesPerMjlp =
+          (dailyFees / mjlpSupply) * MJLP_REWARDS_SHARE;
+        cumulativeFeesPerMjlp += collectedFeesPerMjlp;
 
-        cumulativeEsskullRewardsPerSlp += (slpPrice * 0.8) / 365;
+        cumulativeEsmjarRewardsPerMjlp += (mjlpPrice * 0.8) / 365;
       }
 
-      let slpPlusFees = slpPrice;
-      if (slpPrice && mvlpSupply && cumulativeFeesPerSlp) {
-        slpPlusFees = slpPrice + cumulativeFeesPerSlp;
+      let mjlpPlusFees = mjlpPrice;
+      if (mjlpPrice && mjlpSupply && cumulativeFeesPerMjlp) {
+        mjlpPlusFees = mjlpPrice + cumulativeFeesPerMjlp;
       }
 
-      let slpApr;
-      let slpPlusDistributedUsd;
-      let slpPlusDistributedEth;
-      if (slpItem) {
-        if (slpItem.cumulativeDistributedUsdPerSlp) {
-          slpPlusDistributedUsd =
-            slpPrice + slpItem.cumulativeDistributedUsdPerSlp;
-          // slpApr = slpItem.distributedUsdPerSlp / slpPrice * 365 * 100 // incorrect?
+      let mjlpApr;
+      let mjlpPlusDistributedUsd;
+      let mjlpPlusDistributedEth;
+      if (mjlpItem) {
+        if (mjlpItem.cumulativeDistributedUsdPerMjlp) {
+          mjlpPlusDistributedUsd =
+            mjlpPrice + mjlpItem.cumulativeDistributedUsdPerMjlp;
+          // mjlpApr = mjlpItem.distributedUsdPerMjlp / mjlpPrice * 365 * 100 // incorrect?
         }
-        if (slpItem.cumulativeDistributedEthPerSlp) {
-          slpPlusDistributedEth =
-            slpPrice + slpItem.cumulativeDistributedEthPerSlp * ethPrice;
+        if (mjlpItem.cumulativeDistributedEthPerMjlp) {
+          mjlpPlusDistributedEth =
+            mjlpPrice + mjlpItem.cumulativeDistributedEthPerMjlp * ethPrice;
         }
       }
 
@@ -1273,54 +1273,54 @@ export function useSlpPerformanceData(
         lpBtcPrice,
         lpEthPrice,
         lpMaticPrice,
-        slpPrice,
+        mjlpPrice,
         btcPrice,
         ethPrice,
-        slpPlusFees,
-        slpPlusDistributedUsd,
-        slpPlusDistributedEth,
+        mjlpPlusFees,
+        mjlpPlusDistributedUsd,
+        mjlpPlusDistributedEth,
 
-        performanceLpEth: ((slpPrice / lpEthPrice) * 100).toFixed(1),
+        performanceLpEth: ((mjlpPrice / lpEthPrice) * 100).toFixed(1),
         performanceLpEthCollectedFees: (
-          (slpPlusFees / lpEthPrice) *
+          (mjlpPlusFees / lpEthPrice) *
           100
         ).toFixed(1),
         performanceLpEthDistributedUsd: (
-          (slpPlusDistributedUsd / lpEthPrice) *
+          (mjlpPlusDistributedUsd / lpEthPrice) *
           100
         ).toFixed(1),
         performanceLpEthDistributedEth: (
-          (slpPlusDistributedEth / lpEthPrice) *
+          (mjlpPlusDistributedEth / lpEthPrice) *
           100
         ).toFixed(1),
 
         performanceLpBtcCollectedFees: (
-          (slpPlusFees / lpBtcPrice) *
+          (mjlpPlusFees / lpBtcPrice) *
           100
         ).toFixed(1),
 
-        performanceSynthetic: ((slpPrice / syntheticPrice) * 100).toFixed(1),
+        performanceSynthetic: ((mjlpPrice / syntheticPrice) * 100).toFixed(1),
         performanceSyntheticCollectedFees: (
-          (slpPlusFees / syntheticPrice) *
+          (mjlpPlusFees / syntheticPrice) *
           100
         ).toFixed(1),
         performanceSyntheticDistributedUsd: (
-          (slpPlusDistributedUsd / syntheticPrice) *
+          (mjlpPlusDistributedUsd / syntheticPrice) *
           100
         ).toFixed(1),
         performanceSyntheticDistributedEth: (
-          (slpPlusDistributedEth / syntheticPrice) *
+          (mjlpPlusDistributedEth / syntheticPrice) *
           100
         ).toFixed(1),
 
-        slpApr,
+        mjlpApr,
       });
     }
 
     return ret;
-  }, [btcPrices, ethPrices, slpData, feesData]);
+  }, [btcPrices, ethPrices, mjlpData, feesData]);
 
-  return [slpPerformanceChartData];
+  return [mjlpPerformanceChartData];
 }
 
 export function useReferralsData({

@@ -1,7 +1,7 @@
 {
     "_format": "hh-sol-artifact-1",
-    "contractName": "SlpManager",
-    "sourceName": "contracts/core/SlpManager.sol",
+    "contractName": "MjlpManager",
+    "sourceName": "contracts/core/MjlpManager.sol",
     "abi": [
         {
             "inputs": [
@@ -17,7 +17,7 @@
                 },
                 {
                     "internalType": "address",
-                    "name": "_slp",
+                    "name": "_mjlp",
                     "type": "address"
                 },
                 {
@@ -59,7 +59,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "mvlpSupply",
+                    "name": "mjlpSupply",
                     "type": "uint256"
                 },
                 {
@@ -96,7 +96,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "slpAmount",
+                    "name": "mjlpAmount",
                     "type": "uint256"
                 },
                 {
@@ -108,7 +108,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "mvlpSupply",
+                    "name": "mjlpSupply",
                     "type": "uint256"
                 },
                 {
@@ -185,7 +185,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_minSlp",
+                    "name": "_minMjlp",
                     "type": "uint256"
                 }
             ],
@@ -229,7 +229,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_minSlp",
+                    "name": "_minMjlp",
                     "type": "uint256"
                 }
             ],
@@ -400,7 +400,7 @@
         },
         {
             "inputs": [],
-            "name": "slp",
+            "name": "mjlp",
             "outputs": [
                 {
                     "internalType": "address",
@@ -420,7 +420,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_slpAmount",
+                    "name": "_mjlpAmount",
                     "type": "uint256"
                 },
                 {
@@ -459,7 +459,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_slpAmount",
+                    "name": "_mjlpAmount",
                     "type": "uint256"
                 },
                 {

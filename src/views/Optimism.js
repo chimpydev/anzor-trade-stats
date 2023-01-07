@@ -51,10 +51,10 @@ import {
   useTotalVolumeFromServer,
   useVolumeDataFromServer,
   useFeesData,
-  useSlpData,
+  useMjlpData,
   useAumPerformanceData,
   useCoingeckoPrices,
-  useSlpPerformanceData,
+  useMjlpPerformanceData,
   useTradersData,
   useSwapSources,
   useFundingRateData,
@@ -112,21 +112,21 @@ function Optimism(props) {
     return [total, delta];
   }, [feesData]);
 
-  const [slpData, slpLoading] = useSlpData(params);
+  const [mjlpData, mjlpLoading] = useMjlpData(params);
   const [totalAum, totalAumDelta] = useMemo(() => {
-    if (!slpData) {
+    if (!mjlpData) {
       return [];
     }
-    const total = slpData[slpData.length - 1]?.aum;
-    const delta = total - slpData[slpData.length - 2]?.aum;
+    const total = mjlpData[mjlpData.length - 1]?.aum;
+    const delta = total - mjlpData[mjlpData.length - 2]?.aum;
     return [total, delta];
-  }, [slpData]);
+  }, [mjlpData]);
 
   const [aumPerformanceData, aumPerformanceLoading] =
     useAumPerformanceData(params);
 
-  const [slpPerformanceData, slpPerformanceLoading] = useSlpPerformanceData(
-    slpData,
+  const [mjlpPerformanceData, mjlpPerformanceLoading] = useMjlpPerformanceData(
+    mjlpData,
     feesData,
     params
   );
@@ -281,7 +281,7 @@ function Optimism(props) {
         <div className="chart-cell stats">
           {totalAum ? (
             <>
-              <div className="total-stat-label">SLP Pool</div>
+              <div className="total-stat-label">MJLP Pool</div>
               <div className="total-stat-value">
                 {formatNumber(totalAum, { currency: true })}
                 <span
@@ -384,13 +384,13 @@ function Optimism(props) {
         </div>
         <div className="chart-cell">
           <ChartWrapper
-            title="SKULL & Slp Supply"
-            loading={slpLoading}
-            data={slpData}
-            csvFields={[{ key: "aum" }, { key: "mvlpSupply" }]}
+            title="MJAR & Mjlp Supply"
+            loading={mjlpLoading}
+            data={mjlpData}
+            csvFields={[{ key: "aum" }, { key: "mjlpSupply" }]}
           >
             <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-              <LineChart data={slpData} syncId="syncSlp">
+              <LineChart data={mjlpData} syncId="syncMjlp">
                 <CartesianGrid strokeDasharray="10 10" />
                 <XAxis
                   dataKey="timestamp"
@@ -416,7 +416,7 @@ function Optimism(props) {
                   dot={false}
                   dataKey="aum"
                   stackId="a"
-                  name="SKULL"
+                  name="MJAR"
                   stroke={COLORS[0]}
                 />
                 <Line
@@ -424,9 +424,9 @@ function Optimism(props) {
                   type="monotone"
                   strokeWidth={2}
                   dot={false}
-                  dataKey="mvlpSupply"
+                  dataKey="mjlpSupply"
                   stackId="a"
-                  name="SLP Supply"
+                  name="MJLP Supply"
                   stroke={COLORS[1]}
                 />
               </LineChart>
@@ -436,13 +436,13 @@ function Optimism(props) {
 
         <div className="chart-cell">
           <ChartWrapper
-            title="Slp Performance"
-            loading={slpLoading}
-            data={slpPerformanceData}
+            title="Mjlp Performance"
+            loading={mjlpLoading}
+            data={mjlpPerformanceData}
             csvFields={[
               { key: "syntheticPrice" },
-              { key: "slpPrice" },
-              { key: "slpPlusFees" },
+              { key: "mjlpPrice" },
+              { key: "mjlpPlusFees" },
               { key: "lpBtcPrice" },
               { key: "lpEthPrice" },
               { key: "performanceSyntheticCollectedFees" },
@@ -457,7 +457,7 @@ function Optimism(props) {
             ]}
           >
             <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-              <LineChart data={slpPerformanceData} syncId="syncSlp">
+              <LineChart data={mjlpPerformanceData} syncId="syncMjlp">
                 <CartesianGrid strokeDasharray="10 10" />
                 <XAxis
                   dataKey="timestamp"
@@ -509,13 +509,13 @@ function Optimism(props) {
             <div className="chart-description">
               <p>
                 <span style={{ color: COLORS[0] }}>% of Index (with fees)</span>{" "}
-                is SLP with fees / Index Price * 100. Index is a basket of 25%
+                is MJLP with fees / Index Price * 100. Index is a basket of 25%
                 BTC, 25% ETH, 50% USDC rebalanced once&nbsp;a&nbsp;day
                 <br />
                 <span style={{ color: COLORS[4] }}>
                   % of LP ETH-USDC (with fees)
                 </span>{" "}
-                is SLP Price with fees / LP ETH-USDC * 100
+                is MJLP Price with fees / LP ETH-USDC * 100
                 <br />
               </p>
             </div>
@@ -524,20 +524,20 @@ function Optimism(props) {
 
         <div className="chart-cell">
           <ChartWrapper
-            title="Slp Price Comparison"
-            loading={slpLoading}
-            data={slpPerformanceData}
+            title="Mjlp Price Comparison"
+            loading={mjlpLoading}
+            data={mjlpPerformanceData}
             csvFields={[
               { key: "syntheticPrice" },
-              { key: "slpPrice" },
-              { key: "slpPlusFees" },
+              { key: "mjlpPrice" },
+              { key: "mjlpPlusFees" },
               { key: "lpBtcPrice" },
               { key: "lpEthPrice" },
               { key: "performanceSyntheticCollectedFees" },
             ]}
           >
             <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-              <LineChart data={slpPerformanceData} syncId="syncSlp">
+              <LineChart data={mjlpPerformanceData} syncId="syncMjlp">
                 <CartesianGrid strokeDasharray="10 10" />
                 <XAxis
                   dataKey="timestamp"
@@ -552,7 +552,7 @@ function Optimism(props) {
                   width={YAXIS_WIDTH}
                 />
                 <YAxis
-                  dataKey="slpPrice"
+                  dataKey="mjlpPrice"
                   domain={[0.4, 1.7]}
                   orientation="right"
                   yAxisId="right"
@@ -614,8 +614,8 @@ function Optimism(props) {
                   strokeWidth={1}
                   yAxisId="right"
                   dot={false}
-                  dataKey="slpPrice"
-                  name="Slp Price"
+                  dataKey="mjlpPrice"
+                  name="Mjlp Price"
                   stroke={COLORS[1]}
                 />
                 <Line
@@ -625,8 +625,8 @@ function Optimism(props) {
                   strokeWidth={1}
                   yAxisId="right"
                   dot={false}
-                  dataKey="slpPlusFees"
-                  name="Slp w/ fees"
+                  dataKey="mjlpPlusFees"
+                  name="Mjlp w/ fees"
                   stroke={COLORS[3]}
                 />
                 <Line
@@ -655,19 +655,19 @@ function Optimism(props) {
             </ResponsiveContainer>
             <div className="chart-description">
               <p>
-                <span style={{ color: COLORS[3] }}>Slp with fees</span> is
-                based on SLP share of fees received
-                {/* based on SLP share of fees received and excluding esSKULL rewards */}
+                <span style={{ color: COLORS[3] }}>Mjlp with fees</span> is
+                based on MJLP share of fees received
+                {/* based on MJLP share of fees received and excluding esMJAR rewards */}
                 <br />
                 <span style={{ color: COLORS[0] }}>
                   % of Index (with fees)
                 </span>{" "}
-                is Slp with fees / Index Price * 100
+                is Mjlp with fees / Index Price * 100
                 <br />
                 <span style={{ color: COLORS[4] }}>
                   % of LP ETH-USDC (with fees)
                 </span>{" "}
-                is Slp Price with fees / LP ETH-USDC * 100
+                is Mjlp Price with fees / LP ETH-USDC * 100
                 <br />
                 <span style={{ color: COLORS[2] }}>Index Price</span> is 25%
                 BTC, 25% ETH, 50% USDC
@@ -677,9 +677,9 @@ function Optimism(props) {
         </div>
         {isExperiment && (
           <div className="chart-cell experiment">
-            <ChartWrapper title="Performance vs. Index" loading={slpLoading}>
+            <ChartWrapper title="Performance vs. Index" loading={mjlpLoading}>
               <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-                <LineChart data={slpPerformanceData} syncId="syncSlp">
+                <LineChart data={mjlpPerformanceData} syncId="syncMjlp">
                   <CartesianGrid strokeDasharray="10 10" />
                   <XAxis
                     dataKey="timestamp"
@@ -746,9 +746,9 @@ function Optimism(props) {
         )}
         {isExperiment && (
           <div className="chart-cell experiment">
-            <ChartWrapper title="Performance vs. ETH LP" loading={slpLoading}>
+            <ChartWrapper title="Performance vs. ETH LP" loading={mjlpLoading}>
               <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
-                <LineChart data={slpPerformanceData} syncId="syncSlp">
+                <LineChart data={mjlpPerformanceData} syncId="syncMjlp">
                   <CartesianGrid strokeDasharray="10 10" />
                   <XAxis
                     dataKey="timestamp"
@@ -1007,35 +1007,35 @@ function Optimism(props) {
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncSlp"
+            syncId="syncMjlp"
             loading={aumPerformanceLoading}
-            title="SKULL Performance Annualized"
+            title="MJAR Performance Annualized"
             data={aumPerformanceData}
             yaxisDataKey="apr"
             yaxisTickFormatter={yaxisFormatterPercent}
             tooltipFormatter={tooltipFormatterPercent}
             items={[{ key: "apr", name: "APR", color: COLORS[0] }]}
-            description="Formula = Daily Fees / SLP Pool * 365 days * 100"
+            description="Formula = Daily Fees / MJLP Pool * 365 days * 100"
             type="Composed"
           />
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncSlp"
+            syncId="syncMjlp"
             loading={aumPerformanceLoading}
-            title="SKULL Daily Usage"
+            title="MJAR Daily Usage"
             data={aumPerformanceData}
             yaxisDataKey="usage"
             yaxisTickFormatter={yaxisFormatterPercent}
             tooltipFormatter={tooltipFormatterPercent}
             items={[{ key: "usage", name: "Daily Usage", color: COLORS[4] }]}
-            description="Formula = Daily Volume / SLP Pool * 100"
+            description="Formula = Daily Volume / MJLP Pool * 100"
             type="Composed"
           />
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncSlp"
+            syncId="syncMjlp"
             loading={usersLoading}
             title="Unique Users"
             data={usersData}
@@ -1046,14 +1046,14 @@ function Optimism(props) {
             items={[
               { key: "uniqueSwapCount", name: "Swaps" },
               { key: "uniqueMarginCount", name: "Margin trading" },
-              { key: "uniqueMintBurnCount", name: "Mint & Burn SLP" },
+              { key: "uniqueMintBurnCount", name: "Mint & Burn MJLP" },
             ]}
             type="Composed"
           />
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncSlp"
+            syncId="syncMjlp"
             loading={usersLoading}
             title="New Users"
             data={usersData?.map((item) => ({ ...item, all: item.newCount }))}
@@ -1080,7 +1080,7 @@ function Optimism(props) {
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncSlp"
+            syncId="syncMjlp"
             loading={usersLoading}
             title="New vs. Existing Users"
             data={usersData?.map((item) => ({
@@ -1110,7 +1110,7 @@ function Optimism(props) {
         </div>
         <div className="chart-cell">
           <GenericChart
-            syncId="syncSlp"
+            syncId="syncMjlp"
             loading={usersLoading}
             title="User Actions"
             data={(usersData || []).map((item) => ({
@@ -1124,7 +1124,7 @@ function Optimism(props) {
             items={[
               { key: "actionSwapCount", name: "Swaps" },
               { key: "actionMarginCount", name: "Margin trading" },
-              { key: "actionMintBurnCount", name: "Mint & Burn SLP" },
+              { key: "actionMintBurnCount", name: "Mint & Burn MJLP" },
             ]}
             type="Composed"
           />

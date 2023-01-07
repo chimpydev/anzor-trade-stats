@@ -21,7 +21,7 @@ function AppHeaderLinks({ mode, small, clickCloseIcon }) {
             <FiX className="App-header-menu-icon" />
           </div>
           <NavLink exact activeClassName="active" className="App-header-link-main" to="/">
-            <img src={darkLogoIcon} alt="SKULL Logo" style={{width: '40px', height: '40px'}} />
+            <img src={darkLogoIcon} alt="MJAR Logo" style={{width: '40px', height: '40px'}} />
           </NavLink>
         </div>
       }

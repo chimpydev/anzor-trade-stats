@@ -553,7 +553,7 @@ export default function routes(app) {
     }
   })
 
-  app.get('/api/skull-supply', async (req, res) => {
+  app.get('/api/mjar-supply', async (req, res) => {
     const apiResponse = await fetch('https://stats.masonjar.finance/api/total_supply')
     const data = (await apiResponse.text()).toString()
     res.set('Content-Type', 'text/plain')
