@@ -1,9 +1,9 @@
 
-export const FANTOM = 250;
+export const OPTIMISM = 10;
 
 export const addresses = {
 
-  [FANTOM]: {
+  [OPTIMISM]: {
     SKULL: "0x9945Dd3eCB40A6b594813f2A4DF1643b10Fe3550", // DONE
     ES_SKULL: "",
     SLP: "0x85CEF8dd0AaD49Fb4C04529f65D92177B936Da74", // DONE
@@ -13,7 +13,7 @@ export const addresses = {
     BONUS_SKULL_TRACKER: "",
     FEE_SKULL_TRACKER: "",
     FEE_SLP_TRACKER: "",
-    FTM: "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+    OP: "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
     BTC: "0x321162Cd933E2Be498Cd2267a90534A804051b11", // 8 decimals wrapped btc
     ETH: "0x74b23882a30290451A17c44f4F05243b6b58C76d", // 18 decimals wrapped eth
     RewardReader: "0xeF98e5d4F67633D6072c2a93e69A7F6a6179fD1b",

@@ -4,7 +4,7 @@ import { chain, sumBy, sortBy, maxBy, minBy } from "lodash";
 import fetch from "cross-fetch";
 import * as ethers from "ethers";
 
-import { getAddress, FANTOM } from "./addresses";
+import { getAddress, OPTIMISM } from "./addresses";
 
 const { JsonRpcProvider } = ethers.providers;
 
@@ -13,19 +13,19 @@ import SlpManager from "../abis/SlpManager.json";
 import Token from "../abis/v1/Token.json";
 
 const providers = {
-  fantom: new JsonRpcProvider("https://rpc.ftm.tools/"),
+  optimism: new JsonRpcProvider("https://rpc.ankr.com/optimism"),
 };
 
 function getProvider(chainName) {
   if (!(chainName in providers)) {
     throw new Error(`Unknown chain ${chainName}`);
   }
-  return providers["fantom"];
+  return providers["optimism"];
 }
 
 function getChainId(chainName) {
   const chainId = {
-    fantom: FANTOM,
+    optimism: OPTIMISM,
   }[chainName];
   if (!chainId) {
     throw new Error(`Unknown chain ${chainName}`);
@@ -81,29 +81,29 @@ export async function queryEarnData(chainName, account) {
   let rewardTrackersForDepositBalances;
   let rewardTrackersForStakingInfo;
 
-  if (chainId === FANTOM) {
+  if (chainId === OPTIMISM) {
     depositTokens = [
-      getAddress(FANTOM, "SKULL"),
-      getAddress(FANTOM, "ES_SKULL"),
-      getAddress(FANTOM, "STAKED_SKULL_TRACKER"),
-      getAddress(FANTOM, "BONUS_SKULL_TRACKER"),
-      getAddress(FANTOM, "BN_SKULL"),
-      getAddress(FANTOM, "SLP"),
+      getAddress(OPTIMISM, "SKULL"),
+      getAddress(OPTIMISM, "ES_SKULL"),
+      getAddress(OPTIMISM, "STAKED_SKULL_TRACKER"),
+      getAddress(OPTIMISM, "BONUS_SKULL_TRACKER"),
+      getAddress(OPTIMISM, "BN_SKULL"),
+      getAddress(OPTIMISM, "SLP"),
     ];
     rewardTrackersForDepositBalances = [
-      getAddress(FANTOM, "STAKED_SKULL_TRACKER"),
-      getAddress(FANTOM, "STAKED_SKULL_TRACKER"),
-      getAddress(FANTOM, "BONUS_SKULL_TRACKER"),
-      getAddress(FANTOM, "FEE_SKULL_TRACKER"),
-      getAddress(FANTOM, "FEE_SKULL_TRACKER"),
-      getAddress(FANTOM, "FEE_SLP_TRACKER"),
+      getAddress(OPTIMISM, "STAKED_SKULL_TRACKER"),
+      getAddress(OPTIMISM, "STAKED_SKULL_TRACKER"),
+      getAddress(OPTIMISM, "BONUS_SKULL_TRACKER"),
+      getAddress(OPTIMISM, "FEE_SKULL_TRACKER"),
+      getAddress(OPTIMISM, "FEE_SKULL_TRACKER"),
+      getAddress(OPTIMISM, "FEE_SLP_TRACKER"),
     ];
     rewardTrackersForStakingInfo = [
-      getAddress(FANTOM, "STAKED_SKULL_TRACKER"),
-      getAddress(FANTOM, "BONUS_SKULL_TRACKER"),
-      getAddress(FANTOM, "FEE_SKULL_TRACKER"),
-      getAddress(FANTOM, "STAKED_SLP_TRACKER"),
-      getAddress(FANTOM, "FEE_SLP_TRACKER"),
+      getAddress(OPTIMISM, "STAKED_SKULL_TRACKER"),
+      getAddress(OPTIMISM, "BONUS_SKULL_TRACKER"),
+      getAddress(OPTIMISM, "FEE_SKULL_TRACKER"),
+      getAddress(OPTIMISM, "STAKED_SLP_TRACKER"),
+      getAddress(OPTIMISM, "FEE_SLP_TRACKER"),
     ];
   }
 
@@ -154,7 +154,7 @@ export async function queryEarnData(chainName, account) {
 }
 
 export const tokenDecimals = {
-  "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83": 18, // WFTM
+  "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83": 18, // WOP
   "0x74b23882a30290451A17c44f4F05243b6b58C76d": 18, // WETH
   "0x321162Cd933E2Be498Cd2267a90534A804051b11": 8, // BTC
   "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75": 6, // USDC
@@ -163,8 +163,8 @@ export const tokenDecimals = {
 };
 
 export const tokenSymbols = {
-  // Fantom
-  "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83": "WFTM",
+  // Optimism
+  "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83": "WOP",
   "0x74b23882a30290451A17c44f4F05243b6b58C76d": "WETH",
   "0x321162Cd933E2Be498Cd2267a90534A804051b11": "WBTC",
   "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75": "USDC",
@@ -177,14 +177,14 @@ function getTokenDecimals(token) {
 }
 
 const knownSwapSources = {
-  fantom: {
-    [getAddress(FANTOM, "Router")]: "SKULL",
-    [getAddress(FANTOM, "OrderBook")]: "SKULL",
-    [getAddress(FANTOM, "PositionManager")]: "SKULL",
-    // [getAddress(FANTOM, "OrderExecutor")]: "SKULL",
-    [getAddress(FANTOM, "FastPriceFeed")]: "SKULL",
-    [getAddress(FANTOM, "PositionExecutorUpKeep")]: "SKULL",
-    [getAddress(FANTOM, "PositionRouter")]: "SKULL",
+  optimism: {
+    [getAddress(OPTIMISM, "Router")]: "SKULL",
+    [getAddress(OPTIMISM, "OrderBook")]: "SKULL",
+    [getAddress(OPTIMISM, "PositionManager")]: "SKULL",
+    // [getAddress(OPTIMISM, "OrderExecutor")]: "SKULL",
+    [getAddress(OPTIMISM, "FastPriceFeed")]: "SKULL",
+    [getAddress(OPTIMISM, "PositionExecutorUpKeep")]: "SKULL",
+    [getAddress(OPTIMISM, "PositionRouter")]: "SKULL",
   },
 };
 
@@ -214,7 +214,7 @@ export function useCoingeckoPrices(symbol, { from = FIRST_DATE_TS } = {}) {
   const _symbol = {
     BTC: "bitcoin",
     ETH: "ethereum",
-    FTM: "fantom",
+    OP: "optimism",
     MATIC: "matic-network",
     WBTC: "wrapped-bitcoin",
     USDC: "usd-coin",
@@ -261,7 +261,7 @@ function getChainSubgraph(chainName) {
 
 export function useGraph(
   querySource,
-  { subgraph = null, subgraphUrl = null, chainName = "fantom" } = {}
+  { subgraph = null, subgraphUrl = null, chainName = "optimism" } = {}
 ) {
   const query = gql(querySource);
 
@@ -305,7 +305,7 @@ export function useGraph(
   return [data, loading, error];
 }
 
-export function useLastBlock(chainName = "fantom") {
+export function useLastBlock(chainName = "optimism") {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -320,7 +320,7 @@ export function useLastBlock(chainName = "fantom") {
   return [data, loading, error];
 }
 
-export function useLastSubgraphBlock(chainName = "fantom") {
+export function useLastSubgraphBlock(chainName = "optimism") {
   const [data, loading, error] = useGraph(
     `{
     _meta {
@@ -351,7 +351,7 @@ export function useLastSubgraphBlock(chainName = "fantom") {
 export function useTradersData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "fantom",
+  chainName = "optimism",
 } = {}) {
   const [closedPositionsData, loading, error] = useGraph(
     `{
@@ -489,7 +489,7 @@ function getSwapSourcesFragment(skip = 0, from, to) {
 export function useSwapSources({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "fantom",
+  chainName = "optimism",
 } = {}) {
   const query = `{
     a: ${getSwapSourcesFragment(0, from, to)}
@@ -578,7 +578,7 @@ export function useTotalVolumeFromServer() {
   }, [data, loading]);
 }
 
-export async function getStatsFromSubgraph(graphClient, chainName="fantom"){
+export async function getStatsFromSubgraph(graphClient, chainName="optimism"){
   const queryString = `{
     totalVolumes: volumeStats(where: {period: "total"}) {
       swap
@@ -644,7 +644,7 @@ export async function getStatsFromSubgraph(graphClient, chainName="fantom"){
 export function useVolumeDataFromServer({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "fantom",
+  chainName = "optimism",
 } = {}) {
   const PROPS = "margin liquidation swap mint burn".split(" ");
   const [data, loading] = useRequest(
@@ -736,7 +736,7 @@ export function useVolumeDataFromServer({
 export function useUsersData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "fantom",
+  chainName = "optimism",
 } = {}) {
   const query = `{
     userStats(
@@ -799,7 +799,7 @@ export function useUsersData({
 export function useFundingRateData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "fantom",
+  chainName = "optimism",
 } = {}) {
   const query = `{
     fundingRates(
@@ -844,7 +844,7 @@ export function useFundingRateData({
     }, {});
 
     return fillNa(sortBy(Object.values(groups), "timestamp"), [
-      "FTM",
+      "OP",
       "ETH",
       "USDC",
       "USDT",
@@ -862,7 +862,7 @@ const MOVING_AVERAGE_PERIOD = 86400 * MOVING_AVERAGE_DAYS;
 export function useVolumeData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "fantom",
+  chainName = "optimism",
 } = {}) {
   const PROPS = "margin liquidation swap mint burn".split(" ");
   const timestampProp = "timestamp";
@@ -928,7 +928,7 @@ export function useVolumeData({
 export function useFeesData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "fantom",
+  chainName = "optimism",
 } = {}) {
   const PROPS = "margin liquidation swap mint burn".split(" ");
   const feesQuery = `{
@@ -1059,7 +1059,7 @@ export function useAumPerformanceData({
 export function useSlpData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "fantom",
+  chainName = "optimism",
 } = {}) {
   const query = `{
     mvlpStats(
@@ -1156,11 +1156,11 @@ export function useSlpData({
 export function useSlpPerformanceData(
   slpData,
   feesData,
-  { from = FIRST_DATE_TS, chainName = "fantom" } = {}
+  { from = FIRST_DATE_TS, chainName = "optimism" } = {}
 ) {
   const [btcPrices] = useCoingeckoPrices("BTC", { from });
   const [ethPrices] = useCoingeckoPrices("ETH", { from });
-  const [maticPrices] = useCoingeckoPrices("FTM", { from });
+  const [maticPrices] = useCoingeckoPrices("OP", { from });
 
   const slpPerformanceChartData = useMemo(() => {
     if (!btcPrices || !ethPrices || !slpData || !feesData) {
@@ -1179,7 +1179,7 @@ export function useSlpPerformanceData(
 
     let BTC_WEIGHT = 0.15;
     let ETH_WEIGHT = 0.2;
-    let FTM_WEIGHT = 0.1;
+    let OP_WEIGHT = 0.1;
 
 
     let prevEthPrice = 1200;
@@ -1195,7 +1195,7 @@ export function useSlpPerformanceData(
 
     const indexBtcCount = (SLP_START_PRICE * BTC_WEIGHT) / btcFirstPrice;
     const indexEthCount = (SLP_START_PRICE * ETH_WEIGHT) / ethFirstPrice;
-    const indexMaticCount = (SLP_START_PRICE * FTM_WEIGHT) / maticFirstPrice;
+    const indexMaticCount = (SLP_START_PRICE * OP_WEIGHT) / maticFirstPrice;
 
     const lpBtcCount = (SLP_START_PRICE * 0.5) / btcFirstPrice;
     const lpEthCount = (SLP_START_PRICE * 0.5) / ethFirstPrice;
@@ -1326,7 +1326,7 @@ export function useSlpPerformanceData(
 export function useReferralsData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "fantom",
+  chainName = "optimism",
 } = {}) {
   const query = `{
     globalStats(

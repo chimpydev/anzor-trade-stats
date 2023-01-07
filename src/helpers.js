@@ -261,7 +261,7 @@ export function urlWithParams(url, params) {
 }
 
 export function getProvider(chainId) {
-  return new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools/", chainId)
+  return new ethers.providers.JsonRpcProvider("https://rpc.ankr.com/optimism", chainId)
 }
 
 export function findNearest(arr, needle, getter = el => el) {

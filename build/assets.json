@@ -1,62 +1,53 @@
 {
   "client": {
-    "css": [
-      "/static/css/client.dabd140a.css"
-    ],
     "js": [
-      "/static/js/client.a17a2654.js"
+      "http://localhost:3001/static/js/client.js"
     ],
     "map": [
-      "/static/css/client.dabd140a.css.map",
-      "/static/js/client.a17a2654.js.map"
+      "http://localhost:3001/static/js/client.js.map"
     ],
     "chunks": [
-      0
+      "client"
     ]
   },
   "noentry": {
-    "png": [
-      "/favicon.png",
-      "/static/media/anzor-logo.d2fc9a5f.png"
-    ],
-    "txt": [
-      "/robots.txt",
-      "/static/js/client.a17a2654.js.LICENSE.txt"
-    ],
     "woff": [
-      "/static/media/Inter-Black.1ede3792.woff",
-      "/static/media/Inter-Bold.a0e8358d.woff",
-      "/static/media/Inter-ExtraBold.5bcb7989.woff",
-      "/static/media/Inter-ExtraLight.89a33fa2.woff",
-      "/static/media/Inter-Light.4217570c.woff",
-      "/static/media/Inter-Medium.6b5a42f0.woff",
-      "/static/media/Inter-Regular.ea2c76b5.woff",
-      "/static/media/Inter-SemiBold.0b003282.woff",
-      "/static/media/Inter-Thin.b9326ea9.woff",
-      "/static/media/relative-bold-pro.b64cc288.woff",
-      "/static/media/relative-book-pro.fc1b5057.woff"
+      "http://localhost:3001/static/media/Inter-Black.1ede3792.woff",
+      "http://localhost:3001/static/media/Inter-Bold.a0e8358d.woff",
+      "http://localhost:3001/static/media/Inter-ExtraBold.5bcb7989.woff",
+      "http://localhost:3001/static/media/Inter-ExtraLight.89a33fa2.woff",
+      "http://localhost:3001/static/media/Inter-Light.4217570c.woff",
+      "http://localhost:3001/static/media/Inter-Medium.6b5a42f0.woff",
+      "http://localhost:3001/static/media/Inter-Regular.ea2c76b5.woff",
+      "http://localhost:3001/static/media/Inter-SemiBold.0b003282.woff",
+      "http://localhost:3001/static/media/Inter-Thin.b9326ea9.woff",
+      "http://localhost:3001/static/media/relative-bold-pro.b64cc288.woff",
+      "http://localhost:3001/static/media/relative-book-pro.fc1b5057.woff"
     ],
     "woff2": [
-      "/static/media/Inter-Black.edf1baa0.woff2",
-      "/static/media/Inter-Bold.231f444d.woff2",
-      "/static/media/Inter-ExtraBold.27153fbc.woff2",
-      "/static/media/Inter-ExtraLight.096d2525.woff2",
-      "/static/media/Inter-Light.46884d02.woff2",
-      "/static/media/Inter-Medium.943a6775.woff2",
-      "/static/media/Inter-Regular.a90c493e.woff2",
-      "/static/media/Inter-SemiBold.920533dd.woff2",
-      "/static/media/Inter-Thin.273c722a.woff2",
-      "/static/media/relative-bold-pro.27c9225c.woff2",
-      "/static/media/relative-book-pro.99b8a3eb.woff2"
+      "http://localhost:3001/static/media/Inter-Black.edf1baa0.woff2",
+      "http://localhost:3001/static/media/Inter-Bold.231f444d.woff2",
+      "http://localhost:3001/static/media/Inter-ExtraBold.27153fbc.woff2",
+      "http://localhost:3001/static/media/Inter-ExtraLight.096d2525.woff2",
+      "http://localhost:3001/static/media/Inter-Light.46884d02.woff2",
+      "http://localhost:3001/static/media/Inter-Medium.943a6775.woff2",
+      "http://localhost:3001/static/media/Inter-Regular.a90c493e.woff2",
+      "http://localhost:3001/static/media/Inter-SemiBold.920533dd.woff2",
+      "http://localhost:3001/static/media/Inter-Thin.273c722a.woff2",
+      "http://localhost:3001/static/media/relative-bold-pro.27c9225c.woff2",
+      "http://localhost:3001/static/media/relative-book-pro.99b8a3eb.woff2"
     ],
     "ttf": [
-      "/static/media/SkullFont.32862168.ttf",
-      "/static/media/relative-bold-pro.cb95c2b7.ttf",
-      "/static/media/relative-book-pro.c52403f4.ttf"
+      "http://localhost:3001/static/media/SkullFont.32862168.ttf",
+      "http://localhost:3001/static/media/relative-bold-pro.cb95c2b7.ttf",
+      "http://localhost:3001/static/media/relative-book-pro.c52403f4.ttf"
+    ],
+    "png": [
+      "http://localhost:3001/static/media/anzor-logo.d2fc9a5f.png"
     ],
     "eot": [
-      "/static/media/relative-bold-pro.d785e2df.eot",
-      "/static/media/relative-book-pro.6c6fdee7.eot"
+      "http://localhost:3001/static/media/relative-bold-pro.d785e2df.eot",
+      "http://localhost:3001/static/media/relative-book-pro.6c6fdee7.eot"
     ]
   }
 }

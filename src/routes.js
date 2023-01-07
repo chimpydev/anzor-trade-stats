@@ -8,7 +8,7 @@ import sizeof from 'object-sizeof'
 import App from './App';
 import { ApolloClient, InMemoryCache, gql, HttpLink } from '@apollo/client'
 import { getLogger } from './helpers'
-import { addresses, FANTOM } from './addresses'
+import { addresses, OPTIMISM } from './addresses'
 import { queryEarnData, getStatsFromSubgraph } from './dataProvider'
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
@@ -42,7 +42,7 @@ const apolloOptions = {
   }
 }
 
-const fantomGraphClient = new ApolloClient({
+const optimismGraphClient = new ApolloClient({
   link: new HttpLink({ uri: process.env.RAZZLE_SUBGRAPH_URL, fetch }),
   cache: new InMemoryCache(),
   defaultOptions: apolloOptions
@@ -50,10 +50,10 @@ const fantomGraphClient = new ApolloClient({
 
 const cachedPrices = {
   sorted: {
-    [FANTOM]: {},
+    [OPTIMISM]: {},
   },
   byKey: {
-    [FANTOM]: {},
+    [OPTIMISM]: {},
   }
 }
 function putPricesIntoCache(prices, chainId, entitiesKey) {
@@ -183,8 +183,8 @@ async function precacheOldPrices(chainId, entitiesKey) {
   }
 }
 if (!process.env.DISABLE_PRICES) {
-  precacheOldPrices(FANTOM, "chainlinkPrices")
-  precacheOldPrices(FANTOM, "fastPrices")
+  precacheOldPrices(OPTIMISM, "chainlinkPrices")
+  precacheOldPrices(OPTIMISM, "fastPrices")
 }
 
 
@@ -216,8 +216,8 @@ async function precacheNewPrices(chainId, entitiesKey) {
   setTimeout(precacheNewPrices, 1000 * 60 * 1, chainId, entitiesKey)
 }
 if (!process.env.DISABLE_PRICES) {
-  precacheNewPrices(FANTOM, "chainlinkPrices")
-  precacheNewPrices(FANTOM, "fastPrices")
+  precacheNewPrices(OPTIMISM, "chainlinkPrices")
+  precacheNewPrices(OPTIMISM, "fastPrices")
 }
 
 async function loadPrices({ before, after, chainId, entitiesKey } = {}) {
@@ -263,7 +263,7 @@ async function loadPrices({ before, after, chainId, entitiesKey } = {}) {
   }`
   const query = gql(queryString)
 
-  const graphClient = fantomGraphClient;
+  const graphClient = optimismGraphClient;
   const { data } = await graphClient.query({query})
   const prices = [
     ...data.p0,
@@ -317,21 +317,21 @@ function binSearchPrice(prices, timestamp, gt = true) {
   return ret
 }
 
-function getPrices(from, to, preferableChainId = FANTOM, preferableSource = "chainlink", symbol) {
+function getPrices(from, to, preferableChainId = OPTIMISM, preferableSource = "chainlink", symbol) {
   const start = Date.now()
 
   if (preferableSource !== "chainlink" && preferableSource !== "fast") {
     throw createHttpError(400, `Invalid preferableSource ${preferableSource}. Valid options are: chainlink, fast`)
   }
 
-  const validSymbols = new Set(['FTM', 'BTC', 'ETH'])
+  const validSymbols = new Set(['OP', 'BTC', 'ETH'])
   if (!validSymbols.has(symbol)) {
     throw createHttpError(400, `Invalid symbol ${symbol}`)
   }
   preferableChainId = Number(preferableChainId)
-  const validSources = new Set([FANTOM])
+  const validSources = new Set([OPTIMISM])
   if (!validSources.has(preferableChainId)) {
-    throw createHttpError(400, `Invalid preferableChainId ${preferableChainId}. Valid options are ${FANTOM}`)
+    throw createHttpError(400, `Invalid preferableChainId ${preferableChainId}. Valid options are ${OPTIMISM}`)
   }
 
   const tokenAddress = addresses[preferableChainId][symbol]?.toLowerCase()
@@ -461,7 +461,7 @@ export default function routes(app) {
     `
     const query = gql(queryString);
 
-    const graphClient = fantomGraphClient;
+    const graphClient = optimismGraphClient;
     const { data } = await graphClient.query({query})
     
     try {
@@ -487,7 +487,7 @@ export default function routes(app) {
   app.get('/api/stats', async (req, res, next) => {
 
     try {
-      const stats = await getStatsFromSubgraph(fantomGraphClient);
+      const stats = await getStatsFromSubgraph(optimismGraphClient);
       res.set('Cache-Control', 'max-age=60')
       res.send(stats)
     } catch (ex) {
@@ -513,7 +513,7 @@ export default function routes(app) {
     `
     const query = gql(queryString);
 
-    const graphClient = fantomGraphClient;
+    const graphClient = optimismGraphClient;
     const { data } = await graphClient.query({query})
     
     try {
@@ -537,8 +537,8 @@ export default function routes(app) {
   })
 
   app.get('/api/earn/:account', async (req, res, next) => {
-    const chainName = req.query.chain || 'fantom'
-    const validChainNames = new Set(['fantom'])
+    const chainName = req.query.chain || 'optimism'
+    const validChainNames = new Set(['optimism'])
     if (!validChainNames.has(chainName)) {
       next(createHttpError(400, `Valid chains are: ${Array.from(validChainNames)}`))
       return
