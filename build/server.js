@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "49fcd425866b5b815ebb";
+/******/ 	var hotCurrentHash = "8b5e548c6c2bd705f1ee";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -859,7 +859,7 @@ module.exports = JSON.parse("{\"_format\":\"hh-sol-artifact-1\",\"contractName\"
 /*! exports provided: client, noentry, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"client\":{\"js\":[\"http://localhost:3001/static/js/client.js\"],\"map\":[\"http://localhost:3001/static/js/client.js.map\"],\"chunks\":[\"client\"]},\"noentry\":{\"ttf\":[\"http://localhost:3001/static/media/Comfortaa-Bold.2df2dd0e.ttf\",\"http://localhost:3001/static/media/Comfortaa-Light.a32b6e45.ttf\",\"http://localhost:3001/static/media/Comfortaa-Medium.cca5f204.ttf\",\"http://localhost:3001/static/media/Comfortaa-Regular.26795cfa.ttf\",\"http://localhost:3001/static/media/Comfortaa-SemiBold.170d22d9.ttf\",\"http://localhost:3001/static/media/Philosopher-Bold.a3aed8ba.ttf\",\"http://localhost:3001/static/media/Philosopher-BoldItalic.fa16e091.ttf\",\"http://localhost:3001/static/media/Philosopher-Italic.b9e3037c.ttf\",\"http://localhost:3001/static/media/Philosopher-Regular.af6ea627.ttf\"],\"png\":[\"http://localhost:3001/static/media/anzor-logo.d2fc9a5f.png\"]}}");
+module.exports = JSON.parse("{\"client\":{\"js\":[\"http://localhost:3001/static/js/client.js\"],\"map\":[\"http://localhost:3001/static/js/client.js.map\"],\"chunks\":[\"client\"]},\"noentry\":{\"ttf\":[\"http://localhost:3001/static/media/Comfortaa-Bold.2df2dd0e.ttf\",\"http://localhost:3001/static/media/Comfortaa-Light.a32b6e45.ttf\",\"http://localhost:3001/static/media/Comfortaa-Medium.cca5f204.ttf\",\"http://localhost:3001/static/media/Comfortaa-Regular.26795cfa.ttf\",\"http://localhost:3001/static/media/Comfortaa-SemiBold.170d22d9.ttf\",\"http://localhost:3001/static/media/Philosopher-Bold.a3aed8ba.ttf\",\"http://localhost:3001/static/media/Philosopher-BoldItalic.fa16e091.ttf\",\"http://localhost:3001/static/media/Philosopher-Italic.b9e3037c.ttf\",\"http://localhost:3001/static/media/Philosopher-Regular.af6ea627.ttf\"],\"png\":[\"http://localhost:3001/static/media/anzor-logo.078fe1a9.png\"]}}");
 
 /***/ }),
 
@@ -4334,7 +4334,7 @@ function UsdmSupplyRecord(row) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "static/media/anzor-logo.d2fc9a5f.png";
+module.exports = __webpack_require__.p + "static/media/anzor-logo.078fe1a9.png";
 
 /***/ }),
 
