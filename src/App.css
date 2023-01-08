@@ -206,20 +206,19 @@ label + input {
 }
 
 .App.dark .chart-cell {
-  background: #181818;
+  /* background: #181818; */
   border: none;
   color: white;
 }
 
 .App.dark .chart-cell.stats {
-  border: 1px solid #FFFFFF14;
+  /* border: 1px solid #FFFFFF14; */
 }
 
 .chart-cell {
   margin: 0;
-  border-radius: 15px;
-  border: 1px solid #FFFFFF14;
-  background: #181818;
+  border-radius: 12px;
+  background: #131313;
   position: relative;
   padding: 1rem;
   grid-column-start: span 5;
@@ -315,7 +314,7 @@ label + input {
 
 
 .warning, .warning a {
-  color: #e46b00;
+  color: #d85a5a;
 }
 
 .nav {
