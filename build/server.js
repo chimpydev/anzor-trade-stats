@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "e21dc533b10b1003cad1";
+/******/ 	var hotCurrentHash = "a80a105dd364b46b94d4";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -6265,11 +6265,11 @@ function Optimism(props) {
       lineNumber: 658,
       columnNumber: 17
     }
-  }, "Mjlp with fees"), " is based on MJLP share of fees received", __jsx("br", {
+  }, "Mjlp with fees"), " is based on MJLP share of fees received and excluding esMJAR rewards", __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 661,
+      lineNumber: 660,
       columnNumber: 17
     }
   }), __jsx("span", {
@@ -6279,14 +6279,14 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 662,
+      lineNumber: 661,
       columnNumber: 17
     }
   }, "% of Index (with fees)"), " ", "is Mjlp with fees / Index Price * 100", __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 666,
+      lineNumber: 665,
       columnNumber: 17
     }
   }), __jsx("span", {
@@ -6296,14 +6296,14 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 667,
+      lineNumber: 666,
       columnNumber: 17
     }
   }, "% of LP ETH-USDC (with fees)"), " ", "is Mjlp Price with fees / LP ETH-USDC * 100", __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 671,
+      lineNumber: 670,
       columnNumber: 17
     }
   }), __jsx("span", {
@@ -6313,7 +6313,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 672,
+      lineNumber: 671,
       columnNumber: 17
     }
   }, "Index Price"), " is 25% BTC, 25% ETH, 50% USDC")))), isExperiment && __jsx("div", {
@@ -6321,7 +6321,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 679,
+      lineNumber: 678,
       columnNumber: 11
     }
   }, __jsx(_components_ChartWrapper__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -6330,7 +6330,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 680,
+      lineNumber: 679,
       columnNumber: 13
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["ResponsiveContainer"], {
@@ -6339,7 +6339,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 681,
+      lineNumber: 680,
       columnNumber: 15
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["LineChart"], {
@@ -6348,7 +6348,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 682,
+      lineNumber: 681,
       columnNumber: 17
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["CartesianGrid"], {
@@ -6356,7 +6356,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 683,
+      lineNumber: 682,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["XAxis"], {
@@ -6366,7 +6366,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 684,
+      lineNumber: 683,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["YAxis"], {
@@ -6378,7 +6378,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 689,
+      lineNumber: 688,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Tooltip"], {
@@ -6390,14 +6390,14 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 696,
+      lineNumber: 695,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Legend"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 701,
+      lineNumber: 700,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Line"], {
@@ -6412,7 +6412,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 702,
+      lineNumber: 701,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Line"], {
@@ -6427,7 +6427,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 712,
+      lineNumber: 711,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Line"], {
@@ -6442,7 +6442,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 722,
+      lineNumber: 721,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Line"], {
@@ -6457,7 +6457,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 732,
+      lineNumber: 731,
       columnNumber: 19
     }
   }))))), isExperiment && __jsx("div", {
@@ -6465,7 +6465,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 748,
+      lineNumber: 747,
       columnNumber: 11
     }
   }, __jsx(_components_ChartWrapper__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -6474,7 +6474,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 749,
+      lineNumber: 748,
       columnNumber: 13
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["ResponsiveContainer"], {
@@ -6483,7 +6483,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 750,
+      lineNumber: 749,
       columnNumber: 15
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["LineChart"], {
@@ -6492,7 +6492,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 751,
+      lineNumber: 750,
       columnNumber: 17
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["CartesianGrid"], {
@@ -6500,7 +6500,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 752,
+      lineNumber: 751,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["XAxis"], {
@@ -6510,7 +6510,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 753,
+      lineNumber: 752,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["YAxis"], {
@@ -6522,7 +6522,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 758,
+      lineNumber: 757,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Tooltip"], {
@@ -6534,14 +6534,14 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 765,
+      lineNumber: 764,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Legend"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 770,
+      lineNumber: 769,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Line"], {
@@ -6556,7 +6556,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 771,
+      lineNumber: 770,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Line"], {
@@ -6571,7 +6571,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 781,
+      lineNumber: 780,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Line"], {
@@ -6586,7 +6586,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 791,
+      lineNumber: 790,
       columnNumber: 19
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Line"], {
@@ -6601,7 +6601,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 801,
+      lineNumber: 800,
       columnNumber: 19
     }
   }))))), __jsx("div", {
@@ -6609,7 +6609,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 816,
+      lineNumber: 815,
       columnNumber: 9
     }
   }, __jsx(_components_ChartWrapper__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -6626,7 +6626,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 817,
+      lineNumber: 816,
       columnNumber: 11
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["ResponsiveContainer"], {
@@ -6636,7 +6636,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 826,
+      lineNumber: 825,
       columnNumber: 13
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["ComposedChart"], {
@@ -6644,7 +6644,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 831,
+      lineNumber: 830,
       columnNumber: 15
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["CartesianGrid"], {
@@ -6652,7 +6652,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 832,
+      lineNumber: 831,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["XAxis"], {
@@ -6662,7 +6662,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 833,
+      lineNumber: 832,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["YAxis"], {
@@ -6672,7 +6672,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 838,
+      lineNumber: 837,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Tooltip"], {
@@ -6684,14 +6684,14 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 846,
+      lineNumber: 845,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Legend"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 851,
+      lineNumber: 850,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Bar"], {
@@ -6703,7 +6703,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 852,
+      lineNumber: 851,
       columnNumber: 17
     }
   }, ((tradersData === null || tradersData === void 0 ? void 0 : tradersData.data) || []).map((item, i) => {
@@ -6713,7 +6713,7 @@ function Optimism(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 861,
+        lineNumber: 860,
         columnNumber: 23
       }
     });
@@ -6726,7 +6726,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 868,
+      lineNumber: 867,
       columnNumber: 17
     }
   }))), __jsx("div", {
@@ -6734,21 +6734,21 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 877,
+      lineNumber: 876,
       columnNumber: 13
     }
   }, __jsx("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 878,
+      lineNumber: 877,
       columnNumber: 15
     }
   }, "Considers settled (closed) positions"), __jsx("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 879,
+      lineNumber: 878,
       columnNumber: 15
     }
   }, "Fees are not factored into PnL")))), __jsx("div", {
@@ -6756,7 +6756,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 883,
+      lineNumber: 882,
       columnNumber: 9
     }
   }, __jsx(_components_ChartWrapper__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -6775,7 +6775,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 884,
+      lineNumber: 883,
       columnNumber: 11
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["ResponsiveContainer"], {
@@ -6785,7 +6785,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 895,
+      lineNumber: 894,
       columnNumber: 13
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["ComposedChart"], {
@@ -6794,7 +6794,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 900,
+      lineNumber: 899,
       columnNumber: 15
     }
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["CartesianGrid"], {
@@ -6802,7 +6802,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 901,
+      lineNumber: 900,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["XAxis"], {
@@ -6812,7 +6812,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 902,
+      lineNumber: 901,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["YAxis"], {
@@ -6822,7 +6822,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 907,
+      lineNumber: 906,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["YAxis"], {
@@ -6834,7 +6834,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 915,
+      lineNumber: 914,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Tooltip"], {
@@ -6846,14 +6846,14 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 925,
+      lineNumber: 924,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Legend"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 930,
+      lineNumber: 929,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Area"], {
@@ -6867,7 +6867,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 931,
+      lineNumber: 930,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Area"], {
@@ -6881,7 +6881,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 940,
+      lineNumber: 939,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Bar"], {
@@ -6893,7 +6893,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 949,
+      lineNumber: 948,
       columnNumber: 17
     }
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_6__["Bar"], {
@@ -6905,7 +6905,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 956,
+      lineNumber: 955,
       columnNumber: 17
     }
   }))), __jsx("div", {
@@ -6913,21 +6913,21 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 965,
+      lineNumber: 964,
       columnNumber: 13
     }
   }, __jsx("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 966,
+      lineNumber: 965,
       columnNumber: 15
     }
   }, "Considers settled (closed) positions"), __jsx("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 967,
+      lineNumber: 966,
       columnNumber: 15
     }
   }, "Fees are not factored into PnL")))), __jsx("div", {
@@ -6935,7 +6935,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 971,
+      lineNumber: 970,
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -6970,7 +6970,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 972,
+      lineNumber: 971,
       columnNumber: 11
     }
   })), __jsx("div", {
@@ -6978,7 +6978,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 992,
+      lineNumber: 991,
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -7001,7 +7001,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 993,
+      lineNumber: 992,
       columnNumber: 11
     }
   })), __jsx("div", {
@@ -7009,7 +7009,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1008,
+      lineNumber: 1007,
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -7030,7 +7030,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1009,
+      lineNumber: 1008,
       columnNumber: 11
     }
   })), __jsx("div", {
@@ -7038,7 +7038,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1022,
+      lineNumber: 1021,
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -7059,7 +7059,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1023,
+      lineNumber: 1022,
       columnNumber: 11
     }
   })), __jsx("div", {
@@ -7067,7 +7067,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1036,
+      lineNumber: 1035,
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -7093,7 +7093,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1037,
+      lineNumber: 1036,
       columnNumber: 11
     }
   })), __jsx("div", {
@@ -7101,7 +7101,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1054,
+      lineNumber: 1053,
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -7137,7 +7137,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1055,
+      lineNumber: 1054,
       columnNumber: 11
     }
   })), __jsx("div", {
@@ -7145,7 +7145,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1081,
+      lineNumber: 1080,
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -7179,7 +7179,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1082,
+      lineNumber: 1081,
       columnNumber: 11
     }
   })), __jsx("div", {
@@ -7187,7 +7187,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1111,
+      lineNumber: 1110,
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -7215,7 +7215,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1112,
+      lineNumber: 1111,
       columnNumber: 11
     }
   })), __jsx("div", {
@@ -7223,7 +7223,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1132,
+      lineNumber: 1131,
       columnNumber: 9
     }
   }, __jsx(_components_GenericChart__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -7236,7 +7236,7 @@ function Optimism(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 1133,
+      lineNumber: 1132,
       columnNumber: 11
     }
   }))));

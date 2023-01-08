@@ -656,8 +656,7 @@ function Optimism(props) {
             <div className="chart-description">
               <p>
                 <span style={{ color: COLORS[3] }}>Mjlp with fees</span> is
-                based on MJLP share of fees received
-                {/* based on MJLP share of fees received and excluding esMJAR rewards */}
+                based on MJLP share of fees received and excluding esMJAR rewards
                 <br />
                 <span style={{ color: COLORS[0] }}>
                   % of Index (with fees)
