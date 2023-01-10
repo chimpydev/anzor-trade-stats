@@ -261,7 +261,7 @@ export function urlWithParams(url, params) {
 }
 
 export function getProvider(chainId) {
-  return new ethers.providers.JsonRpcProvider("https://rpc.ankr.com/optimism", chainId)
+  return new ethers.providers.JsonRpcProvider("https://api.avax.network/ext/bc/C/rpc", chainId)
 }
 
 export function findNearest(arr, needle, getter = el => el) {

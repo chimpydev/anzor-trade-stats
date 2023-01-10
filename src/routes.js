@@ -8,7 +8,7 @@ import sizeof from 'object-sizeof'
 import App from './App';
 import { ApolloClient, InMemoryCache, gql, HttpLink } from '@apollo/client'
 import { getLogger } from './helpers'
-import { addresses, OPTIMISM } from './addresses'
+import { addresses, AVALANCHE } from './addresses'
 import { queryEarnData, getStatsFromSubgraph } from './dataProvider'
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
@@ -42,7 +42,7 @@ const apolloOptions = {
   }
 }
 
-const optimismGraphClient = new ApolloClient({
+const avalancheGraphClient = new ApolloClient({
   link: new HttpLink({ uri: process.env.RAZZLE_SUBGRAPH_URL, fetch }),
   cache: new InMemoryCache(),
   defaultOptions: apolloOptions
@@ -50,10 +50,10 @@ const optimismGraphClient = new ApolloClient({
 
 const cachedPrices = {
   sorted: {
-    [OPTIMISM]: {},
+    [AVALANCHE]: {},
   },
   byKey: {
-    [OPTIMISM]: {},
+    [AVALANCHE]: {},
   }
 }
 function putPricesIntoCache(prices, chainId, entitiesKey) {
@@ -183,8 +183,8 @@ async function precacheOldPrices(chainId, entitiesKey) {
   }
 }
 if (!process.env.DISABLE_PRICES) {
-  precacheOldPrices(OPTIMISM, "chainlinkPrices")
-  precacheOldPrices(OPTIMISM, "fastPrices")
+  precacheOldPrices(AVALANCHE, "chainlinkPrices")
+  precacheOldPrices(AVALANCHE, "fastPrices")
 }
 
 
@@ -216,8 +216,8 @@ async function precacheNewPrices(chainId, entitiesKey) {
   setTimeout(precacheNewPrices, 1000 * 60 * 1, chainId, entitiesKey)
 }
 if (!process.env.DISABLE_PRICES) {
-  precacheNewPrices(OPTIMISM, "chainlinkPrices")
-  precacheNewPrices(OPTIMISM, "fastPrices")
+  precacheNewPrices(AVALANCHE, "chainlinkPrices")
+  precacheNewPrices(AVALANCHE, "fastPrices")
 }
 
 async function loadPrices({ before, after, chainId, entitiesKey } = {}) {
@@ -263,7 +263,7 @@ async function loadPrices({ before, after, chainId, entitiesKey } = {}) {
   }`
   const query = gql(queryString)
 
-  const graphClient = optimismGraphClient;
+  const graphClient = avalancheGraphClient;
   const { data } = await graphClient.query({query})
   const prices = [
     ...data.p0,
@@ -317,21 +317,21 @@ function binSearchPrice(prices, timestamp, gt = true) {
   return ret
 }
 
-function getPrices(from, to, preferableChainId = OPTIMISM, preferableSource = "chainlink", symbol) {
+function getPrices(from, to, preferableChainId = AVALANCHE, preferableSource = "chainlink", symbol) {
   const start = Date.now()
 
   if (preferableSource !== "chainlink" && preferableSource !== "fast") {
     throw createHttpError(400, `Invalid preferableSource ${preferableSource}. Valid options are: chainlink, fast`)
   }
 
-  const validSymbols = new Set(['OP', 'BTC', 'ETH'])
+  const validSymbols = new Set(['AVAX', 'BTC', 'ETH'])
   if (!validSymbols.has(symbol)) {
     throw createHttpError(400, `Invalid symbol ${symbol}`)
   }
   preferableChainId = Number(preferableChainId)
-  const validSources = new Set([OPTIMISM])
+  const validSources = new Set([AVALANCHE])
   if (!validSources.has(preferableChainId)) {
-    throw createHttpError(400, `Invalid preferableChainId ${preferableChainId}. Valid options are ${OPTIMISM}`)
+    throw createHttpError(400, `Invalid preferableChainId ${preferableChainId}. Valid options are ${AVALANCHE}`)
   }
 
   const tokenAddress = addresses[preferableChainId][symbol]?.toLowerCase()
@@ -461,7 +461,7 @@ export default function routes(app) {
     `
     const query = gql(queryString);
 
-    const graphClient = optimismGraphClient;
+    const graphClient = avalancheGraphClient;
     const { data } = await graphClient.query({query})
     
     try {
@@ -487,7 +487,7 @@ export default function routes(app) {
   app.get('/api/stats', async (req, res, next) => {
 
     try {
-      const stats = await getStatsFromSubgraph(optimismGraphClient);
+      const stats = await getStatsFromSubgraph(avalancheGraphClient);
       res.set('Cache-Control', 'max-age=60')
       res.send(stats)
     } catch (ex) {
@@ -513,7 +513,7 @@ export default function routes(app) {
     `
     const query = gql(queryString);
 
-    const graphClient = optimismGraphClient;
+    const graphClient = avalancheGraphClient;
     const { data } = await graphClient.query({query})
     
     try {
@@ -537,8 +537,8 @@ export default function routes(app) {
   })
 
   app.get('/api/earn/:account', async (req, res, next) => {
-    const chainName = req.query.chain || 'optimism'
-    const validChainNames = new Set(['optimism'])
+    const chainName = req.query.chain || 'avalanche'
+    const validChainNames = new Set(['avalanche'])
     if (!validChainNames.has(chainName)) {
       next(createHttpError(400, `Valid chains are: ${Array.from(validChainNames)}`))
       return

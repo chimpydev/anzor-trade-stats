@@ -1,18 +1,38 @@
 {
-  "noentry": {
-    "ttf": [
-      "http://localhost:3001/static/media/Comfortaa-Bold.2df2dd0e.ttf",
-      "http://localhost:3001/static/media/Comfortaa-Light.a32b6e45.ttf",
-      "http://localhost:3001/static/media/Comfortaa-Medium.cca5f204.ttf",
-      "http://localhost:3001/static/media/Comfortaa-Regular.26795cfa.ttf",
-      "http://localhost:3001/static/media/Comfortaa-SemiBold.170d22d9.ttf",
-      "http://localhost:3001/static/media/Philosopher-Bold.a3aed8ba.ttf",
-      "http://localhost:3001/static/media/Philosopher-BoldItalic.fa16e091.ttf",
-      "http://localhost:3001/static/media/Philosopher-Italic.b9e3037c.ttf",
-      "http://localhost:3001/static/media/Philosopher-Regular.af6ea627.ttf"
+  "client": {
+    "css": [
+      "/static/css/client.27e3d35d.css"
     ],
+    "js": [
+      "/static/js/client.054727e3.js"
+    ],
+    "map": [
+      "/static/css/client.27e3d35d.css.map",
+      "/static/js/client.054727e3.js.map"
+    ],
+    "chunks": [
+      0
+    ]
+  },
+  "noentry": {
     "png": [
-      "http://localhost:3001/static/media/anzor-logo.078fe1a9.png"
+      "/favicon.png",
+      "/static/media/anzor-logo.078fe1a9.png"
+    ],
+    "txt": [
+      "/robots.txt",
+      "/static/js/client.054727e3.js.LICENSE.txt"
+    ],
+    "ttf": [
+      "/static/media/Comfortaa-Bold.2df2dd0e.ttf",
+      "/static/media/Comfortaa-Light.a32b6e45.ttf",
+      "/static/media/Comfortaa-Medium.cca5f204.ttf",
+      "/static/media/Comfortaa-Regular.26795cfa.ttf",
+      "/static/media/Comfortaa-SemiBold.170d22d9.ttf",
+      "/static/media/Philosopher-Bold.a3aed8ba.ttf",
+      "/static/media/Philosopher-BoldItalic.fa16e091.ttf",
+      "/static/media/Philosopher-Italic.b9e3037c.ttf",
+      "/static/media/Philosopher-Regular.af6ea627.ttf"
     ]
   }
 }

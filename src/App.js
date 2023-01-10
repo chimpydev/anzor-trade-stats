@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
 import cx from "classnames";
-import Optimism from './views/Optimism';
+import Avalanche from './views/Avalanche';
 import Referrals from './views/Referrals';
 import Trading from './views/Trading';
 import './App.css';
@@ -26,7 +26,7 @@ function AppHeaderLinks({ mode, small, clickCloseIcon }) {
         </div>
       }
       <div className="App-header-link-container">
-        <NavLink to="/" exact className="nav-link" activeClassName="active">Optimism</NavLink>
+        <NavLink to="/" exact className="nav-link" activeClassName="active">Avalanche</NavLink>
       </div>
     </div>
   )
@@ -82,7 +82,7 @@ const App = () => {
                 <img style={{width: '40px', height: '40px'}} src={mode == 'dark' ? darkLogoIcon : lightLogoIcon} />
                 <p style={{textDecoration: 'none', fontSize: '1.3rem', fontWeight: '40px'}}>Mason Jar</p>
               </a>
-              {/* <NavLink to="/" style={{paddingRight: "12px"}} exact className="nav-link" activeClassName="active">Optimism</NavLink> */}
+              {/* <NavLink to="/" style={{paddingRight: "12px"}} exact className="nav-link" activeClassName="active">Avalanche</NavLink> */}
             </div>
             <div className="nav-right">
               <a href="https://docs.masonjar.finance" target="_blank" rel="noreferrer" className="nav-link">Docs</a>
@@ -106,7 +106,7 @@ const App = () => {
           </AnimatePresence>
           <div className="content">
             <Route exact path="/" render={(props) => (
-              <Optimism {...props} mode={mode} />
+              <Avalanche {...props} mode={mode} />
             )} />
             <Route exact path="/referrals/:chainName" render={(props) => (
               <Referrals {...props} mode={mode} />

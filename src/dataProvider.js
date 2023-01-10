@@ -4,7 +4,7 @@ import { chain, sumBy, sortBy, maxBy, minBy } from "lodash";
 import fetch from "cross-fetch";
 import * as ethers from "ethers";
 
-import { getAddress, OPTIMISM } from "./addresses";
+import { getAddress, AVALANCHE } from "./addresses";
 
 const { JsonRpcProvider } = ethers.providers;
 
@@ -13,19 +13,19 @@ import MjlpManager from "../abis/MjlpManager.json";
 import Token from "../abis/v1/Token.json";
 
 const providers = {
-  optimism: new JsonRpcProvider("https://rpc.ankr.com/optimism"),
+  avalanche: new JsonRpcProvider("https://api.avax.network/ext/bc/C/rpc"),
 };
 
 function getProvider(chainName) {
   if (!(chainName in providers)) {
     throw new Error(`Unknown chain ${chainName}`);
   }
-  return providers["optimism"];
+  return providers["avalanche"];
 }
 
 function getChainId(chainName) {
   const chainId = {
-    optimism: OPTIMISM,
+    avalanche: AVALANCHE,
   }[chainName];
   if (!chainId) {
     throw new Error(`Unknown chain ${chainName}`);
@@ -81,29 +81,29 @@ export async function queryEarnData(chainName, account) {
   let rewardTrackersForDepositBalances;
   let rewardTrackersForStakingInfo;
 
-  if (chainId === OPTIMISM) {
+  if (chainId === AVALANCHE) {
     depositTokens = [
-      getAddress(OPTIMISM, "MJAR"),
-      getAddress(OPTIMISM, "ES_MJAR"),
-      getAddress(OPTIMISM, "STAKED_MJAR_TRACKER"),
-      getAddress(OPTIMISM, "BONUS_MJAR_TRACKER"),
-      getAddress(OPTIMISM, "BN_MJAR"),
-      getAddress(OPTIMISM, "MJLP"),
+      getAddress(AVALANCHE, "MJAR"),
+      getAddress(AVALANCHE, "ES_MJAR"),
+      getAddress(AVALANCHE, "STAKED_MJAR_TRACKER"),
+      getAddress(AVALANCHE, "BONUS_MJAR_TRACKER"),
+      getAddress(AVALANCHE, "BN_MJAR"),
+      getAddress(AVALANCHE, "MJLP"),
     ];
     rewardTrackersForDepositBalances = [
-      getAddress(OPTIMISM, "STAKED_MJAR_TRACKER"),
-      getAddress(OPTIMISM, "STAKED_MJAR_TRACKER"),
-      getAddress(OPTIMISM, "BONUS_MJAR_TRACKER"),
-      getAddress(OPTIMISM, "FEE_MJAR_TRACKER"),
-      getAddress(OPTIMISM, "FEE_MJAR_TRACKER"),
-      getAddress(OPTIMISM, "FEE_MJLP_TRACKER"),
+      getAddress(AVALANCHE, "STAKED_MJAR_TRACKER"),
+      getAddress(AVALANCHE, "STAKED_MJAR_TRACKER"),
+      getAddress(AVALANCHE, "BONUS_MJAR_TRACKER"),
+      getAddress(AVALANCHE, "FEE_MJAR_TRACKER"),
+      getAddress(AVALANCHE, "FEE_MJAR_TRACKER"),
+      getAddress(AVALANCHE, "FEE_MJLP_TRACKER"),
     ];
     rewardTrackersForStakingInfo = [
-      getAddress(OPTIMISM, "STAKED_MJAR_TRACKER"),
-      getAddress(OPTIMISM, "BONUS_MJAR_TRACKER"),
-      getAddress(OPTIMISM, "FEE_MJAR_TRACKER"),
-      getAddress(OPTIMISM, "STAKED_MJLP_TRACKER"),
-      getAddress(OPTIMISM, "FEE_MJLP_TRACKER"),
+      getAddress(AVALANCHE, "STAKED_MJAR_TRACKER"),
+      getAddress(AVALANCHE, "BONUS_MJAR_TRACKER"),
+      getAddress(AVALANCHE, "FEE_MJAR_TRACKER"),
+      getAddress(AVALANCHE, "STAKED_MJLP_TRACKER"),
+      getAddress(AVALANCHE, "FEE_MJLP_TRACKER"),
     ];
   }
 
@@ -163,7 +163,7 @@ export const tokenDecimals = {
 };
 
 export const tokenSymbols = {
-  // Optimism
+  // Avalanche
   "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83": "WOP",
   "0x74b23882a30290451A17c44f4F05243b6b58C76d": "WETH",
   "0x321162Cd933E2Be498Cd2267a90534A804051b11": "WBTC",
@@ -177,14 +177,14 @@ function getTokenDecimals(token) {
 }
 
 const knownSwapSources = {
-  optimism: {
-    [getAddress(OPTIMISM, "Router")]: "MJAR",
-    [getAddress(OPTIMISM, "OrderBook")]: "MJAR",
-    [getAddress(OPTIMISM, "PositionManager")]: "MJAR",
-    // [getAddress(OPTIMISM, "OrderExecutor")]: "MJAR",
-    [getAddress(OPTIMISM, "FastPriceFeed")]: "MJAR",
-    [getAddress(OPTIMISM, "PositionExecutorUpKeep")]: "MJAR",
-    [getAddress(OPTIMISM, "PositionRouter")]: "MJAR",
+  avalanche: {
+    [getAddress(AVALANCHE, "Router")]: "MJAR",
+    [getAddress(AVALANCHE, "OrderBook")]: "MJAR",
+    [getAddress(AVALANCHE, "PositionManager")]: "MJAR",
+    // [getAddress(AVALANCHE, "OrderExecutor")]: "MJAR",
+    [getAddress(AVALANCHE, "FastPriceFeed")]: "MJAR",
+    [getAddress(AVALANCHE, "PositionExecutorUpKeep")]: "MJAR",
+    [getAddress(AVALANCHE, "PositionRouter")]: "MJAR",
   },
 };
 
@@ -214,7 +214,7 @@ export function useCoingeckoPrices(symbol, { from = FIRST_DATE_TS } = {}) {
   const _symbol = {
     BTC: "bitcoin",
     ETH: "ethereum",
-    OP: "optimism",
+    AVAX: "avalanche",
     MATIC: "matic-network",
     WBTC: "wrapped-bitcoin",
     USDC: "usd-coin",
@@ -261,7 +261,7 @@ function getChainSubgraph(chainName) {
 
 export function useGraph(
   querySource,
-  { subgraph = null, subgraphUrl = null, chainName = "optimism" } = {}
+  { subgraph = null, subgraphUrl = null, chainName = "avalanche" } = {}
 ) {
   const query = gql(querySource);
 
@@ -305,7 +305,7 @@ export function useGraph(
   return [data, loading, error];
 }
 
-export function useLastBlock(chainName = "optimism") {
+export function useLastBlock(chainName = "avalanche") {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -320,7 +320,7 @@ export function useLastBlock(chainName = "optimism") {
   return [data, loading, error];
 }
 
-export function useLastSubgraphBlock(chainName = "optimism") {
+export function useLastSubgraphBlock(chainName = "avalanche") {
   const [data, loading, error] = useGraph(
     `{
     _meta {
@@ -351,7 +351,7 @@ export function useLastSubgraphBlock(chainName = "optimism") {
 export function useTradersData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "optimism",
+  chainName = "avalanche",
 } = {}) {
   const [closedPositionsData, loading, error] = useGraph(
     `{
@@ -489,7 +489,7 @@ function getSwapSourcesFragment(skip = 0, from, to) {
 export function useSwapSources({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "optimism",
+  chainName = "avalanche",
 } = {}) {
   const query = `{
     a: ${getSwapSourcesFragment(0, from, to)}
@@ -578,7 +578,7 @@ export function useTotalVolumeFromServer() {
   }, [data, loading]);
 }
 
-export async function getStatsFromSubgraph(graphClient, chainName="optimism"){
+export async function getStatsFromSubgraph(graphClient, chainName="avalanche"){
   const queryString = `{
     totalVolumes: volumeStats(where: {period: "total"}) {
       swap
@@ -644,7 +644,7 @@ export async function getStatsFromSubgraph(graphClient, chainName="optimism"){
 export function useVolumeDataFromServer({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "optimism",
+  chainName = "avalanche",
 } = {}) {
   const PROPS = "margin liquidation swap mint burn".split(" ");
   const [data, loading] = useRequest(
@@ -736,7 +736,7 @@ export function useVolumeDataFromServer({
 export function useUsersData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "optimism",
+  chainName = "avalanche",
 } = {}) {
   const query = `{
     userStats(
@@ -799,7 +799,7 @@ export function useUsersData({
 export function useFundingRateData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "optimism",
+  chainName = "avalanche",
 } = {}) {
   const query = `{
     fundingRates(
@@ -844,7 +844,7 @@ export function useFundingRateData({
     }, {});
 
     return fillNa(sortBy(Object.values(groups), "timestamp"), [
-      "OP",
+      "AVAX",
       "ETH",
       "USDC",
       "USDT",
@@ -862,7 +862,7 @@ const MOVING_AVERAGE_PERIOD = 86400 * MOVING_AVERAGE_DAYS;
 export function useVolumeData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "optimism",
+  chainName = "avalanche",
 } = {}) {
   const PROPS = "margin liquidation swap mint burn".split(" ");
   const timestampProp = "timestamp";
@@ -928,7 +928,7 @@ export function useVolumeData({
 export function useFeesData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "optimism",
+  chainName = "avalanche",
 } = {}) {
   const PROPS = "margin liquidation swap mint burn".split(" ");
   const feesQuery = `{
@@ -1059,7 +1059,7 @@ export function useAumPerformanceData({
 export function useMjlpData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "optimism",
+  chainName = "avalanche",
 } = {}) {
   const query = `{
     mjlpStats(
@@ -1156,11 +1156,11 @@ export function useMjlpData({
 export function useMjlpPerformanceData(
   mjlpData,
   feesData,
-  { from = FIRST_DATE_TS, chainName = "optimism" } = {}
+  { from = FIRST_DATE_TS, chainName = "avalanche" } = {}
 ) {
   const [btcPrices] = useCoingeckoPrices("BTC", { from });
   const [ethPrices] = useCoingeckoPrices("ETH", { from });
-  const [maticPrices] = useCoingeckoPrices("OP", { from });
+  const [maticPrices] = useCoingeckoPrices("AVAX", { from });
 
   const mjlpPerformanceChartData = useMemo(() => {
     if (!btcPrices || !ethPrices || !mjlpData || !feesData) {
@@ -1179,7 +1179,7 @@ export function useMjlpPerformanceData(
 
     let BTC_WEIGHT = 0.15;
     let ETH_WEIGHT = 0.2;
-    let OP_WEIGHT = 0.1;
+    let AVAX_WEIGHT = 0.1;
 
 
     let prevEthPrice = 1200;
@@ -1195,7 +1195,7 @@ export function useMjlpPerformanceData(
 
     const indexBtcCount = (MJLP_START_PRICE * BTC_WEIGHT) / btcFirstPrice;
     const indexEthCount = (MJLP_START_PRICE * ETH_WEIGHT) / ethFirstPrice;
-    const indexMaticCount = (MJLP_START_PRICE * OP_WEIGHT) / maticFirstPrice;
+    const indexMaticCount = (MJLP_START_PRICE * AVAX_WEIGHT) / maticFirstPrice;
 
     const lpBtcCount = (MJLP_START_PRICE * 0.5) / btcFirstPrice;
     const lpEthCount = (MJLP_START_PRICE * 0.5) / ethFirstPrice;
@@ -1326,7 +1326,7 @@ export function useMjlpPerformanceData(
 export function useReferralsData({
   from = FIRST_DATE_TS,
   to = NOW_TS,
-  chainName = "optimism",
+  chainName = "avalanche",
 } = {}) {
   const query = `{
     globalStats(
