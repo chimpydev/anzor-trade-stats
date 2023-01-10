@@ -1,5 +1,5 @@
 
-export const AVALANCHE = 10;
+export const AVALANCHE = 43114;
 
 export const addresses = {
 
