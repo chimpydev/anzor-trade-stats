@@ -254,8 +254,8 @@ function Trading() {
           <Tooltip />
           <Legend />
           <Area type="monotone" dot={false} dataKey="swap" stackId="a" name="Swap" stroke="#FE88B1" fill="#FE88B1" />
-          <Area type="monotone" dot={false} dataKey="mint" stackId="a" name="Mint USDG" stroke="#C9DB74" fill="#C9DB74" />
-          <Area type="monotone" dot={false} dataKey="burn" stackId="a" name="Burn USDG" stroke="#ab6100" fill="#ab6100" />
+          <Area type="monotone" dot={false} dataKey="mint" stackId="a" name="Mint USDS" stroke="#C9DB74" fill="#C9DB74" />
+          <Area type="monotone" dot={false} dataKey="burn" stackId="a" name="Burn USDS" stroke="#ab6100" fill="#ab6100" />
           <Area type="monotone" dot={false} dataKey="liquidation" stackId="a" name="Liquidation" stroke="#c90000" fill="#c90000" />
           <Area type="monotone" dot={false} dataKey="margin" stackId="a" name="Margin trading" stroke="#5D69B1" fill="#5D69B1" />
           <Line isAnimationActive={false} dot={false} dataKey="all" name="Total" stroke="#000" />

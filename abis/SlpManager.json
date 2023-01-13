@@ -59,7 +59,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "mvlpSupply",
+                    "name": "slpSupply",
                     "type": "uint256"
                 },
                 {
@@ -108,7 +108,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "mvlpSupply",
+                    "name": "slpSupply",
                     "type": "uint256"
                 },
                 {

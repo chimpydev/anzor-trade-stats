@@ -1062,7 +1062,7 @@ export function useSlpData({
   chainName = "fantom",
 } = {}) {
   const query = `{
-    mvlpStats(
+    slpStats(
       first: 1000
       orderBy: timestamp
       orderDirection: desc
@@ -1070,7 +1070,7 @@ export function useSlpData({
     ) {
       timestamp
       aumInUsdm
-      mvlpSupply
+      slpSupply
       distributedUsd
       distributedEth
     }
@@ -1080,7 +1080,7 @@ export function useSlpData({
   let cumulativeDistributedUsdPerSlp = 0;
   let cumulativeDistributedEthPerSlp = 0;
   const slpChartData = useMemo(() => {
-    if (!data || (data && data.mvlpStats.length === 0)) {
+    if (!data || (data && data.slpStats.length === 0)) {
       return null;
     }
 
@@ -1089,29 +1089,29 @@ export function useSlpData({
     let prevSlpSupply;
     let prevAum;
 
-    let ret = sortBy(data.mvlpStats, (item) => item.timestamp)
+    let ret = sortBy(data.slpStats, (item) => item.timestamp)
       .filter((item) => item.timestamp % 86400 === 0)
       .reduce((memo, item) => {
         const last = memo[memo.length - 1];
 
         const aum = Number(item.aumInUsdm) / 1e18;
-        const mvlpSupply = Number(item.mvlpSupply) / 1e18;
+        const slpSupply = Number(item.slpSupply) / 1e18;
 
         const distributedUsd = Number(item.distributedUsd) / 1e30;
-        const distributedUsdPerSlp = distributedUsd / mvlpSupply || 0;
+        const distributedUsdPerSlp = distributedUsd / slpSupply || 0;
         cumulativeDistributedUsdPerSlp += distributedUsdPerSlp;
 
         const distributedEth = Number(item.distributedEth) / 1e18;
-        const distributedEthPerSlp = distributedEth / mvlpSupply || 0;
+        const distributedEthPerSlp = distributedEth / slpSupply || 0;
         cumulativeDistributedEthPerSlp += distributedEthPerSlp;
 
-        const slpPrice = aum / mvlpSupply;
+        const slpPrice = aum / slpSupply;
         const timestamp = parseInt(item.timestamp);
 
         const newItem = {
           timestamp,
           aum,
-          mvlpSupply,
+          slpSupply,
           slpPrice,
           cumulativeDistributedEthPerSlp,
           cumulativeDistributedUsdPerSlp,
@@ -1128,20 +1128,20 @@ export function useSlpData({
         return memo;
       }, [])
       .map((item) => {
-        let { mvlpSupply, aum } = item;
-        if (!mvlpSupply) {
-          mvlpSupply = prevSlpSupply;
+        let { slpSupply, aum } = item;
+        if (!slpSupply) {
+          slpSupply = prevSlpSupply;
         }
         if (!aum) {
           aum = prevAum;
         }
-        item.mvlpSupplyChange = prevSlpSupply
-          ? ((mvlpSupply - prevSlpSupply) / prevSlpSupply) * 100
+        item.slpSupplyChange = prevSlpSupply
+          ? ((slpSupply - prevSlpSupply) / prevSlpSupply) * 100
           : 0;
-        if (item.mvlpSupplyChange > 1000) item.mvlpSupplyChange = 0;
+        if (item.slpSupplyChange > 1000) item.slpSupplyChange = 0;
         item.aumChange = prevAum ? ((aum - prevAum) / prevAum) * 100 : 0;
         if (item.aumChange > 1000) item.aumChange = 0;
-        prevSlpSupply = mvlpSupply;
+        prevSlpSupply = slpSupply;
         prevAum = aum;
         return item;
       });
@@ -1217,7 +1217,7 @@ export function useSlpPerformanceData(
       const slpItem = slpDataById[timestampGroup];
       const slpPrice = slpItem?.slpPrice ?? lastSlpPrice;
       lastSlpPrice = slpPrice;
-      const mvlpSupply = slpDataById[timestampGroup]?.mvlpSupply;
+      const slpSupply = slpDataById[timestampGroup]?.slpSupply;
       const dailyFees = feesDataById[timestampGroup]?.all;
 
       const syntheticPrice =
@@ -1236,19 +1236,19 @@ export function useSlpPerformanceData(
         (lpMaticCount * maticPrice + SLP_START_PRICE / 2) *
         (1 + getImpermanentLoss(maticPrice / maticFirstPrice));
 
-      if (dailyFees && mvlpSupply) {
+      if (dailyFees && slpSupply) {
         const INCREASED_SLP_REWARDS_TIMESTAMP = 1635714000;
         const SLP_REWARDS_SHARE =
           timestampGroup >= INCREASED_SLP_REWARDS_TIMESTAMP ? 0.7 : 0.5;
         const collectedFeesPerSlp =
-          (dailyFees / mvlpSupply) * SLP_REWARDS_SHARE;
+          (dailyFees / slpSupply) * SLP_REWARDS_SHARE;
         cumulativeFeesPerSlp += collectedFeesPerSlp;
 
         cumulativeEsskullRewardsPerSlp += (slpPrice * 0.8) / 365;
       }
 
       let slpPlusFees = slpPrice;
-      if (slpPrice && mvlpSupply && cumulativeFeesPerSlp) {
+      if (slpPrice && slpSupply && cumulativeFeesPerSlp) {
         slpPlusFees = slpPrice + cumulativeFeesPerSlp;
       }
 
