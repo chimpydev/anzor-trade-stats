@@ -4,11 +4,11 @@
       "/static/css/client.dabd140a.css"
     ],
     "js": [
-      "/static/js/client.a17a2654.js"
+      "/static/js/client.cd47af14.js"
     ],
     "map": [
       "/static/css/client.dabd140a.css.map",
-      "/static/js/client.a17a2654.js.map"
+      "/static/js/client.cd47af14.js.map"
     ],
     "chunks": [
       0
@@ -21,7 +21,7 @@
     ],
     "txt": [
       "/robots.txt",
-      "/static/js/client.a17a2654.js.LICENSE.txt"
+      "/static/js/client.cd47af14.js.LICENSE.txt"
     ],
     "woff": [
       "/static/media/Inter-Black.1ede3792.woff",
