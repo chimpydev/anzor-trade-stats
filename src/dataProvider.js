@@ -256,7 +256,7 @@ function getImpermanentLoss(change) {
 
 function getChainSubgraph(chainName) {
   // return "chimpydev/stats";
-  return "chimpydev/core";
+  return "chimpydev/cranium-core";
 }
 
 export function useGraph(
