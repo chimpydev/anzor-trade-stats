@@ -17,7 +17,7 @@
     "start": {
       "cmd": "npm run start:prod",
       "env": {
-        "NODE_ENV": "production",
+        "NODE_ENV": "production"
       }
     },
     "routes": [
