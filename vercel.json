@@ -11,9 +11,6 @@
             "use": "@vercel/node"
         }
     ],
-    "build": {
-      "cmd": "npm run build:prod"
-    },
     "routes": [
         { "src": "/favicon.ico", "dest": "build/public/favicon.ico" },
         { "src": "/robots.txt", "dest": "build/public/robots.txt" },
