@@ -269,8 +269,7 @@ export function useGraph(
     if (!subgraph) {
       subgraph = getChainSubgraph(chainName);
     }
-    subgraphUrl = `https://api.thegraph.com/subgraphs/name/cranium-core`;
-    // subgraphUrl = `https://api.thegraph.com/subgraphs/name/${subgraph}`;
+    subgraphUrl = `https://api.thegraph.com/subgraphs/name/${subgraph}`;
   }
 
   const client = new ApolloClient({
