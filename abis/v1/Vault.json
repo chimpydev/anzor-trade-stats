@@ -32,7 +32,7 @@
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "usdmAmount",
+          "name": "usdsAmount",
           "type": "uint256"
         }
       ],
@@ -260,7 +260,7 @@
           "type": "uint256"
         }
       ],
-      "name": "DecreaseUsdmAmount",
+      "name": "DecreaseUsdsAmount",
       "type": "event"
     },
     {
@@ -410,7 +410,7 @@
           "type": "uint256"
         }
       ],
-      "name": "IncreaseUsdmAmount",
+      "name": "IncreaseUsdsAmount",
       "type": "event"
     },
     {
@@ -498,7 +498,7 @@
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "usdmAmount",
+          "name": "usdsAmount",
           "type": "uint256"
         },
         {
@@ -1095,7 +1095,7 @@
     },
     {
       "inputs": [],
-      "name": "getMaxUsdmAmount",
+      "name": "getMaxUsdsAmount",
       "outputs": [
         {
           "internalType": "uint256",
@@ -1387,7 +1387,7 @@
         },
         {
           "internalType": "uint256",
-          "name": "_usdmAmount",
+          "name": "_usdsAmount",
           "type": "uint256"
         }
       ],
@@ -2457,7 +2457,7 @@
           "type": "address"
         }
       ],
-      "name": "usdmAmounts",
+      "name": "usdsAmounts",
       "outputs": [
         {
           "internalType": "uint256",

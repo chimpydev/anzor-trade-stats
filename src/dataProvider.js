@@ -122,7 +122,7 @@ export async function queryEarnData(chainName, account) {
           });
         }),
       slpContract.totalSupply(),
-      slpManager.getAumInUsdm(true),
+      slpManager.getAumInUsds(true),
       fetch(
         "https://api.coingecko.com/api/v3/simple/price?ids=metavault-trade&vs_currencies=usd"
       ).then(async (res) => {
@@ -683,9 +683,9 @@ export function useVolumeDataFromServer({
       let type;
       if (item.data.action === "Swap") {
         type = "swap";
-      } else if (item.data.action === "SellUSDM") {
+      } else if (item.data.action === "SellUSDS") {
         type = "burn";
-      } else if (item.data.action === "BuyUSDM") {
+      } else if (item.data.action === "BuyUSDS") {
         type = "mint";
       } else if (item.data.action.includes("LiquidatePosition")) {
         type = "liquidation";
@@ -1069,7 +1069,7 @@ export function useSlpData({
       where: {period: daily, timestamp_gte: ${from}, timestamp_lte: ${to}}
     ) {
       timestamp
-      aumInUsdm
+      aumInUsds
       slpSupply
       distributedUsd
       distributedEth
@@ -1094,7 +1094,7 @@ export function useSlpData({
       .reduce((memo, item) => {
         const last = memo[memo.length - 1];
 
-        const aum = Number(item.aumInUsdm) / 1e18;
+        const aum = Number(item.aumInUsds) / 1e18;
         const slpSupply = Number(item.slpSupply) / 1e18;
 
         const distributedUsd = Number(item.distributedUsd) / 1e30;

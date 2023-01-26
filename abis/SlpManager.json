@@ -12,7 +12,7 @@
                 },
                 {
                     "internalType": "address",
-                    "name": "_usdm",
+                    "name": "_usds",
                     "type": "address"
                 },
                 {
@@ -53,7 +53,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "aumInUsdm",
+                    "name": "aumInUsds",
                     "type": "uint256"
                 },
                 {
@@ -65,7 +65,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "usdmAmount",
+                    "name": "usdsAmount",
                     "type": "uint256"
                 },
                 {
@@ -102,7 +102,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "aumInUsdm",
+                    "name": "aumInUsds",
                     "type": "uint256"
                 },
                 {
@@ -114,7 +114,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "usdmAmount",
+                    "name": "usdsAmount",
                     "type": "uint256"
                 },
                 {
@@ -155,7 +155,7 @@
         },
         {
             "inputs": [],
-            "name": "USDM_DECIMALS",
+            "name": "USDS_DECIMALS",
             "outputs": [
                 {
                     "internalType": "uint256",
@@ -180,7 +180,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_minUsdm",
+                    "name": "_minUsds",
                     "type": "uint256"
                 },
                 {
@@ -224,7 +224,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_minUsdm",
+                    "name": "_minUsds",
                     "type": "uint256"
                 },
                 {
@@ -310,7 +310,7 @@
                     "type": "bool"
                 }
             ],
-            "name": "getAumInUsdm",
+            "name": "getAumInUsds",
             "outputs": [
                 {
                     "internalType": "uint256",
@@ -561,7 +561,7 @@
         },
         {
             "inputs": [],
-            "name": "usdm",
+            "name": "usds",
             "outputs": [
                 {
                     "internalType": "address",

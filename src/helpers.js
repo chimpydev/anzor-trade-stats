@@ -361,7 +361,7 @@ export function LogRecord(row) {
   }
 }
 
-export function UsdmSupplyRecord(row) {
+export function UsdsSupplyRecord(row) {
   return {
     ...row,
     supply: BigNumber.from(JSON.parse(row.supply).hex)
