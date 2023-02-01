@@ -21,7 +21,7 @@ export const addresses = {
     Router: "0xDC41E2dEe74Fc8237Af877811d089039DCa646Ac", // DONE
     OrderBook: "0xe913547bC9e19C2d38215f7Ab2535cc89c25b096", // DONE
     PositionManager: "0x493207B0b5616b0d2db041Bcc4C9013e12B1016f", // DONE
-    FastPriceFeed: "0x507d53E19341DDB1d40f3D1db468A31AFCdD8D28", // DONE
+    FastPriceFeed: "0xfe2A4da911C9B41ddaC739494A8b0aA7Ab3DE176", // DONE
     PositionRouter: "0x1CA2C9F35651B4660ebC0d5694dc081a50fA67f6", // DONE
     PositionExecutorUpKeep: ""
   },
