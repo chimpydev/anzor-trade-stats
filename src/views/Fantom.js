@@ -384,7 +384,7 @@ function Fantom(props) {
         </div>
         <div className="chart-cell">
           <ChartWrapper
-            title="SKULL & Slp Supply"
+            title="SLP & Slp Supply"
             loading={slpLoading}
             data={slpData}
             csvFields={[{ key: "aum" }, { key: "slpSupply" }]}
@@ -416,7 +416,7 @@ function Fantom(props) {
                   dot={false}
                   dataKey="aum"
                   stackId="a"
-                  name="SKULL"
+                  name="SLP"
                   stroke={COLORS[0]}
                 />
                 <Line
