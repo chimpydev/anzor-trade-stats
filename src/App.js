@@ -21,7 +21,7 @@ function AppHeaderLinks({ mode, small, clickCloseIcon }) {
             <FiX className="App-header-menu-icon" />
           </div>
           <NavLink exact activeClassName="active" className="App-header-link-main" to="/">
-            <img src={darkLogoIcon} alt="ANZOR Logo" style={{width: '40px', height: '40px'}} />
+            <img src={darkLogoIcon} alt="SKULL Logo" style={{width: '40px', height: '40px'}} />
           </NavLink>
         </div>
       }
@@ -49,7 +49,7 @@ const App = () => {
   useEffect(() => {
     const savedMode = window.localStorage.getItem('mode');
     const targetMode = savedMode == 'light' ? 'light' : 'dark';
-    document.querySelector('body').style.backgroundColor = targetMode == 'dark' ? '#130720' : '#f6f9ff';
+    document.querySelector('body').style.backgroundColor = targetMode == 'dark' ? '#000000' : '#f6f9ff';
     setMode(targetMode);
   }, [])
 
@@ -78,15 +78,15 @@ const App = () => {
                 {!isDrawerVisible && <RiMenuLine className="App-header-menu-icon" />}
                 {isDrawerVisible && <FaTimes className="App-header-menu-icon" />}
               </div>
-              <a href="https://anzor.io" target="_blank" rel="noreferrer" className="nav-logo" style={{textDecoration: 'none', alignItems: 'center'}}>
+              <a href="https://cranium.exchange" target="_blank" rel="noreferrer" className="nav-logo" style={{textDecoration: 'none', alignItems: 'center'}}>
                 <img style={{width: '40px', height: '40px'}} src={mode == 'dark' ? darkLogoIcon : lightLogoIcon} />
-                <p style={{textDecoration: 'none', fontSize: '1.3rem', fontWeight: '40px'}}>Anzor</p>
+                <p style={{textDecoration: 'none', fontSize: '1.3rem', fontWeight: '40px'}}>Cranium</p>
               </a>
-              <NavLink to="/" exact className="nav-link" activeClassName="active">Fantom</NavLink>
+              {/* <NavLink to="/" style={{paddingRight: "12px"}} exact className="nav-link" activeClassName="active">Fantom</NavLink> */}
             </div>
             <div className="nav-right">
-              <a href="https://anzor.io" target="_blank" rel="noreferrer" className="nav-link">APP</a>
-              <a href="https://docs.anzor.io" target="_blank" rel="noreferrer" className="nav-link">DOCS</a>
+              <a href="https://docs.cranium.exchange" target="_blank" rel="noreferrer" className="nav-link">Docs</a>
+              <a href="https://cranium.exchange" target="_blank" rel="noreferrer" className="nav-link">Launch App</a>
             </div>
           </div>
           <AnimatePresence>

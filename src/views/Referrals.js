@@ -149,7 +149,7 @@ function Referrals(props) {
         </div>
         <div className="chart-cell">
            <GenericChart
-              syncId="syncAlp"
+              syncId="syncSlp"
               loading={referralsLoading}
               title="Referrals Volume"
               data={referralsData}
@@ -176,7 +176,7 @@ function Referrals(props) {
         </div>
         <div className="chart-cell">
            <GenericChart
-              syncId="syncAlp"
+              syncId="syncSlp"
               loading={referralsLoading}
               title="Referrals Rebates"
               data={referralsData?.map(item => ({ all: item.totalRebateUsd.toFixed(2), ...item }))}
@@ -194,7 +194,7 @@ function Referrals(props) {
         </div>
         <div className="chart-cell">
            <GenericChart
-              syncId="syncAlp"
+              syncId="syncSlp"
               loading={referralsLoading}
               title="Registered Affiliates"
               data={referralsData}
@@ -219,7 +219,7 @@ function Referrals(props) {
         </div>
         <div className="chart-cell">
            <GenericChart
-              syncId="syncAlp"
+              syncId="syncSlp"
               loading={referralsLoading}
               title="Referrals Registrations"
               data={referralsData}

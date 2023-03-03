@@ -22,18 +22,106 @@
        url('./fonts/relative/relative-bold-pro.ttf') format('truetype'); /* Safari, Android, iOS */
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/Inter-Black.woff2') format('woff2'),
+      url('./fonts/inter/Inter-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/Inter-Bold.woff2') format('woff2'),
+      url('./fonts/inter/Inter-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/Inter-ExtraBold.woff2') format('woff2'),
+      url('./fonts/inter/Inter-ExtraBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/Inter-Light.woff2') format('woff2'),
+      url('./fonts/inter/Inter-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/Inter-SemiBold.woff2') format('woff2'),
+      url('./fonts/inter/Inter-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/Inter-Medium.woff2') format('woff2'),
+      url('./fonts/inter/Inter-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/Inter-Thin.woff2') format('woff2'),
+      url('./fonts/inter/Inter-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/Inter-Regular.woff2') format('woff2'),
+      url('./fonts/inter/Inter-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/inter/Inter-ExtraLight.woff2') format('woff2'),
+      url('./fonts/inter/Inter-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SkullFont";
+  src: local("SkullFont"),
+   url("./fonts/SkullFont.ttf") format("truetype");
+  font-weight: bold;
+}
+
 body {
   font-size: 0.9rem;
   /* background: #f6f9ff; */
   margin: 0;
   padding: 0;
-  font-family: Consolas, sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 .recharts-wrapper {
   font-size: 0.8rem;
-  font-family: Consolas, monospace;
+  font-family: 'Inter', monospace;
 }
 
 .recharts-legend-item-text {
@@ -46,14 +134,14 @@ body {
 
 .App {
   color: #000;
-  background: #130720;
+  background: #fcfcfc;
   line-height: 1.15;
   padding: 1rem;
   padding-top: 0;
 }
 
 .App.dark {
-  background: #130720;
+  background: #000000;
   color: #FFF;
   line-height: 1.15;
   box-sizing: border-box;
@@ -158,7 +246,7 @@ label + input {
 }
 
 .App.dark .chart-cell {
-  background: #211a2a;
+  background: #181818;
   border: none;
   color: white;
 }
@@ -171,7 +259,7 @@ label + input {
   margin: 0;
   border-radius: 15px;
   border: 1px solid #FFFFFF14;
-  background: #211a2a;
+  background: #181818;
   position: relative;
   padding: 1rem;
   grid-column-start: span 5;
@@ -283,15 +371,17 @@ label + input {
 }
 
 .App.dark .nav {
-  background: #130720;
+  background: #000000;
   border-bottom: 1px solid #FFFFFF29;
 }
 
 .nav-logo {
-  width: 87px;
+  /* width: 87px; */
   vertical-align: middle;
   margin: 0px 0.5rem 0 0;
   display: inline-flex;
+  font-family: "SkullFont";
+  letter-spacing: 3px;
 }
 
 .nav-logo img {
@@ -416,7 +506,7 @@ a, a:active, a:visited {
 }
 
 .App-header-drawer {
-  background: #130720 0% 0% no-repeat padding-box;
+  background: #000000 0% 0% no-repeat padding-box;
   box-shadow: 8px 3px 6px #00000029;
   opacity: 1;
   backdrop-filter: blur(27px);
@@ -443,7 +533,7 @@ a, a:active, a:visited {
 .App-header-drawer .App-header-link-container a:hover,
 .App-header-drawer .App-header-link-container a:focus,
 .App-header-drawer .App-header-link-container a.active {
-  background: #211a2a;
+  background: #181818;
   color: white;
 }
 

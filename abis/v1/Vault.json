@@ -32,11 +32,11 @@
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "usdmAmount",
+          "name": "usdsAmount",
           "type": "uint256"
         }
       ],
-      "name": "BuyUSDG",
+      "name": "BuyUSDS",
       "type": "event"
     },
     {
@@ -260,7 +260,7 @@
           "type": "uint256"
         }
       ],
-      "name": "DecreaseUsdmAmount",
+      "name": "DecreaseUsdsAmount",
       "type": "event"
     },
     {
@@ -410,7 +410,7 @@
           "type": "uint256"
         }
       ],
-      "name": "IncreaseUsdmAmount",
+      "name": "IncreaseUsdsAmount",
       "type": "event"
     },
     {
@@ -498,7 +498,7 @@
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "usdmAmount",
+          "name": "usdsAmount",
           "type": "uint256"
         },
         {
@@ -508,7 +508,7 @@
           "type": "uint256"
         }
       ],
-      "name": "SellUSDG",
+      "name": "SellUSDS",
       "type": "event"
     },
     {
@@ -747,7 +747,7 @@
     },
     {
       "inputs": [],
-      "name": "USDG_DECIMALS",
+      "name": "USDS_DECIMALS",
       "outputs": [
         {
           "internalType": "uint256",
@@ -856,7 +856,7 @@
           "type": "address"
         }
       ],
-      "name": "buyUSDG",
+      "name": "buyUSDS",
       "outputs": [
         {
           "internalType": "uint256",
@@ -1095,7 +1095,7 @@
     },
     {
       "inputs": [],
-      "name": "getMaxUsdmAmount",
+      "name": "getMaxUsdsAmount",
       "outputs": [
         {
           "internalType": "uint256",
@@ -1387,7 +1387,7 @@
         },
         {
           "internalType": "uint256",
-          "name": "_usdmAmount",
+          "name": "_usdsAmount",
           "type": "uint256"
         }
       ],
@@ -1565,7 +1565,7 @@
         },
         {
           "internalType": "address",
-          "name": "_usdg",
+          "name": "_usds",
           "type": "address"
         },
         {
@@ -1575,12 +1575,12 @@
         },
         {
           "internalType": "uint256",
-          "name": "_maxUsdgBatchSize",
+          "name": "_maxUsdsBatchSize",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_maxUsdgBuffer",
+          "name": "_maxUsdsBuffer",
           "type": "uint256"
         },
         {
@@ -1767,7 +1767,7 @@
     },
     {
       "inputs": [],
-      "name": "maxUsdgBatchSize",
+      "name": "maxUsdsBatchSize",
       "outputs": [
         {
           "internalType": "uint256",
@@ -1780,7 +1780,7 @@
     },
     {
       "inputs": [],
-      "name": "maxUsdgBuffer",
+      "name": "maxUsdsBuffer",
       "outputs": [
         {
           "internalType": "uint256",
@@ -1963,7 +1963,7 @@
           "type": "address"
         }
       ],
-      "name": "sellUSDG",
+      "name": "sellUSDS",
       "outputs": [
         {
           "internalType": "uint256",
@@ -2102,16 +2102,16 @@
       "inputs": [
         {
           "internalType": "uint256",
-          "name": "_maxUsdgBatchSize",
+          "name": "_maxUsdsBatchSize",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "_maxUsdgBuffer",
+          "name": "_maxUsdsBuffer",
           "type": "uint256"
         }
       ],
-      "name": "setMaxUsdg",
+      "name": "setMaxUsds",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -2438,7 +2438,7 @@
     },
     {
       "inputs": [],
-      "name": "usdg",
+      "name": "usds",
       "outputs": [
         {
           "internalType": "address",
@@ -2457,7 +2457,7 @@
           "type": "address"
         }
       ],
-      "name": "usdmAmounts",
+      "name": "usdsAmounts",
       "outputs": [
         {
           "internalType": "uint256",
