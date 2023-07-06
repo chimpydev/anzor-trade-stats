@@ -35,7 +35,7 @@ function getChainId(chainName) {
 
 const DEFAULT_GROUP_PERIOD = 86400;
 const NOW_TS = parseInt(Date.now() / 1000);
-const FIRST_DATE_TS = parseInt(+new Date(2022, 5, 1) / 1000);
+const FIRST_DATE_TS = parseInt(+new Date(2023, 2, 1) / 1000);
 
 function fillNa(arr, keys) {
   const prevValues = {};
@@ -1177,17 +1177,17 @@ export function useSlpPerformanceData(
       return memo;
     });
 
-    let BTC_WEIGHT = 0.15;
-    let ETH_WEIGHT = 0.2;
-    let FTM_WEIGHT = 0.1;
+    let BTC_WEIGHT = 0.2;
+    let ETH_WEIGHT = 0.15;
+    let FTM_WEIGHT = 0.17;
 
 
-    let prevEthPrice = 1200;
-    let prevMaticPrice = 0.4;
+    let prevEthPrice = 1900;
+    let prevMaticPrice = 0.3;
 
-    const STABLE_WEIGHT = 0.5;
+    const STABLE_WEIGHT = 0.48;
     const SLP_START_PRICE =
-      slpDataById[btcPrices[0].timestamp]?.slpPrice || 1.19;
+      slpDataById[btcPrices[0].timestamp]?.slpPrice || 2.4;
 
     const btcFirstPrice = btcPrices[0]?.value;
     const ethFirstPrice = ethPrices[0]?.value;
